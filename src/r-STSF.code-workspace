@@ -1,0 +1,16 @@
+{
+	"folders": [
+		{
+			"path": "../../r-STSF"
+		},
+		{
+			"path": ".."
+		}
+	],
+	"settings": {
+		"files.associations": {
+			"iostream": "cpp",
+			"iosfwd": "cpp"
+		}
+	}
+}
