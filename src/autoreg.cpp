@@ -93,14 +93,26 @@ vector<double> BurgAlgorithm(const vector<double>& x, int m)
 @returns    Corresponding AR Representation 
 */
 vector<vector<double>> ar_coeffs(const vector<vector<double>> &X){
+    //Declare X_ar 
     vector<vector<double>> X_ar; 
     size_t num_columns = X[0].size();
+
+    //Calculate Lags
     int lags = static_cast<int>(12.0 * pow(static_cast<double>(num_columns) / 100.0, 0.25));
-    cout << "C++ lags: " << lags << endl; 
+
+    //Compute Burg on each row of X 
     for (const auto& row : X)
     {
         vector<double> coeffs = BurgAlgorithm(row, lags);
         X_ar.push_back(coeffs);
     }
+
+    //Setting Precision: Original is 16 places 
+    for (auto& row : X_ar) {
+        for (auto& value : row) {
+            value = round(value * 1e16) / 1e16;
+        }
+    }
+
     return X_ar;
 }

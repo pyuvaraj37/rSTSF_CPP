@@ -1,6 +1,135 @@
 #include "intBasedT.hpp"
 
 
+//np.arange C++ equialent *Caution
+vector<int> arange(int start, int stop, int step = 1) {
+    vector<int> result;
+    for (int i = start; i < stop; i += step) {
+        result.push_back(i);
+    }
+    return result;
+}
+
+//Inner Mean Equivalent **Corrected**
+double innerMean(const vector<double>& X) {
+    //number of columns = length of row of subinterval 
+    int ncols = X.size(); 
+
+    //accumulator to add elements  *Caution: double or int? 
+    double accum = 0; 
+
+    //add each element in the row together 
+    for(size_t i=0; i<ncols; i++){
+        accum+=X[i]; 
+    }
+
+    //mean = sum of row elements/num of elements 
+    return accum/ncols; 
+    
+}
+
+//Fast_Mean equivalent **Corrected**
+vector<double> fastMean(const vector<vector<double>>& X){
+    //Get number of rows and columns of the subinterval 
+    int nrows = X.size(); 
+    int _ = X[0].size(); 
+
+    //Allocate the result vector with 0's 
+    vector<double> _X(nrows, 0.0); 
+
+    //For each row of the subinterval, calculate innermean of that row 
+    for(size_t i=0; i<nrows; i++){
+        _X[i] = innerMean(X[i]); 
+    }
+
+    //Return the result 
+    return _X; 
+}
+
+//Inner Std Equivalent **Corrected**
+double innerStd(const vector<double>& X) {
+    //Get number of columns 
+    int ncols = X.size(); 
+
+    //Initialize accumulator 
+    double accum = 0; 
+
+    //Calculate the mean of that row 
+    double X_mean = innerMean(X); 
+
+    //std calculation  *Caution 
+    for(size_t i; i<ncols; i++){
+        accum += (X[i] - X_mean) * (X[i] - X_mean);
+    }
+
+    //return result 
+    return sqrt(accum / ncols);
+
+}
+
+//Fast_std equivalent *Corrected*
+vector<double> fastStd(const vector<vector<double>>& X){
+    //Get number of rows and columns of subinterval 
+    int nrows = X.size(); 
+    int _ = X[0].size(); 
+
+    //Allocate result vector, filled with zeroes
+    vector<double> _X(nrows, 0.0); 
+
+    //For each row in subinterval, calculate std of that row 
+    for(size_t i=0; i<nrows; i++){
+        _X[i] = innerStd(X[i]); 
+    }
+
+    //return result 
+    return _X; 
+}
+
+//Inner Slope Equivalent *CORRECTED**
+double innerSlope(const vector<double>& X, const vector<int>& indices) {
+    //Get number of columns/elements in subinterval row 
+    int ncols = X.size(); 
+
+    //Initialize SUMS *Caution: Use double or integers? 
+    double SUMx = 0; 
+    double SUMy = 0; 
+    double SUMxy = 0; 
+    double SUMxx = 0; 
+
+    //For each element in the subinterval row.... 
+    for(size_t i=0; i<ncols; i++){
+        SUMx = SUMx + indices[i];
+        SUMy = SUMy + X[i];
+        SUMxy = SUMxy + indices[i]*X[i];
+        SUMxx = SUMxx + indices[i]*indices[i];
+    }
+
+    //Return the value 
+    return ( SUMx*SUMy - ncols*SUMxy ) / ( SUMx*SUMx - ncols*SUMxx );
+}
+
+//Fast_Slope equivalent **CORRECTED** 
+vector<double> fastSlope(const vector<vector<double>>& Y){
+
+    //#Take # of rows and columns in the subinterval 
+    int r = Y.size(); 
+    int c = Y[0].size(); 
+
+    //Create 1D array of integers(starts at 0, stops before c
+    vector<int> x = arange(0, c); 
+
+    //Create 1D array of 0's, of length r 
+    vector<double> _X(r, 0.0); 
+
+    //For each row in subinterval [], calculate slope of row elements 
+    for (size_t i = 0; i < r; ++i) {
+        _X[i] = innerSlope(Y[i], x); // Pass row i of Y and x
+    }
+
+    //Return Value 
+    return _X;
+}
+
 //Inner IQR Equivalent 
 double inner_iqr(vector<double> a) {
     size_t n = a.size();
@@ -20,123 +149,6 @@ double inner_iqr(vector<double> a) {
         size_t q3_idx = (median_idx_upper / 2) + median_idx_upper;
         return a[q3_idx] - a[q1_idx];
     }
-}
-
-//Inner Slope Equivalent (ai)
-double innerSlope(const vector<double>& Y, const vector<int>& x) {
-    size_t n = x.size();
-    if (n != Y.size() || n == 0) return 0.0;
-
-    double mean_x = 0.0, mean_y = 0.0;
-    for (size_t i = 0; i < n; ++i) {
-        mean_x += x[i];
-        mean_y += Y[i];
-    }
-    mean_x /= n;
-    mean_y /= n;
-
-    double numerator = 0.0;
-    double denominator = 0.0;
-    for (size_t i = 0; i < n; ++i) {
-        numerator   += (x[i] - mean_x) * (Y[i] - mean_y);
-        denominator += (x[i] - mean_x) * (x[i] - mean_x);
-    }
-
-    if (denominator == 0.0) return 0.0;
-
-    double slope = numerator / denominator;
-    return slope;
-}
-
-//Fast_Slope equivalent **CHECK THIS LATER** 
-vector<double> fastSlope(const vector<vector<double>>& Y){
-
-    //#Take # of rows and columns in the subinterval 
-    int rows = Y.size(); 
-    int columns = Y[0].size(); 
-
-    //np.arange equivalent (create array of indices)
-    vector<int> x(columns);
-    for (int i = 0; i < columns; ++i) {
-        x[i] = i;
-    }
-
-    //np.zeroes eqivalent: create array of 0's (this is return value); 
-    vector<double> _X(rows, 0.0);
-    //Calculate inner slope for every row against indices  
-    for(size_t i=0; i<Y.size(); i++){
-        _X[i] = innerSlope(Y[i],x); 
-    }
-
-    //return appended matrix 
-    return _X; 
-
-}
-
-//Inner Mean Equivalent 
-double innerMean(const vector<double>& Y) {
-    size_t columns = Y.size();
-    double accum = 0.0;
-    for (size_t i = 0; i < columns; ++i) {
-        accum += Y[i];
-    }
-    double sum = accum/columns; 
-    return sum;
-}
-
-//Fast_Mean equivalent **Check this later** + Change Variable later
-vector<double> fastMean(const vector<vector<double>>& Y){
-    //Get number of rows and columns of subInt
-    int rows = Y.size(); 
-    int columns = Y[0].size(); 
-    //Declare result array of 0's (Will return this)
-    vector<double> _X(rows, 0.0); 
-    //For each row of subInterval, calculate inner mean and append! 
-    for(size_t i=0; i<rows; i++){
-        _X[i] = innerMean(Y[i]); 
-    }
-    //return fastSlope vector 
-    return _X;
-}
-
-//Inner Std Equivalent 
-double innerStd(const vector<double>& X) {
-    //Get number of columns 
-    int columns = X.size(); 
-
-    //Set accum for sums 
-    double accum = 0; 
-
-    //Get the mean of X (the row of the subinterval)
-    double X_mean = innerMean(X); 
-
-    // Compute sum of squared deviations
-    for(int i = 0; i < columns; i++) {
-        accum += (X[i] - X_mean) * (X[i] - X_mean);
-    }
-
-    // Compute standard deviation
-    double std = sqrt(accum / columns);
-    return std; 
-}
-
-//Fast_std equivalent 
-vector<double> fastStd(const vector<vector<double>>& Y){
-    //Get number of rows and columns within the sub interval 
-    int rows = Y.size(); 
-    int columns = Y[0].size(); 
-
-    //Allocate an array of zeroes with rows same # as sub interval (return value)
-    vector<double> _X(rows, 0.0); 
-
-    //For each row in the sub interval...
-    for(size_t i=0; i<rows; i++){
-        //Calculate the innerStd and append to result matrix
-        _X[i] = innerStd(Y[i]); 
-    }
-    
-    //return the vector of std! 
-    return _X; 
 }
 
 //Fast_Iqr equivalent 
@@ -216,7 +228,10 @@ vector<double> count_values_above_mean(const vector<vector<double>>& X) {
     return X_;
 }
 
-//innerMedian, computing the median of the row  
+//ELSE COMPUTATIONS
+
+
+//innerMedian, computing the median of the row  *Caution
 double innerMedian(vector<double> Y) {
     //Get the number of elements in row of subinterval; 
     int n = Y.size(); 
@@ -236,7 +251,7 @@ double innerMedian(vector<double> Y) {
     
 }
 
-//Median, getting a vector of medians
+//Median, getting a vector of medians *Caution
 vector<double> median(const vector<vector<double>>& X){
     //Getting #rows and columns of subinterval 
     int rows = X.size(); 
@@ -381,17 +396,20 @@ vector<vector<double>> getIntervalBasedTransform(vector<vector<double>> X,
                                                  vector<vector<double>> allCaf,
                                                  vector<int> relevantCaf)
 {
-    //Declare matrix with rows same number as original time series 
-    //and columns same number as allCaf, this is the transformed matrix 
+
+    //Debugging: 
+    cout << "\nSize of relevantCaf: " << relevantCaf.size() << endl; 
+    cout << "Size of allCaf: " << allCaf.size() << " " << allCaf[0].size() << endl; 
+
+    //Allocate the Result Matrix with zeroes (rows of X, columns of allCaf)
     size_t numRows = X.size();
     size_t numColumns = allCaf.size();
     vector<vector<double>> XIntTrans(numRows, vector<double>(numColumns, 0.0));
 
-    //For each row in relevantCaf....
-    for (size_t i = 0; i < relevantCaf.size(); ++i) {
+    //For each jth item in relavantCaf (actual value)
+    for(int j : relevantCaf){//*Caution with j 
 
         //Save each element of each row into corresponding variables 
-        int j = relevantCaf[i];
         double w        = allCaf[j][0];
         double score    = allCaf[j][1];
         int li = static_cast<int>(allCaf[j][2]);     //*Caution
@@ -399,24 +417,13 @@ vector<vector<double>> getIntervalBasedTransform(vector<vector<double>> X,
         int agg_fn      = static_cast<int>(allCaf[j][4]);
         int repr_type   = static_cast<int>(allCaf[j][5]);
 
-        //Debugging 
-        cout << "li: " << li << " ls: " << ls << endl; 
-
-
         vector<vector<double>> X_temp;
         if (repr_type == 1)      { X_temp = X; }
         else if (repr_type == 2) { X_temp = X_per; }
         else if (repr_type == 3) { X_temp = X_ar; }
         else if (repr_type == 4) { X_temp = X_diff; }
         else { throw invalid_argument("Invalid repr_type in getIntervalBasedTransform"); } 
-
-
-        // //Debugging: for subinterval indices
-        // for (size_t row = 0; row < numRows; ++row) {
-        //     if (li >= X_temp[row].size() || ls > X_temp[row].size() || li >= ls) {
-        //         throw out_of_range("Invalid sub-interval indices");
-        //     }
-        // }
+ 
 
         //Getting the subintervals 
         vector<vector<double>> sub_interval(numRows);
@@ -425,18 +432,30 @@ vector<vector<double>> getIntervalBasedTransform(vector<vector<double>> X,
             sub_interval[row] = vector<double>(X_temp[row].begin() + li, X_temp[row].begin() + ls);
         }
 
-        //Debugging: Size of sub interval 
-        cout << "Size of sub_interval: " << sub_interval.size() << " " << sub_interval[0].size() << endl; 
 
-
+        //getIntervalFeature on subinterval
         vector<double> to_add = getIntervalFeature(sub_interval, agg_fn);
-
+        //put into return matrix
         for (size_t row = 0; row < numRows; ++row) {
             XIntTrans[row][j] = to_add[row];
         }
+        
+        // //Debugging: Keeping Track of subInterval Selections...
+        // cout << "Processing column (j): " << j << std::endl;
+        // cout << "Size of sub_interval: " << sub_interval.size() << " " << sub_interval[0].size() << endl; 
+        // cout << "li: " << li << " ls: " << ls <<endl;
+        // cout << "Chosen representations: " << repr_type << endl; 
+        // cout <<"Chosen agg_fn: " << agg_fn << "\n" << endl; 
 
-
+        //Setting precision 
+        for (auto& row : XIntTrans) {
+            for (auto& value : row) {
+                // value = static_cast<int64_t>(value * 1e8) / 1e8; //Truncate without rounding
+                value = round(value * 1e8) / 1e8; //*Caution 
+            }
+        }
     }
-
+    
+    //Return the result matrix (the transformed X_test)
     return XIntTrans;
 }
