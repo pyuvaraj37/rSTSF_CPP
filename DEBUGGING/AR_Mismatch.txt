@@ -1,2 +1,0 @@
-With Epsilon Tolerance: 1e-08
-Errors: 0 / 8232

@@ -5,5 +5,6 @@ project(main)
 include_directories(include)
 add_executable(main src/main.cpp 
                     src/autoreg.cpp
-                    src/intBasedT.cpp)
+                    src/intBasedT.cpp
+                    src/treeBasedPredict.cpp)
 # add everytime you create cpp 

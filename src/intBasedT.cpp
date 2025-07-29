@@ -406,7 +406,7 @@ vector<vector<double>> getIntervalBasedTransform(vector<vector<double>> X,
     size_t numColumns = allCaf.size();
     vector<vector<double>> XIntTrans(numRows, vector<double>(numColumns, 0.0));
 
-    //For each jth item in relavantCaf (actual value)
+    //For each jth item in relavantCaf (actual value) SF (Save features)
     for(int j : relevantCaf){//*Caution with j 
 
         //Save each element of each row into corresponding variables 

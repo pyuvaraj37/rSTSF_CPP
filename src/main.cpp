@@ -1,6 +1,7 @@
 #include "../include/main.hpp"
 #include "autoreg.hpp"
 #include "intBasedT.hpp"
+#include "treeBasedPredict.hpp"
 
 //--------------------------------------------//
 
@@ -52,11 +53,11 @@ vector<vector<double>> readMatrix(const string& filename){
             row.push_back(val);
         }
 
-        // Optional: check column count consistency
-        if (!matrix.empty() && row.size() != matrix[0].size()) {
-            cerr << "Error: Inconsistent number of columns!" << endl;
-            exit(1);
-        }
+        // // Optional: check column count consistency
+        // if (!matrix.empty() && row.size() != matrix[0].size()) {
+        //     cerr << "Error: Inconsistent number of columns!" << endl;
+        //     exit(1);
+        // }
 
         matrix.push_back(row);
     }
@@ -133,7 +134,7 @@ int matrixMismatches(const vector<vector<double>>& matrixOne,
 
 
 
-
+//BIG PREDICT 
 
 int main() {
     //I. GETTING THE COPIED DATA NEEDED from r-STSF
@@ -178,16 +179,34 @@ int main() {
     //Write transformed matrice to file 
     writeMatrixToFile(XIntTrans, "/home/ccuev029/rSTSF_CPP/DATA/XIntTransform.txt"); 
     
-    //𝓓𝓮𝓫𝓾𝓰𝓰𝓲𝓷𝓰 𓆣⊹ ࣪ 𖢥: Checking sizes...
-    cout << "\nSize of xIntTrans: " << XIntTrans.size() << " " << XIntTrans[0].size() << endl; 
-    cout << "Size of X_Test_T: " << X_Test_T.size() << " " << X_Test_T[0].size() << endl;
+    // //𝓓𝓮𝓫𝓾𝓰𝓰𝓲𝓷𝓰 𓆣⊹ ࣪ 𖢥: Checking sizes...
+    // cout << "\nSize of xIntTrans: " << XIntTrans.size() << " " << XIntTrans[0].size() << endl; 
+    // cout << "Size of X_Test_T: " << X_Test_T.size() << " " << X_Test_T[0].size() << endl;
 
-    //Comparison! X_int_T in Python vs XIntTrans in C++ - writing to file
-    cout << "X_Test_T vs xIntTrans errors: " << matrixMismatches(X_Test_T, XIntTrans, "/home/ccuev029/rSTSF_CPP/DEBUGGING/xIntTrans_Mismatch.txt", 8) << " / " << XIntTrans.size() * XIntTrans[0].size() << endl; 
+    // //Comparison! X_int_T in Python vs XIntTrans in C++ - writing to file
+    // cout << "X_Test_T vs xIntTrans errors: " << matrixMismatches(X_Test_T, XIntTrans, "/home/ccuev029/rSTSF_CPP/DEBUGGING/xIntTrans_Mismatch.txt", 8) << " / " << XIntTrans.size() * XIntTrans[0].size() << endl; 
 
 
     //IV. TREE BASED PREDICT (Y_PRED)
-    yPred = treeBasedPredict(XIntTrans); 
+    vector<int> yPred = treeBasedPredict(XIntTrans); 
+
+    // //Debugging: Using Original Transformed Data
+    // vector<int> yPred = treeBasedPredict(X_Test_T); 
+
+    //𝓓𝓮𝓫𝓾𝓰𝓰𝓲𝓷𝓰 𓆣⊹ ࣪ 𖢥 
+    cout << "yPred Size: " << yPred.size() << endl; 
+    for (size_t i = 0; i < yPred.size(); ++i) {
+        std::cout << yPred[i] << " ";
+        
+        if ((i + 1) % 30 == 0) {
+            std::cout << std::endl; // Start a new line after every 30 elements
+        }
+    }
+    // Optional: Final newline if total isn't a multiple of 30
+    if (yPred.size() % 30 != 0) {
+        cout << endl;
+    }
+
 
     //Comparison: y_pred(py) vs yPred (c++)
 }

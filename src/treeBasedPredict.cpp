@@ -16,19 +16,9 @@
   * #rows = number of 
   * **/
 
-#include "treeBasedPredict.hpp"; 
+#include "treeBasedPredict.hpp"
 
-struct Node {
-    int feature;            //Index of the input data (the row of X to compare to)
-    double threshold;       //Value of comparison for split (left or right)
-    int left;               //Index of the left child          
-    int right;              //Index of the right child 
-    vector<double> values;   //class counts or regression values for each node
-};
-
-
-
-//---------Other functions----start--------
+//---------HELPER FUNCTIONS----START--------
 
 /**readTreesFromFile
  * @param       filePath   ,file to be read from 
@@ -38,183 +28,204 @@ struct Node {
 vector<vector<Node>> readTreesFromFile(const string& filePath) {
     ifstream infile(filePath);
     string line;
-    vector<vector<Node>> allTrees;
-    vector<Node> currentTree;
+    vector<vector<Node>> forest;
 
+    if (!infile) {
+        cerr << "Error opening file\n";
+        return forest;
+    }
+
+    int numTrees = 0;
     while (getline(infile, line)) {
-        // Skip header/info lines
-        if (line.empty() ||
-            line.find("===") != string::npos ||
-            line.find("NumNodes:") != string::npos ||
-            line.find("Number of Trees:") != string::npos ||
-            line.find("For Each Node:") != string::npos) {
-            
-            if (!currentTree.empty()) {
-                allTrees.push_back(currentTree);
-                currentTree.clear();
+        if (line.find("Number of Trees:") != string::npos) {
+            numTrees = stoi(line.substr(line.find(":") + 1));
+            forest.reserve(numTrees);
+        } else if (line.find("Tree:") != string::npos) {
+            vector<Node> tree;
+
+            // Read "NumNodes: N" line
+            getline(infile, line);
+            int numNodes = stoi(line.substr(line.find(":") + 1));
+            tree.reserve(numNodes);
+
+            for (int i = 0; i < numNodes; ++i) {
+                getline(infile, line);
+
+                Node node;
+                size_t pos;
+
+                // Parse feature=
+                pos = line.find("feature=");
+                size_t comma = line.find(',', pos);
+                node.feature = stoi(line.substr(pos + 8, comma - pos - 8));
+
+                // Parse threshold=
+                pos = line.find("threshold=", comma);
+                comma = line.find(',', pos);
+                node.threshold = stod(line.substr(pos + 10, comma - pos - 10));
+
+                // Parse left=
+                pos = line.find("left=", comma);
+                comma = line.find(',', pos);
+                node.left = stoi(line.substr(pos + 5, comma - pos - 5));
+
+                // Parse right=
+                pos = line.find("right=", comma);
+                comma = line.find(',', pos);
+                node.right = stoi(line.substr(pos + 6, comma - pos - 6));
+
+                // Parse values=[
+                pos = line.find("values=[", comma);
+                size_t endBracket = line.find(']', pos);
+                string valuesStr = line.substr(pos + 8, endBracket - pos - 8);
+
+                stringstream ss(valuesStr);
+                string val;
+                while (getline(ss, val, ',')) {
+                    node.values.push_back(stod(val));
+                }
+
+                tree.push_back(node);
             }
-            continue;
+
+            forest.push_back(tree);
         }
-
-        istringstream iss(line);
-        Node node;
-
-        // Read feature, threshold, left, right
-        iss >> node.feature >> node.threshold >> node.left >> node.right;
-
-        // Read remaining part of the line (class distribution)
-        string valuesStr;
-        getline(iss, valuesStr);  // everything after right
-
-        // Clean whitespace and commas
-        valuesStr.erase(0, valuesStr.find_first_not_of(" ,"));
-        valuesStr.erase(valuesStr.find_last_not_of(" ,") + 1);
-
-        stringstream vss(valuesStr);
-        string val;
-        while (getline(vss, val, ',')) {
-            stringstream valStream(val);
-            double num;
-            if (valStream >> num) {
-                node.values.push_back(num);
-            }
-        }
-
-        currentTree.push_back(node);
     }
 
-    // Append final tree if any
-    if (!currentTree.empty()) {
-        allTrees.push_back(currentTree);
-    }
+    return forest;
+}
 
-    return allTrees;
+/**check_is_fitted
+ * @param   forest 
+ * @return  none
+ * checks if the forest is valid, throws an exception if not...
+ * **/
+void checkIsFitted(const vector<vector<Node>>& forest) {
+    if (forest.empty()) {
+        throw runtime_error("Forest is empty. Make sure trees are loaded.");
+    }
 }
 
 
-/**partitionEstimators 
- * Is used to distribute the number of trees amongst multiple "jobs"/CPU Cores
- * @param      number of estimators, number of jobs requested 
- * @return     a pair (number of jobs, how many trees per job)
+/**validateXPredict (complete ai)
+ * @param   X, original matrix 
+ * @return  vector<vector<double>> X, validated matrix 
  * **/
-pair<int, vector<int>> partitionEstimators(int n_estimators, int numJobsRequested) {
-    //Get number of CPU Cores/Threads for Job distribution 
-    int maxThreads = thread::hardware_concurrency();
-    if (maxThreads == 0) {maxThreads = 1;}  // fallback if undetectable
+vector<vector<double>> validateXPredict(const vector<vector<double>>& X, bool allow_nan = false) {
+    // 1. Check if model is fitted
+    // (Assuming you have a boolean flag like `is_fitted` in your class)
+    // if (!is_fitted) throw runtime_error("Model not fitted yet.");
 
-
-    int numJobs = numJobsRequested;
-    if (numJobs <= 0 || numJobs > maxThreads) {
-        numJobs = maxThreads;
-    }
-
-    if (numJobs > n_estimators) {
-        numJobs = n_estimators;
-    }
-
-    vector<int> estimators_per_job(numJobs, n_estimators / numJobs);
-    int remainder = n_estimators % numJobs;
-    for (int i = 0; i < remainder; ++i) {
-        estimators_per_job[i]++;
-    }
-
-    return {numJobs, estimators_per_job};
-}
-
-
-/**accumulatePrediction
- * @param       X, the input data 
- *              forestPart, a subset of the decision trees 
- *              all_proba, to store the generated predictions 
- *              lock, a mutex lock to make sure updates are safe 
- * **/
-void accumulatePrediction(const vector<vector<double>>& X,
-                            const vector<vector<Node>>& forestPart, 
-                            const vector<vector<double>>& all_proba, 
-                            mutex& lock){
-    //For each tree in the given part of the forest...
-    for(const auto&tree : forestPart){
-        //Predict probability of the tree 
-        vector<vector<double>> treeProba = predictProba(X, {tree}); 
-
-        //Lock access to shared memory 
-        lock_guard<mutex> guard(lock); 
-
-        //Add the tree's prediction into all+proba
-        for (size_t i = 0; i < all_proba.size(); ++i) {
-            for (size_t j = 0; j < all_proba[i].size(); ++j) {
-                all_proba[i][j] += tree_proba[i][j];  // safely update
+    // 2. Check if X contains any NaN or infinite values (if allow_nan == false)
+    for (const auto& row : X) {
+        for (double val : row) {
+            if (!allow_nan && !isfinite(val)) {
+                throw runtime_error("Input contains NaN or infinite values.");
             }
         }
     }
+
+    // 3. Optionally check sparse matrix indices here (skip if not using sparse matrices)
+    // ...
+
+    // 4. Return validated X (you could also copy or preprocess here if needed)
+    return X;
+}
+
+
+/**getTreeProba
+ * @param       forest, X 
+ * @return      matrice of probabilities
+ * Traverses each tree of each forest with corresponding row of X 
+ * **/
+vector<vector<vector<double>>> getTreeProba(const vector<vector<Node>>& forest, 
+                                            const vector<vector<double>>& X, 
+                                            vector<vector<vector<double>>>& all_proba, 
+                                            const int& numSamples, 
+                                            const int& numClasses, 
+                                            const int& numOut){
+        for (size_t i=0; i<numOut; i++){ //Output i 
+            for (size_t j = 0; j < forest.size(); j++) {  // Tree j
+                const auto& tree = forest[j];
+                for (size_t k=0; k<numSamples; k++){   //Sample k 
+                    //Get row of X 
+                    vector<double> XRow = X[k];
+
+                    //TREE TRAVERSAL STEP 
+                    int nodeIdx = 0;           //Start at root node 
+                    while (tree[nodeIdx].left != -1 && tree[nodeIdx].right != -1){
+                        const Node& node = tree[nodeIdx]; 
+                        double xValue = XRow[node.feature];
+                        if(xValue <= node.threshold){
+                            nodeIdx = node.left; 
+                        }else{
+                            nodeIdx = node.right; 
+                        }
+                    }
+
+                    //Once a leaf node is hit, get the values 
+                    const vector<double>& probs = tree[nodeIdx].values;
+
+                    //Summing the probabilities and adding to all_proba 
+                    for (size_t c = 0; c < probs.size(); ++c) {
+                        all_proba[i][k][c] += probs[c];
+                    }
+                }  
+            }
+        }
+       
+    return all_proba;
 }
 
 
 /**predictProba (for 1D Array)
  * @param   X, a matrix of doubles (xIntTrans)
  * @return  matrice of doubles 
+ * Here is where we are getting the probabilities of the forest 
  */
-vector<double> predictProba(const vector<vector<double>>& X, 
-                                    const vector<vector<Node>>& forest)
+vector<vector<vector<double>>> predictProba(const vector<vector<double>>& X_input, 
+                                            const vector<vector<Node>>& forest, 
+                                            const vector<int>& classes, 
+                                            const int& numOut)
 {
-    //1. CHECK TO SEE IF X IS VALID *Caution 
-    // check_is_fitted  ////Throws an exception if data not valid
-    //X = validateXPredict(X) ////Returns a better version of X, if not good 
 
-    //2. ASSIGN JOBS (HOW MANY TREES EACH CPU CORE WILL HANDLE) *Caution 
-    int selfNJobs = 1;
-    pair<int, vector<int>> partEst = partitionEstimators(forest.size(), selfNJobs); 
-    int nJobs = partEst.first; 
-    //checking
-    cout << "nJobs: " << nJobs << endl; 
+    //Prestep: Get required variables 
+    int numSamples = X_input.size(); 
+    int numClasses = classes.size(); 
+   
+    // //1. VALIDATE TRANSFORMED DATA 
+    checkIsFitted(forest); 
+    vector<vector<double>> X = validateXPredict(X_input);
 
-
-    //3. ALLOCATE RESULT MATRIX w/zeroes  
+    //3. ALLOCATE RESULT LIST OF MATRICES w/zeroes  
     int XRows = X.size(); 
     int XColumns = X[0].size(); 
     int selfNClasses = 2; 
-    //For a matrix of doubles 
-    // vector<vector<double>> all_proba(XRows, vector<double>(selfNClasses, 0.0));
-    //List of Matrices 
-    vector<vector<vector<double>>> all_proba;
-    all_proba.push_back(vector<vector<double>>(XRows, vector<double>(selfNClasses, 0.0)));
+    vector<vector<vector<double>>> allProba(numOut, vector<vector<double>>(numSamples, vector<double>(numClasses, 0.0)));
 
+    //4. TRAVERSING THE TREES TO GET PROBABILITIES  
+    allProba = getTreeProba(forest, X, allProba, numSamples, numClasses, numOut); 
 
-    //4. OPTIONAL PARALLEL STEP 
-    if (nJobs==1){
-        //Declare Lock 
-        mutex lock; 
-        //Run in parallel 
-    //4. IF ONLY ONE JOB, just do the for loop 
-    }else{
-        //just loop through self.estimators and accumulate predictions 
+    //5. AVERAGING THE PROBABILITIES
+    int numTrees = forest.size();
+    for (int k = 0; k < numSamples; ++k) {
+        for (int i = 0; i < numOut; ++i) {
+            for (int c = 0; c < numClasses; ++c) {
+            allProba[i][k][c] /= static_cast<double>(numTrees);  
+            }
+        }
     }
 
-    //5. LOOP THROUGH EACH MATRICE and divide by amount of self.estimators 
-    for(size_t i=0; i<all_proba.size(); i++){
-        //proba /= self.estimators.size(); 
-    }
-
-
-    //6. RETURN 
-    if (all_proba.size() == 1){return all_proba[0];}
-    else{return all_proba;} 
+    return allProba;
 }
+//---------HELPER FUNCTIONS  ----- END -----
 
 
 
 
 
 
-
-//---------Other functions -----end -----
-
-
-
-
-
-
-
+//MAIN WRAPPER FUNCTION FOR 
 /**treeBasedPredict
  *
  * The C++ equivalent of 
@@ -224,21 +235,73 @@ vector<double> predictProba(const vector<vector<double>>& X,
  * 
  * */
 
-vector<double> treeBasedPredict(const vector<vector<double>>& X){
+vector<int> treeBasedPredict(const vector<vector<double>>& X){
 
-    //1. SAVE SELF.EXTRA_TREES FROM PY CODE 
+    //PRESTEP: GET FORESTS AND OTHER VARS 
     vector<vector<Node>> forest = readTreesFromFile("/home/ccuev029/rSTSF_CPP/DATA/self.extra_trees.txt"); 
-        //Checking 
-        cout << "Number of trees: " << forest.size() << endl;
-    
-    //2. GET THE PROBABILITIES OF X 
-    // vector<vector<double>> proba = predictProba(X, forest); 
+    vector<int> classes = {0,1};    //Caution 
+    int numOut = 1;                 //Caution 
+    //𝓓𝓮𝓫𝓾𝓰𝓰𝓲𝓷𝓰 𓆣⊹ ࣪ 𖢥: Printing the Forest 
+    cout << "Number of Trees: " << forest.size() << endl; 
+    for (size_t t = 0; t < forest.size(); ++t) {
+        cout << "Tree " << t << ":\n";
+        for (size_t n = 0; n < forest[t].size(); ++n) {
+            const Node& node = forest[t][n];
+            cout << "  Node " << n << ": ";
+            cout << "feature=" << node.feature << ", ";
+            cout << "threshold=" << node.threshold << ", ";
+            cout << "left=" << node.left << ", ";
+            cout << "right=" << node.right << ", ";
+            cout << "values=[";
+            for (size_t v = 0; v < node.values.size(); ++v) {
+                cout << node.values[v];
+                if (v + 1 < node.values.size()) cout << ", ";
+            }
+            cout << "]\n";
+        }
+        cout << endl;
+    }
 
-    //Checking: probabilities 
+    //3. GET THE PROBABILITIES OF TRANSFORMED MATRIX (Using the forest)
+    vector<vector<vector<double>>> proba = predictProba(X, forest, classes, numOut); 
+    //𝓓𝓮𝓫𝓾𝓰𝓰𝓲𝓷𝓰 𓆣⊹ ࣪ 𖢥: Printing Proba  
+    if (proba.empty()) {
+    cerr << "ERROR: proba is empty!" << endl;
+    }
+    cout << "proba shape: " << proba.size() << " " << proba[0].size() << endl; 
+    cout << "proba: " << endl; 
+    for(size_t i=0; i<proba.size(); i++){
+    cout << "["; 
+        for(size_t j=0; j<proba[i].size(); j++){
+        cout << "["; 
+            for(size_t k=0; k<proba[i][j].size(); k++){
+                cout << proba[i][j][k]; 
+                if (k < classes.size() - 1)
+                std::cout << ", ";
 
-    //3. CHECKING STEP  
+            }
+        cout << "]" << endl; 
+        }
+    cout << "]" << endl; 
+    }
 
-    //4. RETURN PREDICTIONS  
-    // return yPred; 
+    vector<int> predictions;
+    //3. GET THE LARGEST PROBABILITIES //caution
+    for(size_t i=0; i<proba.size(); i++){//For first (and only output)
+            for(size_t j=0; j<proba[i].size(); j++){//Probability set of sample j 
+                const vector<double>& classProbs = proba[i][j]; //Get the row of probabilities for that sample
+                double maxValue = -1;  
+                int classification = 0; 
+                for(size_t k=0; k<proba[i][j].size(); k++){//Probability k 
+                    if (classProbs[k]>maxValue){
+                        maxValue = classProbs[k];
+                        classification = classes[k]; 
+                    }
 
+                }
+            predictions.push_back(classification);
+            }
+    }
+    return predictions; 
 }
+
