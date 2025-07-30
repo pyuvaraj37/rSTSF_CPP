@@ -447,13 +447,13 @@ vector<vector<double>> getIntervalBasedTransform(vector<vector<double>> X,
         // cout << "Chosen representations: " << repr_type << endl; 
         // cout <<"Chosen agg_fn: " << agg_fn << "\n" << endl; 
 
-        //Setting precision 
-        for (auto& row : XIntTrans) {
-            for (auto& value : row) {
-                // value = static_cast<int64_t>(value * 1e8) / 1e8; //Truncate without rounding
-                value = round(value * 1e8) / 1e8; //*Caution 
-            }
-        }
+        // //Setting precision 
+        // for (auto& row : XIntTrans) {
+        //     for (auto& value : row) {
+        //         // value = static_cast<int64_t>(value * 1e8) / 1e8; //Truncate without rounding
+        //         value = round(value * 1e8) / 1e8; //*Caution 
+        //     }
+        // }
     }
     
     //Return the result matrix (the transformed X_test)
