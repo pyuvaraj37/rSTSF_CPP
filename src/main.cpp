@@ -3,7 +3,7 @@
 #include "intBasedT.hpp"
 #include "treeBasedPredict.hpp"
 
-//✦•··MAIN.CPP HELPER FUNCTIONS - START ····················•✦•······················•✦•······················•✦
+//✦•··MAIN.CPP of rSTSF_CPP HELPER FUNCTIONS - START ···············•✦•·················•✦•·················•✦
 
 /*FOR READING/WRITING TO FILES... */
 
@@ -157,8 +157,7 @@ int compareVectorsAndErrors(const vector<int>& A, const vector<int>& B){
     return errors; 
 }
 
-//✦•··MAIN.CPP HELPER FUNCTIONS - END ····················•✦•······················•✦•······················•✦
-
+//✦•··MAIN.CPP HELPER FUNCTIONS - END ·················•✦•···················•✦•···················•✦
 
 
 /*MAIN FUNCTION PREDICT EQUIVALENT in rSTSF*/ 
@@ -167,15 +166,15 @@ int main() {
 
     //I. GETTING THE COPIED DATA NEEDED from r-STSF
     //For actual use
-    vector<vector<double>> X_test = readMatrix("/home/ccuev029/rSTSF_CPP/DATA/XtestData.txt");       //X_test: the original time series
-    vector<vector<double>> X_per = readMatrix("/home/ccuev029/rSTSF_CPP/DATA/XperData.txt");        //Other Time Representations
-    vector<vector<double>> X_diff = readMatrix("/home/ccuev029/rSTSF_CPP/DATA/XdiffData.txt");
-    vector<int> relevantCaf = readVector("/home/ccuev029/rSTSF_CPP/DATA/relevant_caf_idx.txt");      //relevantCaf
-    vector<vector<double>> allCaf = readMatrix("/home/ccuev029/rSTSF_CPP/DATA/all_candidate_agg_feats.txt");
+    vector<vector<double>> X_test = readMatrix("/home/ccuev029/DATA/XTest.txt");       //X_test: the original time series
+    vector<vector<double>> X_per = readMatrix("/home/ccuev029/DATA/XPer.txt");        //Other Time Representations
+    vector<vector<double>> X_diff = readMatrix("/home/ccuev029/DATA/XDiff.txt");
+    vector<int> relevantCaf = readVector("/home/ccuev029/DATA/relevant_CAF_idx.txt");      //relevantCaf
+    vector<vector<double>> allCaf = readMatrix("/home/ccuev029/DATA/allCAF.txt");
     //For comparison/debugging 
-    vector<vector<double>> ar_X_test = readMatrix("/home/ccuev029/rSTSF_CPP/DATA/XarData.txt");      //ar_X_test: for comparison with X_ar
-    vector<vector<double>> X_Test_T = readMatrix("/home/ccuev029/rSTSF_CPP/DATA/X_test_T.txt");     //Transformed Matrix for comparison
-    vector<int> yTest = readVector("/home/ccuev029/rSTSF_CPP/DATA/y_test.txt"); 
+    vector<vector<double>> ar_X_test = readMatrix("/home/ccuev029/DATA/XAr.txt");      //ar_X_test: for comparison with X_ar
+    vector<vector<double>> X_Test_T = readMatrix("/home/ccuev029/DATA/XTest.txt");     //Transformed Matrix for comparison
+    vector<int> yTest = readVector("/home/ccuev029/DATA/YTest.txt"); 
 
     //II. COMPUTING AR REPRESENTATION.... (different from ar_X_test, computed in rSTSF_CPP)
     vector<vector<double>> X_ar = ar_coeffs(X_test); 
@@ -200,7 +199,7 @@ int main() {
 
     //III. GET INTERVAL BASED TRANSFORMATION  
     cout << "\nWith X_ar: " << endl; 
-    vector<vector<double>> XIntTrans = getIntervalBasedTransform(X_test, X_ar, X_per, X_diff, allCaf, relevantCaf);
+    vector<vector<double>> XIntTrans = getIntervalBasedTransform(X_test, ar_X_test, X_per, X_diff, allCaf, relevantCaf);
 
 
     //𝓓𝓮𝓫𝓾𝓰𝓰𝓲𝓷𝓰 𓆣⊹ ࣪ 𖢥: Trying method with original X_ar Data to see if this works...
@@ -208,7 +207,7 @@ int main() {
     // vector<vector<double>> XIntTrans = getIntervalBasedTransform(X_test, ar_X_test, X_per, X_diff, allCaf, relevantCaf);
 
     //Write transformed matrice to file 
-    writeMatrixToFile(XIntTrans, "/home/ccuev029/rSTSF_CPP/DATA/XIntTransform.txt"); 
+    writeMatrixToFile(XIntTrans, "/home/ccuev029/DATA/XIntTrans.txt"); 
     
     // //𝓓𝓮𝓫𝓾𝓰𝓰𝓲𝓷𝓰 𓆣⊹ ࣪ 𖢥: Checking sizes...
     // cout << "\nSize of xIntTrans: " << XIntTrans.size() << " " << XIntTrans[0].size() << endl; 

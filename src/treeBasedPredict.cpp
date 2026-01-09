@@ -145,7 +145,7 @@ vector<vector<vector<double>>> getTreeProba(const vector<vector<Node>>& forest,
                                             const int& numClasses, 
                                             const int& numOut){
         for (size_t i=0; i<numOut; i++){ //Output i 
-            for (size_t j = 0; j < forest.size(); j++) {  // Tree j
+            for (size_t j = 0; j < 5; j++) {  // Tree j
                 const auto& tree = forest[j];
                 for (size_t k=0; k<numSamples; k++){   //Sample k 
                     //Get row of X 
@@ -156,6 +156,12 @@ vector<vector<vector<double>>> getTreeProba(const vector<vector<Node>>& forest,
                     while (tree[nodeIdx].left != -1 && tree[nodeIdx].right != -1){
                         const Node& node = tree[nodeIdx]; 
                         double xValue = XRow[node.feature];
+                        cout << "Tree " << j 
+                            << " Sample " << k 
+                            << " Node " << nodeIdx
+                            << " Feature " << node.feature 
+                            << " Threshold " << node.threshold 
+                            << " Value " << xValue << endl;
                         if(xValue <= node.threshold){
                             nodeIdx = node.left; 
                         }else{
@@ -165,10 +171,18 @@ vector<vector<vector<double>>> getTreeProba(const vector<vector<Node>>& forest,
 
                     //Once a leaf node is hit, get the values 
                     const vector<double>& probs = tree[nodeIdx].values;
+                    cout << "Hit leaf at: " << nodeIdx << endl; 
+                    cout << "Values to be added: [ "; 
+                    for (int p=0; p<numClasses; p++){
+                        cout << probs[p] << " " << endl; 
+                    }
+                    cout << "]" << endl; 
 
                     //Summing the probabilities and adding to all_proba 
                     for (size_t c = 0; c < probs.size(); ++c) {
+                        cout << "Before Adding...Class " << c << " = " << all_proba[i][k][c];
                         all_proba[i][k][c] += probs[c];
+                        cout << "After Adding " << probs[c] << "...Class " << c << " = " << all_proba[i][k][c] << endl; 
                     }
                 }  
             }
@@ -238,7 +252,7 @@ vector<vector<vector<double>>> predictProba(const vector<vector<double>>& X_inpu
 vector<int> treeBasedPredict(const vector<vector<double>>& X){
 
     //PRESTEP: GET FORESTS AND OTHER VARS 
-    vector<vector<Node>> forest = readTreesFromFile("/home/ccuev029/rSTSF_CPP/DATA/self.extra_trees.txt"); 
+    vector<vector<Node>> forest = readTreesFromFile("/home/ccuev029/DATA/extraTrees.txt"); 
     vector<int> classes = {0,1};    //Caution 
     int numOut = 1;                 //Caution 
     //𝓓𝓮𝓫𝓾𝓰𝓰𝓲𝓷𝓰 𓆣⊹ ࣪ 𖢥: Printing the Forest 
