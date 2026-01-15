@@ -169,7 +169,7 @@ int main() {
     vector<vector<double>> allCaf = readMatrix("/home/ccuev029/DATA/allCAF.txt");
     //For comparison/debugging 
     vector<vector<double>> ar_X_test = readMatrix("/home/ccuev029/DATA/XAr.txt");      
-    vector<vector<double>> X_Test_T = readMatrix("/home/ccuev029/DATA/XTest.txt");     
+    vector<vector<double>> X_Test_T = readMatrix("/home/ccuev029/DATA/XIntTrans.txt");     
     vector<int> yTest = readVector("/home/ccuev029/DATA/YTest.txt"); 
 
     //1.1 𝓓𝓮𝓫𝓾𝓰𝓰𝓲𝓷𝓰 𓆣⊹ ࣪ 𖢥: Checking Sizes of Copied Data to make sure they match  
@@ -196,7 +196,7 @@ int main() {
     //2.3 𝓓𝓮𝓫𝓾𝓰𝓰𝓲𝓷𝓰 𓆣⊹ ࣪ 𖢥: XAr (CPP) cs XAr (Py)
     cout << "This is XAr (Py)| Rows: " << ar_X_test.size() << " Cols: " << ar_X_test[0].size() << endl;
     cout << "This is XAr (CPP)| Rows: " << X_ar.size() << " Cols: " << X_ar[0].size() << endl;
-    cout << "XAr (Py) vs XAr (CPP): " << compareMatrices(ar_X_test, X_ar, "/home/ccuev029/rSTSF_CPP/DEBUGGING/AR_Mismatch.txt", 16) << " / " << X_ar.size()*X_ar[0].size() << endl; 
+    cout << "(ERRORS) XAr (Py) vs XAr (CPP): " << compareMatrices(ar_X_test, X_ar, "/home/ccuev029/rSTSF_CPP/DEBUGGING/AR_Mismatch.txt", 16) << " / " << X_ar.size()*X_ar[0].size() << endl; 
 
 
     //3. GET INTERVAL BASED TRANSFORMATION  
@@ -206,7 +206,7 @@ int main() {
     //3.3 𝓓𝓮𝓫𝓾𝓰𝓰𝓲𝓷𝓰 𓆣⊹ ࣪ 𖢥: XIntTrans (PY) vs XIntTrans (CPP)
     cout << "This is XIntTrans (Py)| Rows: " << X_Test_T.size() << " Cols: " << X_Test_T[0].size() << endl;
     cout << "This is XIntTrans (CPP)| Rows: " << XIntTrans.size() << " Cols: " << XIntTrans[0].size() << endl;
-    // cout << "XIntTrans (Py) vs XIntTrans (CPP): " << compareMatrices(X_Test_T, XIntTrans, "/home/ccuev029/rSTSF_CPP/DEBUGGING/xIntTrans_Mismatch.txt", 0) << endl;
+    cout << "(ERRORS) XIntTrans (Py) vs XIntTrans (CPP): " << compareMatrices(X_Test_T, XIntTrans, "/home/ccuev029/rSTSF_CPP/DEBUGGING/xIntTrans_Mismatch.txt", 16) << endl;
 
     //IV. TREE BASED PREDICT (Y_PRED)
     vector<int> yPred = treeBasedPredict(XIntTrans); 

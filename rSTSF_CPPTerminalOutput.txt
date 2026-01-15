@@ -16,13 +16,14 @@ Size of allCaf: 7662(rows) x 6
 calling writeMatrixToFile...
 This is XAr (Py)| Rows: 1029 Cols: 8
 This is XAr (CPP)| Rows: 1029 Cols: 8
-XAr (Py) vs XAr (CPP): 0 / 8232
+(ERRORS) XAr (Py) vs XAr (CPP): 0 / 8232
 
 Size of relevantCaf: 1624
 Size of allCaf: 7662 6
 calling writeMatrixToFile...
-This is XIntTrans (Py)| Rows: 1029 Cols: 24
+This is XIntTrans (Py)| Rows: 1029 Cols: 7662
 This is XIntTrans (CPP)| Rows: 1029 Cols: 7662
+(ERRORS) XIntTrans (Py) vs XIntTrans (CPP): 1101437
 Starting Tree Traversals
 Tree: 0 |TimeSeries: 0 |Node 0 |Feature 4455 |Threshold 0.931165 |Value -0.233092
 Going LEFT! Jumping to Node: 1...
@@ -206,7 +207,7 @@ Tree: 0 |TimeSeries: 13 |Node 0 |Feature 4455 |Threshold 0.931165 |Value 0.88775
 Going LEFT! Jumping to Node: 1...
 Tree: 0 |TimeSeries: 13 |Node 1 |Feature 2193 |Threshold 1.05387 |Value 1.41501
 Going RIGHT! Jumping to Node: 5...
-Tree: 0 |TimeSeries: 13 |Node 5 |Feature 6694 |Threshold 0.140908 |Value 4.74303e-322
+Tree: 0 |TimeSeries: 13 |Node 5 |Feature 6694 |Threshold 0.140908 |Value 4.6458e-310
 Going LEFT! Jumping to Node: 6...
 HIT LEAF at: 6
 Values to be added: [ 1 0 ]
@@ -3096,7 +3097,7 @@ Tree: 0 |TimeSeries: 242 |Node 0 |Feature 4455 |Threshold 0.931165 |Value 0.7948
 Going LEFT! Jumping to Node: 1...
 Tree: 0 |TimeSeries: 242 |Node 1 |Feature 2193 |Threshold 1.05387 |Value 1.57529
 Going RIGHT! Jumping to Node: 5...
-Tree: 0 |TimeSeries: 242 |Node 5 |Feature 6694 |Threshold 0.140908 |Value 1.12355
+Tree: 0 |TimeSeries: 242 |Node 5 |Feature 6694 |Threshold 0.140908 |Value 1.31399
 Going RIGHT! Jumping to Node: 7...
 HIT LEAF at: 7
 Values to be added: [ 0 1 ]
@@ -8512,14 +8513,14 @@ Tree: 0 |TimeSeries: 674 |Node 0 |Feature 4455 |Threshold 0.931165 |Value 0.7799
 Going LEFT! Jumping to Node: 1...
 Tree: 0 |TimeSeries: 674 |Node 1 |Feature 2193 |Threshold 1.05387 |Value 1.09296
 Going RIGHT! Jumping to Node: 5...
-Tree: 0 |TimeSeries: 674 |Node 5 |Feature 6694 |Threshold 0.140908 |Value 4.64577e-310
-Going LEFT! Jumping to Node: 6...
-HIT LEAF at: 6
-Values to be added: [ 1 0 ]
+Tree: 0 |TimeSeries: 674 |Node 5 |Feature 6694 |Threshold 0.140908 |Value 1.69525
+Going RIGHT! Jumping to Node: 7...
+HIT LEAF at: 7
+Values to be added: [ 0 1 ]
 Before Adding...Class 0 = 0
-After Adding 1...Class 0 = 1
+After Adding 0...Class 0 = 0
 Before Adding...Class 1 = 0
-After Adding 0...Class 1 = 0
+After Adding 1...Class 1 = 1
 
 
 Tree: 0 |TimeSeries: 675 |Node 0 |Feature 4455 |Threshold 0.931165 |Value 0.330306
@@ -21082,10 +21083,10 @@ Tree: 1 |TimeSeries: 674 |Node 4 |Feature 3533 |Threshold -0.0116498 |Value -1.1
 Going LEFT! Jumping to Node: 5...
 HIT LEAF at: 5
 Values to be added: [ 1 0 ]
-Before Adding...Class 0 = 1
-After Adding 1...Class 0 = 2
-Before Adding...Class 1 = 0
-After Adding 0...Class 1 = 0
+Before Adding...Class 0 = 0
+After Adding 1...Class 0 = 1
+Before Adding...Class 1 = 1
+After Adding 0...Class 1 = 1
 
 
 Tree: 1 |TimeSeries: 675 |Node 0 |Feature 1405 |Threshold 0.583643 |Value 0.170481
@@ -25360,7 +25361,7 @@ Before Adding...Class 1 = 2
 After Adding 1...Class 1 = 3
 
 
-Tree: 2 |TimeSeries: 1 |Node 0 |Feature 1198 |Threshold -0.16889 |Value 0.444325
+Tree: 2 |TimeSeries: 1 |Node 0 |Feature 1198 |Threshold -0.16889 |Value 0.503746
 Going RIGHT! Jumping to Node: 6...
 HIT LEAF at: 6
 Values to be added: [ 0 1 ]
@@ -25370,7 +25371,7 @@ Before Adding...Class 1 = 2
 After Adding 1...Class 1 = 3
 
 
-Tree: 2 |TimeSeries: 2 |Node 0 |Feature 1198 |Threshold -0.16889 |Value 0.386163
+Tree: 2 |TimeSeries: 2 |Node 0 |Feature 1198 |Threshold -0.16889 |Value 0.405548
 Going RIGHT! Jumping to Node: 6...
 HIT LEAF at: 6
 Values to be added: [ 0 1 ]
@@ -25380,7 +25381,7 @@ Before Adding...Class 1 = 2
 After Adding 1...Class 1 = 3
 
 
-Tree: 2 |TimeSeries: 3 |Node 0 |Feature 1198 |Threshold -0.16889 |Value 0.414936
+Tree: 2 |TimeSeries: 3 |Node 0 |Feature 1198 |Threshold -0.16889 |Value 0.482237
 Going RIGHT! Jumping to Node: 6...
 HIT LEAF at: 6
 Values to be added: [ 0 1 ]
@@ -25390,7 +25391,7 @@ Before Adding...Class 1 = 1
 After Adding 1...Class 1 = 2
 
 
-Tree: 2 |TimeSeries: 4 |Node 0 |Feature 1198 |Threshold -0.16889 |Value 4.64468e-310
+Tree: 2 |TimeSeries: 4 |Node 0 |Feature 1198 |Threshold -0.16889 |Value 0.380741
 Going RIGHT! Jumping to Node: 6...
 HIT LEAF at: 6
 Values to be added: [ 0 1 ]
@@ -25400,7 +25401,7 @@ Before Adding...Class 1 = 2
 After Adding 1...Class 1 = 3
 
 
-Tree: 2 |TimeSeries: 5 |Node 0 |Feature 1198 |Threshold -0.16889 |Value 0.650762
+Tree: 2 |TimeSeries: 5 |Node 0 |Feature 1198 |Threshold -0.16889 |Value 0.205588
 Going RIGHT! Jumping to Node: 6...
 HIT LEAF at: 6
 Values to be added: [ 0 1 ]
@@ -25410,7 +25411,7 @@ Before Adding...Class 1 = 0
 After Adding 1...Class 1 = 1
 
 
-Tree: 2 |TimeSeries: 6 |Node 0 |Feature 1198 |Threshold -0.16889 |Value 0.151578
+Tree: 2 |TimeSeries: 6 |Node 0 |Feature 1198 |Threshold -0.16889 |Value 4.6458e-310
 Going RIGHT! Jumping to Node: 6...
 HIT LEAF at: 6
 Values to be added: [ 0 1 ]
@@ -25434,7 +25435,7 @@ Before Adding...Class 1 = 1
 After Adding 1...Class 1 = 2
 
 
-Tree: 2 |TimeSeries: 8 |Node 0 |Feature 1198 |Threshold -0.16889 |Value -0.0534047
+Tree: 2 |TimeSeries: 8 |Node 0 |Feature 1198 |Threshold -0.16889 |Value 1.72718
 Going RIGHT! Jumping to Node: 6...
 HIT LEAF at: 6
 Values to be added: [ 0 1 ]
@@ -25444,7 +25445,7 @@ Before Adding...Class 1 = 2
 After Adding 1...Class 1 = 3
 
 
-Tree: 2 |TimeSeries: 9 |Node 0 |Feature 1198 |Threshold -0.16889 |Value 0.842417
+Tree: 2 |TimeSeries: 9 |Node 0 |Feature 1198 |Threshold -0.16889 |Value 0.910878
 Going RIGHT! Jumping to Node: 6...
 HIT LEAF at: 6
 Values to be added: [ 0 1 ]
@@ -25454,13 +25455,9 @@ Before Adding...Class 1 = 2
 After Adding 1...Class 1 = 3
 
 
-Tree: 2 |TimeSeries: 10 |Node 0 |Feature 1198 |Threshold -0.16889 |Value -0.285937
-Going LEFT! Jumping to Node: 1...
-Tree: 2 |TimeSeries: 10 |Node 1 |Feature 6617 |Threshold 0.85124 |Value -0.0815169
-Going LEFT! Jumping to Node: 2...
-Tree: 2 |TimeSeries: 10 |Node 2 |Feature 7314 |Threshold -0.565518 |Value -0.325775
-Going RIGHT! Jumping to Node: 4...
-HIT LEAF at: 4
+Tree: 2 |TimeSeries: 10 |Node 0 |Feature 1198 |Threshold -0.16889 |Value -0.0959264
+Going RIGHT! Jumping to Node: 6...
+HIT LEAF at: 6
 Values to be added: [ 0 1 ]
 Before Adding...Class 0 = 0
 After Adding 0...Class 0 = 0
@@ -25468,7 +25465,7 @@ Before Adding...Class 1 = 2
 After Adding 1...Class 1 = 3
 
 
-Tree: 2 |TimeSeries: 11 |Node 0 |Feature 1198 |Threshold -0.16889 |Value 1.72718
+Tree: 2 |TimeSeries: 11 |Node 0 |Feature 1198 |Threshold -0.16889 |Value 4.6458e-310
 Going RIGHT! Jumping to Node: 6...
 HIT LEAF at: 6
 Values to be added: [ 0 1 ]
@@ -25478,9 +25475,13 @@ Before Adding...Class 1 = 1
 After Adding 1...Class 1 = 2
 
 
-Tree: 2 |TimeSeries: 12 |Node 0 |Feature 1198 |Threshold -0.16889 |Value 0.910878
-Going RIGHT! Jumping to Node: 6...
-HIT LEAF at: 6
+Tree: 2 |TimeSeries: 12 |Node 0 |Feature 1198 |Threshold -0.16889 |Value -1.1
+Going LEFT! Jumping to Node: 1...
+Tree: 2 |TimeSeries: 12 |Node 1 |Feature 6617 |Threshold 0.85124 |Value -0.0923846
+Going LEFT! Jumping to Node: 2...
+Tree: 2 |TimeSeries: 12 |Node 2 |Feature 7314 |Threshold -0.565518 |Value 4.94066e-324
+Going RIGHT! Jumping to Node: 4...
+HIT LEAF at: 4
 Values to be added: [ 0 1 ]
 Before Adding...Class 0 = 0
 After Adding 0...Class 0 = 0
@@ -25488,7 +25489,7 @@ Before Adding...Class 1 = 2
 After Adding 1...Class 1 = 3
 
 
-Tree: 2 |TimeSeries: 13 |Node 0 |Feature 1198 |Threshold -0.16889 |Value -0.0959264
+Tree: 2 |TimeSeries: 13 |Node 0 |Feature 1198 |Threshold -0.16889 |Value 1.061e-314
 Going RIGHT! Jumping to Node: 6...
 HIT LEAF at: 6
 Values to be added: [ 0 1 ]
@@ -25498,21 +25499,7 @@ Before Adding...Class 1 = 0
 After Adding 1...Class 1 = 1
 
 
-Tree: 2 |TimeSeries: 14 |Node 0 |Feature 1198 |Threshold -0.16889 |Value -1.1
-Going LEFT! Jumping to Node: 1...
-Tree: 2 |TimeSeries: 14 |Node 1 |Feature 6617 |Threshold 0.85124 |Value 0.752639
-Going LEFT! Jumping to Node: 2...
-Tree: 2 |TimeSeries: 14 |Node 2 |Feature 7314 |Threshold -0.565518 |Value -4.34296e-292
-Going RIGHT! Jumping to Node: 4...
-HIT LEAF at: 4
-Values to be added: [ 0 1 ]
-Before Adding...Class 0 = 0
-After Adding 0...Class 0 = 0
-Before Adding...Class 1 = 2
-After Adding 1...Class 1 = 3
-
-
-Tree: 2 |TimeSeries: 15 |Node 0 |Feature 1198 |Threshold -0.16889 |Value 1.061e-314
+Tree: 2 |TimeSeries: 14 |Node 0 |Feature 1198 |Threshold -0.16889 |Value 0.314111
 Going RIGHT! Jumping to Node: 6...
 HIT LEAF at: 6
 Values to be added: [ 0 1 ]
@@ -25522,7 +25509,17 @@ Before Adding...Class 1 = 2
 After Adding 1...Class 1 = 3
 
 
-Tree: 2 |TimeSeries: 16 |Node 0 |Feature 1198 |Threshold -0.16889 |Value 0.314111
+Tree: 2 |TimeSeries: 15 |Node 0 |Feature 1198 |Threshold -0.16889 |Value 0.510492
+Going RIGHT! Jumping to Node: 6...
+HIT LEAF at: 6
+Values to be added: [ 0 1 ]
+Before Adding...Class 0 = 0
+After Adding 0...Class 0 = 0
+Before Adding...Class 1 = 2
+After Adding 1...Class 1 = 3
+
+
+Tree: 2 |TimeSeries: 16 |Node 0 |Feature 1198 |Threshold -0.16889 |Value 0.581458
 Going RIGHT! Jumping to Node: 6...
 HIT LEAF at: 6
 Values to be added: [ 0 1 ]
@@ -25532,7 +25529,7 @@ Before Adding...Class 1 = 1
 After Adding 1...Class 1 = 2
 
 
-Tree: 2 |TimeSeries: 17 |Node 0 |Feature 1198 |Threshold -0.16889 |Value 0.510492
+Tree: 2 |TimeSeries: 17 |Node 0 |Feature 1198 |Threshold -0.16889 |Value 0.548796
 Going RIGHT! Jumping to Node: 6...
 HIT LEAF at: 6
 Values to be added: [ 0 1 ]
@@ -25562,7 +25559,7 @@ Before Adding...Class 1 = 2
 After Adding 1...Class 1 = 3
 
 
-Tree: 2 |TimeSeries: 20 |Node 0 |Feature 1198 |Threshold -0.16889 |Value 0.553119
+Tree: 2 |TimeSeries: 20 |Node 0 |Feature 1198 |Threshold -0.16889 |Value 5.77729e-310
 Going RIGHT! Jumping to Node: 6...
 HIT LEAF at: 6
 Values to be added: [ 0 1 ]
@@ -25572,17 +25569,19 @@ Before Adding...Class 1 = 1
 After Adding 1...Class 1 = 2
 
 
-Tree: 2 |TimeSeries: 21 |Node 0 |Feature 1198 |Threshold -0.16889 |Value 6.12641e-320
-Going RIGHT! Jumping to Node: 6...
-HIT LEAF at: 6
-Values to be added: [ 0 1 ]
+Tree: 2 |TimeSeries: 21 |Node 0 |Feature 1198 |Threshold -0.16889 |Value -0.69475
+Going LEFT! Jumping to Node: 1...
+Tree: 2 |TimeSeries: 21 |Node 1 |Feature 6617 |Threshold 0.85124 |Value 1.90258
+Going RIGHT! Jumping to Node: 5...
+HIT LEAF at: 5
+Values to be added: [ 1 0 ]
 Before Adding...Class 0 = 2
-After Adding 0...Class 0 = 2
+After Adding 1...Class 0 = 3
 Before Adding...Class 1 = 0
-After Adding 1...Class 1 = 1
+After Adding 0...Class 1 = 0
 
 
-Tree: 2 |TimeSeries: 22 |Node 0 |Feature 1198 |Threshold -0.16889 |Value 4.64467e-310
+Tree: 2 |TimeSeries: 22 |Node 0 |Feature 1198 |Threshold -0.16889 |Value 0.386163
 Going RIGHT! Jumping to Node: 6...
 HIT LEAF at: 6
 Values to be added: [ 0 1 ]
@@ -25682,7 +25681,7 @@ Before Adding...Class 1 = 0
 After Adding 1...Class 1 = 1
 
 
-Tree: 2 |TimeSeries: 32 |Node 0 |Feature 1198 |Threshold -0.16889 |Value 0.374099
+Tree: 2 |TimeSeries: 32 |Node 0 |Feature 1198 |Threshold -0.16889 |Value 0.375592
 Going RIGHT! Jumping to Node: 6...
 HIT LEAF at: 6
 Values to be added: [ 0 1 ]
@@ -25692,7 +25691,7 @@ Before Adding...Class 1 = 1
 After Adding 1...Class 1 = 2
 
 
-Tree: 2 |TimeSeries: 33 |Node 0 |Feature 1198 |Threshold -0.16889 |Value 0.467192
+Tree: 2 |TimeSeries: 33 |Node 0 |Feature 1198 |Threshold -0.16889 |Value 0.0592568
 Going RIGHT! Jumping to Node: 6...
 HIT LEAF at: 6
 Values to be added: [ 0 1 ]
@@ -25962,7 +25961,7 @@ Before Adding...Class 1 = 2
 After Adding 1...Class 1 = 3
 
 
-Tree: 2 |TimeSeries: 60 |Node 0 |Feature 1198 |Threshold -0.16889 |Value 0.281371
+Tree: 2 |TimeSeries: 60 |Node 0 |Feature 1198 |Threshold -0.16889 |Value 0.517606
 Going RIGHT! Jumping to Node: 6...
 HIT LEAF at: 6
 Values to be added: [ 0 1 ]
@@ -25972,13 +25971,9 @@ Before Adding...Class 1 = 2
 After Adding 1...Class 1 = 3
 
 
-Tree: 2 |TimeSeries: 61 |Node 0 |Feature 1198 |Threshold -0.16889 |Value -1.53068
-Going LEFT! Jumping to Node: 1...
-Tree: 2 |TimeSeries: 61 |Node 1 |Feature 6617 |Threshold 0.85124 |Value 0.387121
-Going LEFT! Jumping to Node: 2...
-Tree: 2 |TimeSeries: 61 |Node 2 |Feature 7314 |Threshold -0.565518 |Value -0.501982
-Going RIGHT! Jumping to Node: 4...
-HIT LEAF at: 4
+Tree: 2 |TimeSeries: 61 |Node 0 |Feature 1198 |Threshold -0.16889 |Value 0.591077
+Going RIGHT! Jumping to Node: 6...
+HIT LEAF at: 6
 Values to be added: [ 0 1 ]
 Before Adding...Class 0 = 0
 After Adding 0...Class 0 = 0
@@ -26186,7 +26181,7 @@ Before Adding...Class 1 = 1
 After Adding 1...Class 1 = 2
 
 
-Tree: 2 |TimeSeries: 82 |Node 0 |Feature 1198 |Threshold -0.16889 |Value 0.338666
+Tree: 2 |TimeSeries: 82 |Node 0 |Feature 1198 |Threshold -0.16889 |Value 0.510492
 Going RIGHT! Jumping to Node: 6...
 HIT LEAF at: 6
 Values to be added: [ 0 1 ]
@@ -26196,7 +26191,7 @@ Before Adding...Class 1 = 2
 After Adding 1...Class 1 = 3
 
 
-Tree: 2 |TimeSeries: 83 |Node 0 |Feature 1198 |Threshold -0.16889 |Value 0.473535
+Tree: 2 |TimeSeries: 83 |Node 0 |Feature 1198 |Threshold -0.16889 |Value 4.64337e-69
 Going RIGHT! Jumping to Node: 6...
 HIT LEAF at: 6
 Values to be added: [ 0 1 ]
@@ -26366,7 +26361,7 @@ Before Adding...Class 1 = 0
 After Adding 1...Class 1 = 1
 
 
-Tree: 2 |TimeSeries: 100 |Node 0 |Feature 1198 |Threshold -0.16889 |Value 0.553119
+Tree: 2 |TimeSeries: 100 |Node 0 |Feature 1198 |Threshold -0.16889 |Value 0.568713
 Going RIGHT! Jumping to Node: 6...
 HIT LEAF at: 6
 Values to be added: [ 0 1 ]
@@ -26376,7 +26371,7 @@ Before Adding...Class 1 = 1
 After Adding 1...Class 1 = 2
 
 
-Tree: 2 |TimeSeries: 101 |Node 0 |Feature 1198 |Threshold -0.16889 |Value 0.0461767
+Tree: 2 |TimeSeries: 101 |Node 0 |Feature 1198 |Threshold -0.16889 |Value 0.471737
 Going RIGHT! Jumping to Node: 6...
 HIT LEAF at: 6
 Values to be added: [ 0 1 ]
@@ -26746,7 +26741,7 @@ Before Adding...Class 1 = 0
 After Adding 1...Class 1 = 1
 
 
-Tree: 2 |TimeSeries: 138 |Node 0 |Feature 1198 |Threshold -0.16889 |Value -0.00775025
+Tree: 2 |TimeSeries: 138 |Node 0 |Feature 1198 |Threshold -0.16889 |Value 0.418856
 Going RIGHT! Jumping to Node: 6...
 HIT LEAF at: 6
 Values to be added: [ 0 1 ]
@@ -26756,7 +26751,7 @@ Before Adding...Class 1 = 0
 After Adding 1...Class 1 = 1
 
 
-Tree: 2 |TimeSeries: 139 |Node 0 |Feature 1198 |Threshold -0.16889 |Value 0.421238
+Tree: 2 |TimeSeries: 139 |Node 0 |Feature 1198 |Threshold -0.16889 |Value 0.0461767
 Going RIGHT! Jumping to Node: 6...
 HIT LEAF at: 6
 Values to be added: [ 0 1 ]
@@ -26956,7 +26951,7 @@ Before Adding...Class 1 = 1
 After Adding 1...Class 1 = 2
 
 
-Tree: 2 |TimeSeries: 159 |Node 0 |Feature 1198 |Threshold -0.16889 |Value 6.12641e-320
+Tree: 2 |TimeSeries: 159 |Node 0 |Feature 1198 |Threshold -0.16889 |Value 0.412812
 Going RIGHT! Jumping to Node: 6...
 HIT LEAF at: 6
 Values to be added: [ 0 1 ]
@@ -26966,13 +26961,9 @@ Before Adding...Class 1 = 1
 After Adding 1...Class 1 = 2
 
 
-Tree: 2 |TimeSeries: 160 |Node 0 |Feature 1198 |Threshold -0.16889 |Value -1.41986
-Going LEFT! Jumping to Node: 1...
-Tree: 2 |TimeSeries: 160 |Node 1 |Feature 6617 |Threshold 0.85124 |Value -0.46871
-Going LEFT! Jumping to Node: 2...
-Tree: 2 |TimeSeries: 160 |Node 2 |Feature 7314 |Threshold -0.565518 |Value -0.318615
-Going RIGHT! Jumping to Node: 4...
-HIT LEAF at: 4
+Tree: 2 |TimeSeries: 160 |Node 0 |Feature 1198 |Threshold -0.16889 |Value 0.388315
+Going RIGHT! Jumping to Node: 6...
+HIT LEAF at: 6
 Values to be added: [ 0 1 ]
 Before Adding...Class 0 = 0
 After Adding 0...Class 0 = 0
@@ -27680,7 +27671,7 @@ Before Adding...Class 1 = 1
 After Adding 1...Class 1 = 2
 
 
-Tree: 2 |TimeSeries: 231 |Node 0 |Feature 1198 |Threshold -0.16889 |Value 0.650762
+Tree: 2 |TimeSeries: 231 |Node 0 |Feature 1198 |Threshold -0.16889 |Value 0.43419
 Going RIGHT! Jumping to Node: 6...
 HIT LEAF at: 6
 Values to be added: [ 0 1 ]
@@ -27690,7 +27681,7 @@ Before Adding...Class 1 = 1
 After Adding 1...Class 1 = 2
 
 
-Tree: 2 |TimeSeries: 232 |Node 0 |Feature 1198 |Threshold -0.16889 |Value 4.64468e-310
+Tree: 2 |TimeSeries: 232 |Node 0 |Feature 1198 |Threshold -0.16889 |Value 0.501016
 Going RIGHT! Jumping to Node: 6...
 HIT LEAF at: 6
 Values to be added: [ 0 1 ]
@@ -27770,7 +27761,7 @@ Before Adding...Class 1 = 1
 After Adding 1...Class 1 = 2
 
 
-Tree: 2 |TimeSeries: 240 |Node 0 |Feature 1198 |Threshold -0.16889 |Value 0.416825
+Tree: 2 |TimeSeries: 240 |Node 0 |Feature 1198 |Threshold -0.16889 |Value 0.581458
 Going RIGHT! Jumping to Node: 6...
 HIT LEAF at: 6
 Values to be added: [ 0 1 ]
@@ -27780,14 +27771,16 @@ Before Adding...Class 1 = 0
 After Adding 1...Class 1 = 1
 
 
-Tree: 2 |TimeSeries: 241 |Node 0 |Feature 1198 |Threshold -0.16889 |Value 0.489119
-Going RIGHT! Jumping to Node: 6...
-HIT LEAF at: 6
-Values to be added: [ 0 1 ]
+Tree: 2 |TimeSeries: 241 |Node 0 |Feature 1198 |Threshold -0.16889 |Value -0.963185
+Going LEFT! Jumping to Node: 1...
+Tree: 2 |TimeSeries: 241 |Node 1 |Feature 6617 |Threshold 0.85124 |Value 1.27126
+Going RIGHT! Jumping to Node: 5...
+HIT LEAF at: 5
+Values to be added: [ 1 0 ]
 Before Adding...Class 0 = 2
-After Adding 0...Class 0 = 2
+After Adding 1...Class 0 = 3
 Before Adding...Class 1 = 0
-After Adding 1...Class 1 = 1
+After Adding 0...Class 1 = 0
 
 
 Tree: 2 |TimeSeries: 242 |Node 0 |Feature 1198 |Threshold -0.16889 |Value 0.38258
@@ -28780,7 +28773,7 @@ Before Adding...Class 1 = 2
 After Adding 1...Class 1 = 3
 
 
-Tree: 2 |TimeSeries: 341 |Node 0 |Feature 1198 |Threshold -0.16889 |Value 4.64467e-310
+Tree: 2 |TimeSeries: 341 |Node 0 |Feature 1198 |Threshold -0.16889 |Value 0.456439
 Going RIGHT! Jumping to Node: 6...
 HIT LEAF at: 6
 Values to be added: [ 0 1 ]
@@ -28790,7 +28783,7 @@ Before Adding...Class 1 = 2
 After Adding 1...Class 1 = 3
 
 
-Tree: 2 |TimeSeries: 342 |Node 0 |Feature 1198 |Threshold -0.16889 |Value 0.356345
+Tree: 2 |TimeSeries: 342 |Node 0 |Feature 1198 |Threshold -0.16889 |Value 0.416201
 Going RIGHT! Jumping to Node: 6...
 HIT LEAF at: 6
 Values to be added: [ 0 1 ]
@@ -29340,7 +29333,7 @@ Before Adding...Class 1 = 2
 After Adding 1...Class 1 = 3
 
 
-Tree: 2 |TimeSeries: 397 |Node 0 |Feature 1198 |Threshold -0.16889 |Value 0.380741
+Tree: 2 |TimeSeries: 397 |Node 0 |Feature 1198 |Threshold -0.16889 |Value 0.365349
 Going RIGHT! Jumping to Node: 6...
 HIT LEAF at: 6
 Values to be added: [ 0 1 ]
@@ -29350,14 +29343,18 @@ Before Adding...Class 1 = 1
 After Adding 1...Class 1 = 2
 
 
-Tree: 2 |TimeSeries: 398 |Node 0 |Feature 1198 |Threshold -0.16889 |Value 0.205588
-Going RIGHT! Jumping to Node: 6...
-HIT LEAF at: 6
-Values to be added: [ 0 1 ]
+Tree: 2 |TimeSeries: 398 |Node 0 |Feature 1198 |Threshold -0.16889 |Value -1.34089
+Going LEFT! Jumping to Node: 1...
+Tree: 2 |TimeSeries: 398 |Node 1 |Feature 6617 |Threshold 0.85124 |Value 0.284129
+Going LEFT! Jumping to Node: 2...
+Tree: 2 |TimeSeries: 398 |Node 2 |Feature 7314 |Threshold -0.565518 |Value -1.58642
+Going LEFT! Jumping to Node: 3...
+HIT LEAF at: 3
+Values to be added: [ 1 0 ]
 Before Adding...Class 0 = 1
-After Adding 0...Class 0 = 1
+After Adding 1...Class 0 = 2
 Before Adding...Class 1 = 1
-After Adding 1...Class 1 = 2
+After Adding 0...Class 1 = 1
 
 
 Tree: 2 |TimeSeries: 399 |Node 0 |Feature 1198 |Threshold -0.16889 |Value 0.469532
@@ -29990,7 +29987,7 @@ Before Adding...Class 1 = 0
 After Adding 1...Class 1 = 1
 
 
-Tree: 2 |TimeSeries: 462 |Node 0 |Feature 1198 |Threshold -0.16889 |Value 0.510309
+Tree: 2 |TimeSeries: 462 |Node 0 |Feature 1198 |Threshold -0.16889 |Value 0.2048
 Going RIGHT! Jumping to Node: 6...
 HIT LEAF at: 6
 Values to be added: [ 0 1 ]
@@ -30000,18 +29997,14 @@ Before Adding...Class 1 = 0
 After Adding 1...Class 1 = 1
 
 
-Tree: 2 |TimeSeries: 463 |Node 0 |Feature 1198 |Threshold -0.16889 |Value -0.363525
-Going LEFT! Jumping to Node: 1...
-Tree: 2 |TimeSeries: 463 |Node 1 |Feature 6617 |Threshold 0.85124 |Value -0.128124
-Going LEFT! Jumping to Node: 2...
-Tree: 2 |TimeSeries: 463 |Node 2 |Feature 7314 |Threshold -0.565518 |Value -0.732195
-Going LEFT! Jumping to Node: 3...
-HIT LEAF at: 3
-Values to be added: [ 1 0 ]
+Tree: 2 |TimeSeries: 463 |Node 0 |Feature 1198 |Threshold -0.16889 |Value 0.414936
+Going RIGHT! Jumping to Node: 6...
+HIT LEAF at: 6
+Values to be added: [ 0 1 ]
 Before Adding...Class 0 = 0
-After Adding 1...Class 0 = 1
+After Adding 0...Class 0 = 0
 Before Adding...Class 1 = 2
-After Adding 0...Class 1 = 2
+After Adding 1...Class 1 = 3
 
 
 Tree: 2 |TimeSeries: 464 |Node 0 |Feature 1198 |Threshold -0.16889 |Value 0.430864
@@ -31074,7 +31067,7 @@ Before Adding...Class 1 = 2
 After Adding 1...Class 1 = 3
 
 
-Tree: 2 |TimeSeries: 570 |Node 0 |Feature 1198 |Threshold -0.16889 |Value 0.32058
+Tree: 2 |TimeSeries: 570 |Node 0 |Feature 1198 |Threshold -0.16889 |Value 4.64337e-69
 Going RIGHT! Jumping to Node: 6...
 HIT LEAF at: 6
 Values to be added: [ 0 1 ]
@@ -31084,7 +31077,7 @@ Before Adding...Class 1 = 2
 After Adding 1...Class 1 = 3
 
 
-Tree: 2 |TimeSeries: 571 |Node 0 |Feature 1198 |Threshold -0.16889 |Value 0.392554
+Tree: 2 |TimeSeries: 571 |Node 0 |Feature 1198 |Threshold -0.16889 |Value 0.596576
 Going RIGHT! Jumping to Node: 6...
 HIT LEAF at: 6
 Values to be added: [ 0 1 ]
@@ -31304,7 +31297,7 @@ Before Adding...Class 1 = 0
 After Adding 1...Class 1 = 1
 
 
-Tree: 2 |TimeSeries: 593 |Node 0 |Feature 1198 |Threshold -0.16889 |Value 0.375592
+Tree: 2 |TimeSeries: 593 |Node 0 |Feature 1198 |Threshold -0.16889 |Value 0.265767
 Going RIGHT! Jumping to Node: 6...
 HIT LEAF at: 6
 Values to be added: [ 0 1 ]
@@ -31314,7 +31307,7 @@ Before Adding...Class 1 = 2
 After Adding 1...Class 1 = 3
 
 
-Tree: 2 |TimeSeries: 594 |Node 0 |Feature 1198 |Threshold -0.16889 |Value 2.01326
+Tree: 2 |TimeSeries: 594 |Node 0 |Feature 1198 |Threshold -0.16889 |Value 0.524945
 Going RIGHT! Jumping to Node: 6...
 HIT LEAF at: 6
 Values to be added: [ 0 1 ]
@@ -32118,10 +32111,10 @@ Tree: 2 |TimeSeries: 674 |Node 0 |Feature 1198 |Threshold -0.16889 |Value 0.4545
 Going RIGHT! Jumping to Node: 6...
 HIT LEAF at: 6
 Values to be added: [ 0 1 ]
-Before Adding...Class 0 = 2
-After Adding 0...Class 0 = 2
-Before Adding...Class 1 = 0
-After Adding 1...Class 1 = 1
+Before Adding...Class 0 = 1
+After Adding 0...Class 0 = 1
+Before Adding...Class 1 = 1
+After Adding 1...Class 1 = 2
 
 
 Tree: 2 |TimeSeries: 675 |Node 0 |Feature 1198 |Threshold -0.16889 |Value 0.225483
@@ -33094,7 +33087,7 @@ Before Adding...Class 1 = 0
 After Adding 1...Class 1 = 1
 
 
-Tree: 2 |TimeSeries: 772 |Node 0 |Feature 1198 |Threshold -0.16889 |Value 0.496172
+Tree: 2 |TimeSeries: 772 |Node 0 |Feature 1198 |Threshold -0.16889 |Value 0.560617
 Going RIGHT! Jumping to Node: 6...
 HIT LEAF at: 6
 Values to be added: [ 0 1 ]
@@ -33104,7 +33097,7 @@ Before Adding...Class 1 = 0
 After Adding 1...Class 1 = 1
 
 
-Tree: 2 |TimeSeries: 773 |Node 0 |Feature 1198 |Threshold -0.16889 |Value 0.224752
+Tree: 2 |TimeSeries: 773 |Node 0 |Feature 1198 |Threshold -0.16889 |Value 2.01326
 Going RIGHT! Jumping to Node: 6...
 HIT LEAF at: 6
 Values to be added: [ 0 1 ]
@@ -33134,7 +33127,7 @@ Before Adding...Class 1 = 0
 After Adding 1...Class 1 = 1
 
 
-Tree: 2 |TimeSeries: 776 |Node 0 |Feature 1198 |Threshold -0.16889 |Value 0.418856
+Tree: 2 |TimeSeries: 776 |Node 0 |Feature 1198 |Threshold -0.16889 |Value 0.459713
 Going RIGHT! Jumping to Node: 6...
 HIT LEAF at: 6
 Values to be added: [ 0 1 ]
@@ -33144,7 +33137,7 @@ Before Adding...Class 1 = 1
 After Adding 1...Class 1 = 2
 
 
-Tree: 2 |TimeSeries: 777 |Node 0 |Feature 1198 |Threshold -0.16889 |Value 0.0461767
+Tree: 2 |TimeSeries: 777 |Node 0 |Feature 1198 |Threshold -0.16889 |Value 0.403035
 Going RIGHT! Jumping to Node: 6...
 HIT LEAF at: 6
 Values to be added: [ 0 1 ]
@@ -35284,7 +35277,7 @@ Before Adding...Class 1 = 0
 After Adding 1...Class 1 = 1
 
 
-Tree: 2 |TimeSeries: 991 |Node 0 |Feature 1198 |Threshold -0.16889 |Value 5.53354e-322
+Tree: 2 |TimeSeries: 991 |Node 0 |Feature 1198 |Threshold -0.16889 |Value 0.282172
 Going RIGHT! Jumping to Node: 6...
 HIT LEAF at: 6
 Values to be added: [ 0 1 ]
@@ -35294,13 +35287,9 @@ Before Adding...Class 1 = 0
 After Adding 1...Class 1 = 1
 
 
-Tree: 2 |TimeSeries: 992 |Node 0 |Feature 1198 |Threshold -0.16889 |Value -0.233092
-Going LEFT! Jumping to Node: 1...
-Tree: 2 |TimeSeries: 992 |Node 1 |Feature 6617 |Threshold 0.85124 |Value -0.642245
-Going LEFT! Jumping to Node: 2...
-Tree: 2 |TimeSeries: 992 |Node 2 |Feature 7314 |Threshold -0.565518 |Value -0.261599
-Going RIGHT! Jumping to Node: 4...
-HIT LEAF at: 4
+Tree: 2 |TimeSeries: 992 |Node 0 |Feature 1198 |Threshold -0.16889 |Value 0.489775
+Going RIGHT! Jumping to Node: 6...
+HIT LEAF at: 6
 Values to be added: [ 0 1 ]
 Before Adding...Class 0 = 0
 After Adding 0...Class 0 = 0
@@ -35458,7 +35447,7 @@ Before Adding...Class 1 = 0
 After Adding 1...Class 1 = 1
 
 
-Tree: 2 |TimeSeries: 1008 |Node 0 |Feature 1198 |Threshold -0.16889 |Value 0.437981
+Tree: 2 |TimeSeries: 1008 |Node 0 |Feature 1198 |Threshold -0.16889 |Value 0.522655
 Going RIGHT! Jumping to Node: 6...
 HIT LEAF at: 6
 Values to be added: [ 0 1 ]
@@ -35468,9 +35457,13 @@ Before Adding...Class 1 = 2
 After Adding 1...Class 1 = 3
 
 
-Tree: 2 |TimeSeries: 1009 |Node 0 |Feature 1198 |Threshold -0.16889 |Value 0.491551
-Going RIGHT! Jumping to Node: 6...
-HIT LEAF at: 6
+Tree: 2 |TimeSeries: 1009 |Node 0 |Feature 1198 |Threshold -0.16889 |Value -1.48881
+Going LEFT! Jumping to Node: 1...
+Tree: 2 |TimeSeries: 1009 |Node 1 |Feature 6617 |Threshold 0.85124 |Value -0.139578
+Going LEFT! Jumping to Node: 2...
+Tree: 2 |TimeSeries: 1009 |Node 2 |Feature 7314 |Threshold -0.565518 |Value -0.259586
+Going RIGHT! Jumping to Node: 4...
+HIT LEAF at: 4
 Values to be added: [ 0 1 ]
 Before Adding...Class 0 = 0
 After Adding 0...Class 0 = 0
@@ -35648,7 +35641,7 @@ Before Adding...Class 1 = 2
 After Adding 1...Class 1 = 3
 
 
-Tree: 2 |TimeSeries: 1027 |Node 0 |Feature 1198 |Threshold -0.16889 |Value 0.274434
+Tree: 2 |TimeSeries: 1027 |Node 0 |Feature 1198 |Threshold -0.16889 |Value 0.238321
 Going RIGHT! Jumping to Node: 6...
 HIT LEAF at: 6
 Values to be added: [ 0 1 ]
@@ -35732,7 +35725,7 @@ After Adding 1...Class 1 = 4
 
 Tree: 3 |TimeSeries: 5 |Node 0 |Feature 6304 |Threshold -0.913076 |Value -1.14606
 Going LEFT! Jumping to Node: 1...
-Tree: 3 |TimeSeries: 5 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.319204
+Tree: 3 |TimeSeries: 5 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.481214
 Going RIGHT! Jumping to Node: 5...
 HIT LEAF at: 5
 Values to be added: [ 0 1 ]
@@ -35744,7 +35737,7 @@ After Adding 1...Class 1 = 2
 
 Tree: 3 |TimeSeries: 6 |Node 0 |Feature 6304 |Threshold -0.913076 |Value -0.974033
 Going LEFT! Jumping to Node: 1...
-Tree: 3 |TimeSeries: 6 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.822015
+Tree: 3 |TimeSeries: 6 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.460656
 Going RIGHT! Jumping to Node: 5...
 HIT LEAF at: 5
 Values to be added: [ 0 1 ]
@@ -35768,7 +35761,7 @@ After Adding 1...Class 1 = 3
 
 Tree: 3 |TimeSeries: 8 |Node 0 |Feature 6304 |Threshold -0.913076 |Value -0.947921
 Going LEFT! Jumping to Node: 1...
-Tree: 3 |TimeSeries: 8 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.67332
+Tree: 3 |TimeSeries: 8 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.699182
 Going RIGHT! Jumping to Node: 5...
 HIT LEAF at: 5
 Values to be added: [ 0 1 ]
@@ -35804,14 +35797,16 @@ After Adding 1...Class 1 = 4
 
 Tree: 3 |TimeSeries: 11 |Node 0 |Feature 6304 |Threshold -0.913076 |Value -0.948467
 Going LEFT! Jumping to Node: 1...
-Tree: 3 |TimeSeries: 11 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.699182
-Going RIGHT! Jumping to Node: 5...
-HIT LEAF at: 5
-Values to be added: [ 0 1 ]
+Tree: 3 |TimeSeries: 11 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 9.08834e-320
+Going LEFT! Jumping to Node: 2...
+Tree: 3 |TimeSeries: 11 |Node 2 |Feature 1078 |Threshold -0.385613 |Value 0.193612
+Going RIGHT! Jumping to Node: 4...
+HIT LEAF at: 4
+Values to be added: [ 1 0 ]
 Before Adding...Class 0 = 1
-After Adding 0...Class 0 = 1
+After Adding 1...Class 0 = 2
 Before Adding...Class 1 = 2
-After Adding 1...Class 1 = 3
+After Adding 0...Class 1 = 2
 
 
 Tree: 3 |TimeSeries: 12 |Node 0 |Feature 6304 |Threshold -0.913076 |Value -0.420863
@@ -35866,7 +35861,7 @@ After Adding 1...Class 1 = 4
 
 Tree: 3 |TimeSeries: 16 |Node 0 |Feature 6304 |Threshold -0.913076 |Value -1.07101
 Going LEFT! Jumping to Node: 1...
-Tree: 3 |TimeSeries: 16 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.496564
+Tree: 3 |TimeSeries: 16 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.432491
 Going RIGHT! Jumping to Node: 5...
 HIT LEAF at: 5
 Values to be added: [ 0 1 ]
@@ -35878,7 +35873,7 @@ After Adding 1...Class 1 = 3
 
 Tree: 3 |TimeSeries: 17 |Node 0 |Feature 6304 |Threshold -0.913076 |Value -1.02542
 Going LEFT! Jumping to Node: 1...
-Tree: 3 |TimeSeries: 17 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.516537
+Tree: 3 |TimeSeries: 17 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.351311
 Going RIGHT! Jumping to Node: 5...
 HIT LEAF at: 5
 Values to be added: [ 0 1 ]
@@ -35934,38 +35929,34 @@ Tree: 3 |TimeSeries: 21 |Node 8 |Feature 4010 |Threshold -0.725477 |Value -1.172
 Going LEFT! Jumping to Node: 9...
 HIT LEAF at: 9
 Values to be added: [ 1 0 ]
-Before Adding...Class 0 = 2
-After Adding 1...Class 0 = 3
-Before Adding...Class 1 = 1
-After Adding 0...Class 1 = 1
+Before Adding...Class 0 = 3
+After Adding 1...Class 0 = 4
+Before Adding...Class 1 = 0
+After Adding 0...Class 1 = 0
 
 
 Tree: 3 |TimeSeries: 22 |Node 0 |Feature 6304 |Threshold -0.913076 |Value -1.00855
 Going LEFT! Jumping to Node: 1...
-Tree: 3 |TimeSeries: 22 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 1.2116e-319
-Going LEFT! Jumping to Node: 2...
-Tree: 3 |TimeSeries: 22 |Node 2 |Feature 1078 |Threshold -0.385613 |Value 0.331396
-Going RIGHT! Jumping to Node: 4...
-HIT LEAF at: 4
-Values to be added: [ 1 0 ]
+Tree: 3 |TimeSeries: 22 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.445371
+Going RIGHT! Jumping to Node: 5...
+HIT LEAF at: 5
+Values to be added: [ 0 1 ]
 Before Adding...Class 0 = 0
-After Adding 1...Class 0 = 1
+After Adding 0...Class 0 = 0
 Before Adding...Class 1 = 3
-After Adding 0...Class 1 = 3
+After Adding 1...Class 1 = 4
 
 
 Tree: 3 |TimeSeries: 23 |Node 0 |Feature 6304 |Threshold -0.913076 |Value -0.995585
 Going LEFT! Jumping to Node: 1...
-Tree: 3 |TimeSeries: 23 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.0409646
-Going LEFT! Jumping to Node: 2...
-Tree: 3 |TimeSeries: 23 |Node 2 |Feature 1078 |Threshold -0.385613 |Value 0.278585
-Going RIGHT! Jumping to Node: 4...
-HIT LEAF at: 4
-Values to be added: [ 1 0 ]
+Tree: 3 |TimeSeries: 23 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.342417
+Going RIGHT! Jumping to Node: 5...
+HIT LEAF at: 5
+Values to be added: [ 0 1 ]
 Before Adding...Class 0 = 1
-After Adding 1...Class 0 = 2
+After Adding 0...Class 0 = 1
 Before Adding...Class 1 = 2
-After Adding 0...Class 1 = 2
+After Adding 1...Class 1 = 3
 
 
 Tree: 3 |TimeSeries: 24 |Node 0 |Feature 6304 |Threshold -0.913076 |Value -0.354033
@@ -36062,7 +36053,7 @@ After Adding 0...Class 1 = 1
 
 Tree: 3 |TimeSeries: 31 |Node 0 |Feature 6304 |Threshold -0.913076 |Value -0.961838
 Going LEFT! Jumping to Node: 1...
-Tree: 3 |TimeSeries: 31 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.534375
+Tree: 3 |TimeSeries: 31 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.514911
 Going RIGHT! Jumping to Node: 5...
 HIT LEAF at: 5
 Values to be added: [ 0 1 ]
@@ -36088,14 +36079,16 @@ After Adding 0...Class 1 = 2
 
 Tree: 3 |TimeSeries: 33 |Node 0 |Feature 6304 |Threshold -0.913076 |Value -0.972545
 Going LEFT! Jumping to Node: 1...
-Tree: 3 |TimeSeries: 33 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.239773
-Going RIGHT! Jumping to Node: 5...
-HIT LEAF at: 5
-Values to be added: [ 0 1 ]
+Tree: 3 |TimeSeries: 33 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value -0.48272
+Going LEFT! Jumping to Node: 2...
+Tree: 3 |TimeSeries: 33 |Node 2 |Feature 1078 |Threshold -0.385613 |Value -0.0468226
+Going RIGHT! Jumping to Node: 4...
+HIT LEAF at: 4
+Values to be added: [ 1 0 ]
 Before Adding...Class 0 = 0
-After Adding 0...Class 0 = 0
+After Adding 1...Class 0 = 1
 Before Adding...Class 1 = 3
-After Adding 1...Class 1 = 4
+After Adding 0...Class 1 = 3
 
 
 Tree: 3 |TimeSeries: 34 |Node 0 |Feature 6304 |Threshold -0.913076 |Value -0.125195
@@ -36222,19 +36215,21 @@ After Adding 1...Class 1 = 4
 
 Tree: 3 |TimeSeries: 44 |Node 0 |Feature 6304 |Threshold -0.913076 |Value -0.950038
 Going LEFT! Jumping to Node: 1...
-Tree: 3 |TimeSeries: 44 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.273777
-Going RIGHT! Jumping to Node: 5...
-HIT LEAF at: 5
-Values to be added: [ 0 1 ]
+Tree: 3 |TimeSeries: 44 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value -0.125541
+Going LEFT! Jumping to Node: 2...
+Tree: 3 |TimeSeries: 44 |Node 2 |Feature 1078 |Threshold -0.385613 |Value 0.230506
+Going RIGHT! Jumping to Node: 4...
+HIT LEAF at: 4
+Values to be added: [ 1 0 ]
 Before Adding...Class 0 = 2
-After Adding 0...Class 0 = 2
+After Adding 1...Class 0 = 3
 Before Adding...Class 1 = 1
-After Adding 1...Class 1 = 2
+After Adding 0...Class 1 = 1
 
 
 Tree: 3 |TimeSeries: 45 |Node 0 |Feature 6304 |Threshold -0.913076 |Value -0.940138
 Going LEFT! Jumping to Node: 1...
-Tree: 3 |TimeSeries: 45 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.267407
+Tree: 3 |TimeSeries: 45 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.0869003
 Going RIGHT! Jumping to Node: 5...
 HIT LEAF at: 5
 Values to be added: [ 0 1 ]
@@ -36342,7 +36337,7 @@ After Adding 1...Class 1 = 4
 
 Tree: 3 |TimeSeries: 54 |Node 0 |Feature 6304 |Threshold -0.913076 |Value -0.981618
 Going LEFT! Jumping to Node: 1...
-Tree: 3 |TimeSeries: 54 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.203204
+Tree: 3 |TimeSeries: 54 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.339315
 Going RIGHT! Jumping to Node: 5...
 HIT LEAF at: 5
 Values to be added: [ 0 1 ]
@@ -36450,7 +36445,7 @@ After Adding 1...Class 1 = 4
 
 Tree: 3 |TimeSeries: 63 |Node 0 |Feature 6304 |Threshold -0.913076 |Value -0.980548
 Going LEFT! Jumping to Node: 1...
-Tree: 3 |TimeSeries: 63 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.292452
+Tree: 3 |TimeSeries: 63 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.551729
 Going RIGHT! Jumping to Node: 5...
 HIT LEAF at: 5
 Values to be added: [ 0 1 ]
@@ -36462,7 +36457,7 @@ After Adding 1...Class 1 = 4
 
 Tree: 3 |TimeSeries: 64 |Node 0 |Feature 6304 |Threshold -0.913076 |Value -0.988058
 Going LEFT! Jumping to Node: 1...
-Tree: 3 |TimeSeries: 64 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.508875
+Tree: 3 |TimeSeries: 64 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.512672
 Going RIGHT! Jumping to Node: 5...
 HIT LEAF at: 5
 Values to be added: [ 0 1 ]
@@ -36534,19 +36529,21 @@ After Adding 1...Class 1 = 4
 
 Tree: 3 |TimeSeries: 70 |Node 0 |Feature 6304 |Threshold -0.913076 |Value -1.11123
 Going LEFT! Jumping to Node: 1...
-Tree: 3 |TimeSeries: 70 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.240937
-Going RIGHT! Jumping to Node: 5...
-HIT LEAF at: 5
-Values to be added: [ 0 1 ]
+Tree: 3 |TimeSeries: 70 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value -0.0115039
+Going LEFT! Jumping to Node: 2...
+Tree: 3 |TimeSeries: 70 |Node 2 |Feature 1078 |Threshold -0.385613 |Value 0.296301
+Going RIGHT! Jumping to Node: 4...
+HIT LEAF at: 4
+Values to be added: [ 1 0 ]
 Before Adding...Class 0 = 0
-After Adding 0...Class 0 = 0
+After Adding 1...Class 0 = 1
 Before Adding...Class 1 = 3
-After Adding 1...Class 1 = 4
+After Adding 0...Class 1 = 3
 
 
 Tree: 3 |TimeSeries: 71 |Node 0 |Feature 6304 |Threshold -0.913076 |Value -1.06493
 Going LEFT! Jumping to Node: 1...
-Tree: 3 |TimeSeries: 71 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.329857
+Tree: 3 |TimeSeries: 71 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.1992
 Going RIGHT! Jumping to Node: 5...
 HIT LEAF at: 5
 Values to be added: [ 0 1 ]
@@ -36572,7 +36569,7 @@ After Adding 0...Class 1 = 2
 
 Tree: 3 |TimeSeries: 73 |Node 0 |Feature 6304 |Threshold -0.913076 |Value -0.984134
 Going LEFT! Jumping to Node: 1...
-Tree: 3 |TimeSeries: 73 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.455648
+Tree: 3 |TimeSeries: 73 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.535151
 Going RIGHT! Jumping to Node: 5...
 HIT LEAF at: 5
 Values to be added: [ 0 1 ]
@@ -36584,7 +36581,7 @@ After Adding 1...Class 1 = 3
 
 Tree: 3 |TimeSeries: 74 |Node 0 |Feature 6304 |Threshold -0.913076 |Value -0.996072
 Going LEFT! Jumping to Node: 1...
-Tree: 3 |TimeSeries: 74 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.476041
+Tree: 3 |TimeSeries: 74 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.388929
 Going RIGHT! Jumping to Node: 5...
 HIT LEAF at: 5
 Values to be added: [ 0 1 ]
@@ -36608,7 +36605,7 @@ After Adding 1...Class 1 = 4
 
 Tree: 3 |TimeSeries: 76 |Node 0 |Feature 6304 |Threshold -0.913076 |Value -1.00945
 Going LEFT! Jumping to Node: 1...
-Tree: 3 |TimeSeries: 76 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.338403
+Tree: 3 |TimeSeries: 76 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.285338
 Going RIGHT! Jumping to Node: 5...
 HIT LEAF at: 5
 Values to be added: [ 0 1 ]
@@ -36632,7 +36629,7 @@ After Adding 1...Class 1 = 4
 
 Tree: 3 |TimeSeries: 78 |Node 0 |Feature 6304 |Threshold -0.913076 |Value -0.988223
 Going LEFT! Jumping to Node: 1...
-Tree: 3 |TimeSeries: 78 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.408974
+Tree: 3 |TimeSeries: 78 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.330061
 Going RIGHT! Jumping to Node: 5...
 HIT LEAF at: 5
 Values to be added: [ 0 1 ]
@@ -36644,7 +36641,7 @@ After Adding 1...Class 1 = 3
 
 Tree: 3 |TimeSeries: 79 |Node 0 |Feature 6304 |Threshold -0.913076 |Value -0.99981
 Going LEFT! Jumping to Node: 1...
-Tree: 3 |TimeSeries: 79 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.494113
+Tree: 3 |TimeSeries: 79 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.572717
 Going RIGHT! Jumping to Node: 5...
 HIT LEAF at: 5
 Values to be added: [ 0 1 ]
@@ -36720,7 +36717,7 @@ After Adding 1...Class 1 = 4
 
 Tree: 3 |TimeSeries: 85 |Node 0 |Feature 6304 |Threshold -0.913076 |Value -0.918574
 Going LEFT! Jumping to Node: 1...
-Tree: 3 |TimeSeries: 85 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.538915
+Tree: 3 |TimeSeries: 85 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.464329
 Going RIGHT! Jumping to Node: 5...
 HIT LEAF at: 5
 Values to be added: [ 0 1 ]
@@ -36744,7 +36741,7 @@ After Adding 1...Class 1 = 4
 
 Tree: 3 |TimeSeries: 87 |Node 0 |Feature 6304 |Threshold -0.913076 |Value -1.11114
 Going LEFT! Jumping to Node: 1...
-Tree: 3 |TimeSeries: 87 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.391871
+Tree: 3 |TimeSeries: 87 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.457541
 Going RIGHT! Jumping to Node: 5...
 HIT LEAF at: 5
 Values to be added: [ 0 1 ]
@@ -36792,7 +36789,7 @@ After Adding 1...Class 1 = 3
 
 Tree: 3 |TimeSeries: 91 |Node 0 |Feature 6304 |Threshold -0.913076 |Value -1.06491
 Going LEFT! Jumping to Node: 1...
-Tree: 3 |TimeSeries: 91 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.261196
+Tree: 3 |TimeSeries: 91 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.371307
 Going RIGHT! Jumping to Node: 5...
 HIT LEAF at: 5
 Values to be added: [ 0 1 ]
@@ -36804,7 +36801,7 @@ After Adding 1...Class 1 = 2
 
 Tree: 3 |TimeSeries: 92 |Node 0 |Feature 6304 |Threshold -0.913076 |Value -0.926615
 Going LEFT! Jumping to Node: 1...
-Tree: 3 |TimeSeries: 92 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.477041
+Tree: 3 |TimeSeries: 92 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.0893206
 Going RIGHT! Jumping to Node: 5...
 HIT LEAF at: 5
 Values to be added: [ 0 1 ]
@@ -36868,7 +36865,7 @@ After Adding 1...Class 1 = 4
 
 Tree: 3 |TimeSeries: 97 |Node 0 |Feature 6304 |Threshold -0.913076 |Value -1.13085
 Going LEFT! Jumping to Node: 1...
-Tree: 3 |TimeSeries: 97 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.218507
+Tree: 3 |TimeSeries: 97 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.500641
 Going RIGHT! Jumping to Node: 5...
 HIT LEAF at: 5
 Values to be added: [ 0 1 ]
@@ -36904,7 +36901,7 @@ After Adding 1...Class 1 = 2
 
 Tree: 3 |TimeSeries: 100 |Node 0 |Feature 6304 |Threshold -0.913076 |Value -0.971172
 Going LEFT! Jumping to Node: 1...
-Tree: 3 |TimeSeries: 100 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.540408
+Tree: 3 |TimeSeries: 100 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.55566
 Going RIGHT! Jumping to Node: 5...
 HIT LEAF at: 5
 Values to be added: [ 0 1 ]
@@ -36928,7 +36925,7 @@ After Adding 1...Class 1 = 4
 
 Tree: 3 |TimeSeries: 102 |Node 0 |Feature 6304 |Threshold -0.913076 |Value -0.987691
 Going LEFT! Jumping to Node: 1...
-Tree: 3 |TimeSeries: 102 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.581875
+Tree: 3 |TimeSeries: 102 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.454972
 Going RIGHT! Jumping to Node: 5...
 HIT LEAF at: 5
 Values to be added: [ 0 1 ]
@@ -37018,16 +37015,14 @@ After Adding 1...Class 1 = 3
 
 Tree: 3 |TimeSeries: 109 |Node 0 |Feature 6304 |Threshold -0.913076 |Value -0.969765
 Going LEFT! Jumping to Node: 1...
-Tree: 3 |TimeSeries: 109 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value -0.0767606
-Going LEFT! Jumping to Node: 2...
-Tree: 3 |TimeSeries: 109 |Node 2 |Feature 1078 |Threshold -0.385613 |Value 0.23962
-Going RIGHT! Jumping to Node: 4...
-HIT LEAF at: 4
-Values to be added: [ 1 0 ]
+Tree: 3 |TimeSeries: 109 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.384366
+Going RIGHT! Jumping to Node: 5...
+HIT LEAF at: 5
+Values to be added: [ 0 1 ]
 Before Adding...Class 0 = 2
-After Adding 1...Class 0 = 3
+After Adding 0...Class 0 = 2
 Before Adding...Class 1 = 1
-After Adding 0...Class 1 = 1
+After Adding 1...Class 1 = 2
 
 
 Tree: 3 |TimeSeries: 110 |Node 0 |Feature 6304 |Threshold -0.913076 |Value -0.465323
@@ -37086,7 +37081,7 @@ After Adding 0...Class 1 = 2
 
 Tree: 3 |TimeSeries: 114 |Node 0 |Feature 6304 |Threshold -0.913076 |Value -1.01371
 Going LEFT! Jumping to Node: 1...
-Tree: 3 |TimeSeries: 114 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.297341
+Tree: 3 |TimeSeries: 114 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.351811
 Going RIGHT! Jumping to Node: 5...
 HIT LEAF at: 5
 Values to be added: [ 0 1 ]
@@ -37124,7 +37119,7 @@ After Adding 0...Class 1 = 1
 
 Tree: 3 |TimeSeries: 117 |Node 0 |Feature 6304 |Threshold -0.913076 |Value -0.920385
 Going LEFT! Jumping to Node: 1...
-Tree: 3 |TimeSeries: 117 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.496212
+Tree: 3 |TimeSeries: 117 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.618225
 Going RIGHT! Jumping to Node: 5...
 HIT LEAF at: 5
 Values to be added: [ 0 1 ]
@@ -37136,7 +37131,7 @@ After Adding 1...Class 1 = 2
 
 Tree: 3 |TimeSeries: 118 |Node 0 |Feature 6304 |Threshold -0.913076 |Value -0.998301
 Going LEFT! Jumping to Node: 1...
-Tree: 3 |TimeSeries: 118 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.516961
+Tree: 3 |TimeSeries: 118 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.52978
 Going RIGHT! Jumping to Node: 5...
 HIT LEAF at: 5
 Values to be added: [ 0 1 ]
@@ -37148,7 +37143,7 @@ After Adding 1...Class 1 = 2
 
 Tree: 3 |TimeSeries: 119 |Node 0 |Feature 6304 |Threshold -0.913076 |Value -0.968116
 Going LEFT! Jumping to Node: 1...
-Tree: 3 |TimeSeries: 119 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.248865
+Tree: 3 |TimeSeries: 119 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.398471
 Going RIGHT! Jumping to Node: 5...
 HIT LEAF at: 5
 Values to be added: [ 0 1 ]
@@ -37210,7 +37205,7 @@ After Adding 1...Class 1 = 4
 
 Tree: 3 |TimeSeries: 124 |Node 0 |Feature 6304 |Threshold -0.913076 |Value -0.914208
 Going LEFT! Jumping to Node: 1...
-Tree: 3 |TimeSeries: 124 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.308869
+Tree: 3 |TimeSeries: 124 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.351856
 Going RIGHT! Jumping to Node: 5...
 HIT LEAF at: 5
 Values to be added: [ 0 1 ]
@@ -37288,7 +37283,7 @@ After Adding 1...Class 1 = 4
 
 Tree: 3 |TimeSeries: 130 |Node 0 |Feature 6304 |Threshold -0.913076 |Value -1.13579
 Going LEFT! Jumping to Node: 1...
-Tree: 3 |TimeSeries: 130 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.358194
+Tree: 3 |TimeSeries: 130 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.136218
 Going RIGHT! Jumping to Node: 5...
 HIT LEAF at: 5
 Values to be added: [ 0 1 ]
@@ -37336,7 +37331,7 @@ After Adding 1...Class 1 = 4
 
 Tree: 3 |TimeSeries: 134 |Node 0 |Feature 6304 |Threshold -0.913076 |Value -1.08653
 Going LEFT! Jumping to Node: 1...
-Tree: 3 |TimeSeries: 134 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.223119
+Tree: 3 |TimeSeries: 134 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.0852322
 Going RIGHT! Jumping to Node: 5...
 HIT LEAF at: 5
 Values to be added: [ 0 1 ]
@@ -37376,7 +37371,7 @@ After Adding 0...Class 1 = 2
 
 Tree: 3 |TimeSeries: 137 |Node 0 |Feature 6304 |Threshold -0.913076 |Value -1.1578
 Going LEFT! Jumping to Node: 1...
-Tree: 3 |TimeSeries: 137 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.602543
+Tree: 3 |TimeSeries: 137 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.576452
 Going RIGHT! Jumping to Node: 5...
 HIT LEAF at: 5
 Values to be added: [ 0 1 ]
@@ -37388,16 +37383,14 @@ After Adding 1...Class 1 = 2
 
 Tree: 3 |TimeSeries: 138 |Node 0 |Feature 6304 |Threshold -0.913076 |Value -0.946948
 Going LEFT! Jumping to Node: 1...
-Tree: 3 |TimeSeries: 138 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.0410099
-Going LEFT! Jumping to Node: 2...
-Tree: 3 |TimeSeries: 138 |Node 2 |Feature 1078 |Threshold -0.385613 |Value 0.247313
-Going RIGHT! Jumping to Node: 4...
-HIT LEAF at: 4
-Values to be added: [ 1 0 ]
+Tree: 3 |TimeSeries: 138 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.086131
+Going RIGHT! Jumping to Node: 5...
+HIT LEAF at: 5
+Values to be added: [ 0 1 ]
 Before Adding...Class 0 = 2
-After Adding 1...Class 0 = 3
+After Adding 0...Class 0 = 2
 Before Adding...Class 1 = 1
-After Adding 0...Class 1 = 1
+After Adding 1...Class 1 = 2
 
 
 Tree: 3 |TimeSeries: 139 |Node 0 |Feature 6304 |Threshold -0.913076 |Value -0.56349
@@ -37426,7 +37419,7 @@ After Adding 1...Class 1 = 4
 
 Tree: 3 |TimeSeries: 141 |Node 0 |Feature 6304 |Threshold -0.913076 |Value -1.11485
 Going LEFT! Jumping to Node: 1...
-Tree: 3 |TimeSeries: 141 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.433314
+Tree: 3 |TimeSeries: 141 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.111786
 Going RIGHT! Jumping to Node: 5...
 HIT LEAF at: 5
 Values to be added: [ 0 1 ]
@@ -37462,7 +37455,7 @@ After Adding 1...Class 1 = 4
 
 Tree: 3 |TimeSeries: 144 |Node 0 |Feature 6304 |Threshold -0.913076 |Value -0.980587
 Going LEFT! Jumping to Node: 1...
-Tree: 3 |TimeSeries: 144 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.396159
+Tree: 3 |TimeSeries: 144 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.369746
 Going RIGHT! Jumping to Node: 5...
 HIT LEAF at: 5
 Values to be added: [ 0 1 ]
@@ -37474,7 +37467,7 @@ After Adding 1...Class 1 = 2
 
 Tree: 3 |TimeSeries: 145 |Node 0 |Feature 6304 |Threshold -0.913076 |Value -0.928423
 Going LEFT! Jumping to Node: 1...
-Tree: 3 |TimeSeries: 145 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.270029
+Tree: 3 |TimeSeries: 145 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.346088
 Going RIGHT! Jumping to Node: 5...
 HIT LEAF at: 5
 Values to be added: [ 0 1 ]
@@ -37500,7 +37493,7 @@ After Adding 0...Class 1 = 2
 
 Tree: 3 |TimeSeries: 147 |Node 0 |Feature 6304 |Threshold -0.913076 |Value -1.13552
 Going LEFT! Jumping to Node: 1...
-Tree: 3 |TimeSeries: 147 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.378206
+Tree: 3 |TimeSeries: 147 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.343727
 Going RIGHT! Jumping to Node: 5...
 HIT LEAF at: 5
 Values to be added: [ 0 1 ]
@@ -37552,7 +37545,7 @@ After Adding 0...Class 1 = 1
 
 Tree: 3 |TimeSeries: 151 |Node 0 |Feature 6304 |Threshold -0.913076 |Value -1.12943
 Going LEFT! Jumping to Node: 1...
-Tree: 3 |TimeSeries: 151 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.39052
+Tree: 3 |TimeSeries: 151 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.311535
 Going RIGHT! Jumping to Node: 5...
 HIT LEAF at: 5
 Values to be added: [ 0 1 ]
@@ -37576,7 +37569,7 @@ After Adding 1...Class 1 = 3
 
 Tree: 3 |TimeSeries: 153 |Node 0 |Feature 6304 |Threshold -0.913076 |Value -0.983812
 Going LEFT! Jumping to Node: 1...
-Tree: 3 |TimeSeries: 153 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.510311
+Tree: 3 |TimeSeries: 153 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.719292
 Going RIGHT! Jumping to Node: 5...
 HIT LEAF at: 5
 Values to be added: [ 0 1 ]
@@ -37588,7 +37581,7 @@ After Adding 1...Class 1 = 2
 
 Tree: 3 |TimeSeries: 154 |Node 0 |Feature 6304 |Threshold -0.913076 |Value -0.960691
 Going LEFT! Jumping to Node: 1...
-Tree: 3 |TimeSeries: 154 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.494661
+Tree: 3 |TimeSeries: 154 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.474806
 Going RIGHT! Jumping to Node: 5...
 HIT LEAF at: 5
 Values to be added: [ 0 1 ]
@@ -37798,14 +37791,16 @@ After Adding 1...Class 1 = 4
 
 Tree: 3 |TimeSeries: 171 |Node 0 |Feature 6304 |Threshold -0.913076 |Value -0.93615
 Going LEFT! Jumping to Node: 1...
-Tree: 3 |TimeSeries: 171 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.444907
-Going RIGHT! Jumping to Node: 5...
-HIT LEAF at: 5
-Values to be added: [ 0 1 ]
+Tree: 3 |TimeSeries: 171 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.00798236
+Going LEFT! Jumping to Node: 2...
+Tree: 3 |TimeSeries: 171 |Node 2 |Feature 1078 |Threshold -0.385613 |Value 0.133032
+Going RIGHT! Jumping to Node: 4...
+HIT LEAF at: 4
+Values to be added: [ 1 0 ]
 Before Adding...Class 0 = 2
-After Adding 0...Class 0 = 2
+After Adding 1...Class 0 = 3
 Before Adding...Class 1 = 1
-After Adding 1...Class 1 = 2
+After Adding 0...Class 1 = 1
 
 
 Tree: 3 |TimeSeries: 172 |Node 0 |Feature 6304 |Threshold -0.913076 |Value -0.854728
@@ -37860,7 +37855,7 @@ After Adding 0...Class 1 = 1
 
 Tree: 3 |TimeSeries: 176 |Node 0 |Feature 6304 |Threshold -0.913076 |Value -0.927855
 Going LEFT! Jumping to Node: 1...
-Tree: 3 |TimeSeries: 176 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.460516
+Tree: 3 |TimeSeries: 176 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.30239
 Going RIGHT! Jumping to Node: 5...
 HIT LEAF at: 5
 Values to be added: [ 0 1 ]
@@ -37872,7 +37867,7 @@ After Adding 1...Class 1 = 3
 
 Tree: 3 |TimeSeries: 177 |Node 0 |Feature 6304 |Threshold -0.913076 |Value -1.03352
 Going LEFT! Jumping to Node: 1...
-Tree: 3 |TimeSeries: 177 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.472295
+Tree: 3 |TimeSeries: 177 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.483178
 Going RIGHT! Jumping to Node: 5...
 HIT LEAF at: 5
 Values to be added: [ 0 1 ]
@@ -37884,7 +37879,7 @@ After Adding 1...Class 1 = 2
 
 Tree: 3 |TimeSeries: 178 |Node 0 |Feature 6304 |Threshold -0.913076 |Value -1.03882
 Going LEFT! Jumping to Node: 1...
-Tree: 3 |TimeSeries: 178 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.203905
+Tree: 3 |TimeSeries: 178 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.460598
 Going RIGHT! Jumping to Node: 5...
 HIT LEAF at: 5
 Values to be added: [ 0 1 ]
@@ -37924,7 +37919,7 @@ After Adding 0...Class 1 = 1
 
 Tree: 3 |TimeSeries: 181 |Node 0 |Feature 6304 |Threshold -0.913076 |Value -1.04493
 Going LEFT! Jumping to Node: 1...
-Tree: 3 |TimeSeries: 181 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.29806
+Tree: 3 |TimeSeries: 181 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.463292
 Going RIGHT! Jumping to Node: 5...
 HIT LEAF at: 5
 Values to be added: [ 0 1 ]
@@ -37936,7 +37931,7 @@ After Adding 1...Class 1 = 2
 
 Tree: 3 |TimeSeries: 182 |Node 0 |Feature 6304 |Threshold -0.913076 |Value -0.967007
 Going LEFT! Jumping to Node: 1...
-Tree: 3 |TimeSeries: 182 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.468076
+Tree: 3 |TimeSeries: 182 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.405585
 Going RIGHT! Jumping to Node: 5...
 HIT LEAF at: 5
 Values to be added: [ 0 1 ]
@@ -37962,7 +37957,7 @@ After Adding 0...Class 1 = 1
 
 Tree: 3 |TimeSeries: 184 |Node 0 |Feature 6304 |Threshold -0.913076 |Value -1.06146
 Going LEFT! Jumping to Node: 1...
-Tree: 3 |TimeSeries: 184 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.440591
+Tree: 3 |TimeSeries: 184 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.539592
 Going RIGHT! Jumping to Node: 5...
 HIT LEAF at: 5
 Values to be added: [ 0 1 ]
@@ -37986,7 +37981,7 @@ After Adding 1...Class 1 = 4
 
 Tree: 3 |TimeSeries: 186 |Node 0 |Feature 6304 |Threshold -0.913076 |Value -1.05084
 Going LEFT! Jumping to Node: 1...
-Tree: 3 |TimeSeries: 186 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.327824
+Tree: 3 |TimeSeries: 186 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.320023
 Going RIGHT! Jumping to Node: 5...
 HIT LEAF at: 5
 Values to be added: [ 0 1 ]
@@ -37998,7 +37993,7 @@ After Adding 1...Class 1 = 2
 
 Tree: 3 |TimeSeries: 187 |Node 0 |Feature 6304 |Threshold -0.913076 |Value -1.04736
 Going LEFT! Jumping to Node: 1...
-Tree: 3 |TimeSeries: 187 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.345014
+Tree: 3 |TimeSeries: 187 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.247698
 Going RIGHT! Jumping to Node: 5...
 HIT LEAF at: 5
 Values to be added: [ 0 1 ]
@@ -38062,7 +38057,7 @@ After Adding 1...Class 1 = 2
 
 Tree: 3 |TimeSeries: 192 |Node 0 |Feature 6304 |Threshold -0.913076 |Value -1.12525
 Going LEFT! Jumping to Node: 1...
-Tree: 3 |TimeSeries: 192 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.254609
+Tree: 3 |TimeSeries: 192 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.605664
 Going RIGHT! Jumping to Node: 5...
 HIT LEAF at: 5
 Values to be added: [ 0 1 ]
@@ -38136,7 +38131,7 @@ After Adding 1...Class 1 = 4
 
 Tree: 3 |TimeSeries: 198 |Node 0 |Feature 6304 |Threshold -0.913076 |Value -1.17172
 Going LEFT! Jumping to Node: 1...
-Tree: 3 |TimeSeries: 198 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.384313
+Tree: 3 |TimeSeries: 198 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.417257
 Going RIGHT! Jumping to Node: 5...
 HIT LEAF at: 5
 Values to be added: [ 0 1 ]
@@ -38210,7 +38205,7 @@ After Adding 1...Class 1 = 4
 
 Tree: 3 |TimeSeries: 204 |Node 0 |Feature 6304 |Threshold -0.913076 |Value -1.10537
 Going LEFT! Jumping to Node: 1...
-Tree: 3 |TimeSeries: 204 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.351467
+Tree: 3 |TimeSeries: 204 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.191577
 Going RIGHT! Jumping to Node: 5...
 HIT LEAF at: 5
 Values to be added: [ 0 1 ]
@@ -38250,7 +38245,7 @@ After Adding 0...Class 1 = 1
 
 Tree: 3 |TimeSeries: 207 |Node 0 |Feature 6304 |Threshold -0.913076 |Value -1.20034
 Going LEFT! Jumping to Node: 1...
-Tree: 3 |TimeSeries: 207 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.605296
+Tree: 3 |TimeSeries: 207 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.588876
 Going RIGHT! Jumping to Node: 5...
 HIT LEAF at: 5
 Values to be added: [ 0 1 ]
@@ -38274,7 +38269,7 @@ After Adding 1...Class 1 = 3
 
 Tree: 3 |TimeSeries: 209 |Node 0 |Feature 6304 |Threshold -0.913076 |Value -1.01697
 Going LEFT! Jumping to Node: 1...
-Tree: 3 |TimeSeries: 209 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.368099
+Tree: 3 |TimeSeries: 209 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.394511
 Going RIGHT! Jumping to Node: 5...
 HIT LEAF at: 5
 Values to be added: [ 0 1 ]
@@ -38310,7 +38305,7 @@ After Adding 1...Class 1 = 4
 
 Tree: 3 |TimeSeries: 212 |Node 0 |Feature 6304 |Threshold -0.913076 |Value -0.996585
 Going LEFT! Jumping to Node: 1...
-Tree: 3 |TimeSeries: 212 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.479761
+Tree: 3 |TimeSeries: 212 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.514241
 Going RIGHT! Jumping to Node: 5...
 HIT LEAF at: 5
 Values to be added: [ 0 1 ]
@@ -38322,7 +38317,7 @@ After Adding 1...Class 1 = 4
 
 Tree: 3 |TimeSeries: 213 |Node 0 |Feature 6304 |Threshold -0.913076 |Value -0.954196
 Going LEFT! Jumping to Node: 1...
-Tree: 3 |TimeSeries: 213 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.399534
+Tree: 3 |TimeSeries: 213 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.544227
 Going RIGHT! Jumping to Node: 5...
 HIT LEAF at: 5
 Values to be added: [ 0 1 ]
@@ -38408,7 +38403,7 @@ After Adding 1...Class 1 = 4
 
 Tree: 3 |TimeSeries: 220 |Node 0 |Feature 6304 |Threshold -0.913076 |Value -0.950058
 Going LEFT! Jumping to Node: 1...
-Tree: 3 |TimeSeries: 220 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.392652
+Tree: 3 |TimeSeries: 220 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.316305
 Going RIGHT! Jumping to Node: 5...
 HIT LEAF at: 5
 Values to be added: [ 0 1 ]
@@ -38546,7 +38541,7 @@ After Adding 1...Class 1 = 3
 
 Tree: 3 |TimeSeries: 231 |Node 0 |Feature 6304 |Threshold -0.913076 |Value -1.03017
 Going LEFT! Jumping to Node: 1...
-Tree: 3 |TimeSeries: 231 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.511679
+Tree: 3 |TimeSeries: 231 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.445701
 Going RIGHT! Jumping to Node: 5...
 HIT LEAF at: 5
 Values to be added: [ 0 1 ]
@@ -38558,7 +38553,7 @@ After Adding 1...Class 1 = 3
 
 Tree: 3 |TimeSeries: 232 |Node 0 |Feature 6304 |Threshold -0.913076 |Value -1.14418
 Going LEFT! Jumping to Node: 1...
-Tree: 3 |TimeSeries: 232 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.520845
+Tree: 3 |TimeSeries: 232 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.48924
 Going RIGHT! Jumping to Node: 5...
 HIT LEAF at: 5
 Values to be added: [ 0 1 ]
@@ -38620,7 +38615,7 @@ After Adding 1...Class 1 = 4
 
 Tree: 3 |TimeSeries: 237 |Node 0 |Feature 6304 |Threshold -0.913076 |Value -1.04365
 Going LEFT! Jumping to Node: 1...
-Tree: 3 |TimeSeries: 237 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.657508
+Tree: 3 |TimeSeries: 237 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.623175
 Going RIGHT! Jumping to Node: 5...
 HIT LEAF at: 5
 Values to be added: [ 0 1 ]
@@ -38646,7 +38641,7 @@ After Adding 0...Class 1 = 1
 
 Tree: 3 |TimeSeries: 239 |Node 0 |Feature 6304 |Threshold -0.913076 |Value -1.02796
 Going LEFT! Jumping to Node: 1...
-Tree: 3 |TimeSeries: 239 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.476944
+Tree: 3 |TimeSeries: 239 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.369813
 Going RIGHT! Jumping to Node: 5...
 HIT LEAF at: 5
 Values to be added: [ 0 1 ]
@@ -38670,14 +38665,14 @@ After Adding 1...Class 1 = 2
 
 Tree: 3 |TimeSeries: 241 |Node 0 |Feature 6304 |Threshold -0.913076 |Value -0.997656
 Going LEFT! Jumping to Node: 1...
-Tree: 3 |TimeSeries: 241 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.276998
+Tree: 3 |TimeSeries: 241 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.266521
 Going RIGHT! Jumping to Node: 5...
 HIT LEAF at: 5
 Values to be added: [ 0 1 ]
-Before Adding...Class 0 = 2
-After Adding 0...Class 0 = 2
-Before Adding...Class 1 = 1
-After Adding 1...Class 1 = 2
+Before Adding...Class 0 = 3
+After Adding 0...Class 0 = 3
+Before Adding...Class 1 = 0
+After Adding 1...Class 1 = 1
 
 
 Tree: 3 |TimeSeries: 242 |Node 0 |Feature 6304 |Threshold -0.913076 |Value -0.549185
@@ -38720,7 +38715,7 @@ After Adding 1...Class 1 = 4
 
 Tree: 3 |TimeSeries: 245 |Node 0 |Feature 6304 |Threshold -0.913076 |Value -1.00001
 Going LEFT! Jumping to Node: 1...
-Tree: 3 |TimeSeries: 245 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.350909
+Tree: 3 |TimeSeries: 245 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.321488
 Going RIGHT! Jumping to Node: 5...
 HIT LEAF at: 5
 Values to be added: [ 0 1 ]
@@ -38756,7 +38751,7 @@ After Adding 1...Class 1 = 4
 
 Tree: 3 |TimeSeries: 248 |Node 0 |Feature 6304 |Threshold -0.913076 |Value -1.16252
 Going LEFT! Jumping to Node: 1...
-Tree: 3 |TimeSeries: 248 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.401213
+Tree: 3 |TimeSeries: 248 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.42966
 Going RIGHT! Jumping to Node: 5...
 HIT LEAF at: 5
 Values to be added: [ 0 1 ]
@@ -38768,7 +38763,7 @@ After Adding 1...Class 1 = 2
 
 Tree: 3 |TimeSeries: 249 |Node 0 |Feature 6304 |Threshold -0.913076 |Value -0.997519
 Going LEFT! Jumping to Node: 1...
-Tree: 3 |TimeSeries: 249 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.391449
+Tree: 3 |TimeSeries: 249 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.3162
 Going RIGHT! Jumping to Node: 5...
 HIT LEAF at: 5
 Values to be added: [ 0 1 ]
@@ -38830,7 +38825,7 @@ After Adding 1...Class 1 = 4
 
 Tree: 3 |TimeSeries: 254 |Node 0 |Feature 6304 |Threshold -0.913076 |Value -1.24984
 Going LEFT! Jumping to Node: 1...
-Tree: 3 |TimeSeries: 254 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.357838
+Tree: 3 |TimeSeries: 254 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.395104
 Going RIGHT! Jumping to Node: 5...
 HIT LEAF at: 5
 Values to be added: [ 0 1 ]
@@ -38854,7 +38849,7 @@ After Adding 1...Class 1 = 3
 
 Tree: 3 |TimeSeries: 256 |Node 0 |Feature 6304 |Threshold -0.913076 |Value -1.04683
 Going LEFT! Jumping to Node: 1...
-Tree: 3 |TimeSeries: 256 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.45261
+Tree: 3 |TimeSeries: 256 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.440512
 Going RIGHT! Jumping to Node: 5...
 HIT LEAF at: 5
 Values to be added: [ 0 1 ]
@@ -38866,7 +38861,7 @@ After Adding 1...Class 1 = 2
 
 Tree: 3 |TimeSeries: 257 |Node 0 |Feature 6304 |Threshold -0.913076 |Value -1.06423
 Going LEFT! Jumping to Node: 1...
-Tree: 3 |TimeSeries: 257 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.505915
+Tree: 3 |TimeSeries: 257 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.169035
 Going RIGHT! Jumping to Node: 5...
 HIT LEAF at: 5
 Values to be added: [ 0 1 ]
@@ -38942,7 +38937,7 @@ After Adding 1...Class 1 = 4
 
 Tree: 3 |TimeSeries: 263 |Node 0 |Feature 6304 |Threshold -0.913076 |Value -1.01257
 Going LEFT! Jumping to Node: 1...
-Tree: 3 |TimeSeries: 263 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.339433
+Tree: 3 |TimeSeries: 263 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.183208
 Going RIGHT! Jumping to Node: 5...
 HIT LEAF at: 5
 Values to be added: [ 0 1 ]
@@ -38978,7 +38973,7 @@ After Adding 1...Class 1 = 4
 
 Tree: 3 |TimeSeries: 266 |Node 0 |Feature 6304 |Threshold -0.913076 |Value -1.0175
 Going LEFT! Jumping to Node: 1...
-Tree: 3 |TimeSeries: 266 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.498163
+Tree: 3 |TimeSeries: 266 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.466584
 Going RIGHT! Jumping to Node: 5...
 HIT LEAF at: 5
 Values to be added: [ 0 1 ]
@@ -39016,7 +39011,7 @@ After Adding 1...Class 1 = 4
 
 Tree: 3 |TimeSeries: 269 |Node 0 |Feature 6304 |Threshold -0.913076 |Value -0.943291
 Going LEFT! Jumping to Node: 1...
-Tree: 3 |TimeSeries: 269 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.54174
+Tree: 3 |TimeSeries: 269 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.420128
 Going RIGHT! Jumping to Node: 5...
 HIT LEAF at: 5
 Values to be added: [ 0 1 ]
@@ -39040,7 +39035,7 @@ After Adding 1...Class 1 = 4
 
 Tree: 3 |TimeSeries: 271 |Node 0 |Feature 6304 |Threshold -0.913076 |Value -1.07325
 Going LEFT! Jumping to Node: 1...
-Tree: 3 |TimeSeries: 271 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.441394
+Tree: 3 |TimeSeries: 271 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.135321
 Going RIGHT! Jumping to Node: 5...
 HIT LEAF at: 5
 Values to be added: [ 0 1 ]
@@ -39066,7 +39061,7 @@ After Adding 0...Class 1 = 1
 
 Tree: 3 |TimeSeries: 273 |Node 0 |Feature 6304 |Threshold -0.913076 |Value -1.01554
 Going LEFT! Jumping to Node: 1...
-Tree: 3 |TimeSeries: 273 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.209954
+Tree: 3 |TimeSeries: 273 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.185517
 Going RIGHT! Jumping to Node: 5...
 HIT LEAF at: 5
 Values to be added: [ 0 1 ]
@@ -39116,7 +39111,7 @@ After Adding 0...Class 1 = 1
 
 Tree: 3 |TimeSeries: 277 |Node 0 |Feature 6304 |Threshold -0.913076 |Value -1.07366
 Going LEFT! Jumping to Node: 1...
-Tree: 3 |TimeSeries: 277 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.510683
+Tree: 3 |TimeSeries: 277 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.471565
 Going RIGHT! Jumping to Node: 5...
 HIT LEAF at: 5
 Values to be added: [ 0 1 ]
@@ -39128,7 +39123,7 @@ After Adding 1...Class 1 = 2
 
 Tree: 3 |TimeSeries: 278 |Node 0 |Feature 6304 |Threshold -0.913076 |Value -0.994956
 Going LEFT! Jumping to Node: 1...
-Tree: 3 |TimeSeries: 278 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.503069
+Tree: 3 |TimeSeries: 278 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.233521
 Going RIGHT! Jumping to Node: 5...
 HIT LEAF at: 5
 Values to be added: [ 0 1 ]
@@ -39152,7 +39147,7 @@ After Adding 1...Class 1 = 4
 
 Tree: 3 |TimeSeries: 280 |Node 0 |Feature 6304 |Threshold -0.913076 |Value -0.969167
 Going LEFT! Jumping to Node: 1...
-Tree: 3 |TimeSeries: 280 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.337416
+Tree: 3 |TimeSeries: 280 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.226906
 Going RIGHT! Jumping to Node: 5...
 HIT LEAF at: 5
 Values to be added: [ 0 1 ]
@@ -39176,7 +39171,7 @@ After Adding 1...Class 1 = 3
 
 Tree: 3 |TimeSeries: 282 |Node 0 |Feature 6304 |Threshold -0.913076 |Value -0.963615
 Going LEFT! Jumping to Node: 1...
-Tree: 3 |TimeSeries: 282 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.46008
+Tree: 3 |TimeSeries: 282 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.445173
 Going RIGHT! Jumping to Node: 5...
 HIT LEAF at: 5
 Values to be added: [ 0 1 ]
@@ -39188,7 +39183,7 @@ After Adding 1...Class 1 = 4
 
 Tree: 3 |TimeSeries: 283 |Node 0 |Feature 6304 |Threshold -0.913076 |Value -1.05785
 Going LEFT! Jumping to Node: 1...
-Tree: 3 |TimeSeries: 283 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.349613
+Tree: 3 |TimeSeries: 283 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.441033
 Going RIGHT! Jumping to Node: 5...
 HIT LEAF at: 5
 Values to be added: [ 0 1 ]
@@ -39212,7 +39207,7 @@ After Adding 1...Class 1 = 4
 
 Tree: 3 |TimeSeries: 285 |Node 0 |Feature 6304 |Threshold -0.913076 |Value -1.00295
 Going LEFT! Jumping to Node: 1...
-Tree: 3 |TimeSeries: 285 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.505758
+Tree: 3 |TimeSeries: 285 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.157832
 Going RIGHT! Jumping to Node: 5...
 HIT LEAF at: 5
 Values to be added: [ 0 1 ]
@@ -39260,7 +39255,7 @@ After Adding 1...Class 1 = 4
 
 Tree: 3 |TimeSeries: 289 |Node 0 |Feature 6304 |Threshold -0.913076 |Value -0.956662
 Going LEFT! Jumping to Node: 1...
-Tree: 3 |TimeSeries: 289 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.474506
+Tree: 3 |TimeSeries: 289 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.463185
 Going RIGHT! Jumping to Node: 5...
 HIT LEAF at: 5
 Values to be added: [ 0 1 ]
@@ -39272,7 +39267,7 @@ After Adding 1...Class 1 = 2
 
 Tree: 3 |TimeSeries: 290 |Node 0 |Feature 6304 |Threshold -0.913076 |Value -1.09831
 Going LEFT! Jumping to Node: 1...
-Tree: 3 |TimeSeries: 290 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.564923
+Tree: 3 |TimeSeries: 290 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.490322
 Going RIGHT! Jumping to Node: 5...
 HIT LEAF at: 5
 Values to be added: [ 0 1 ]
@@ -39332,7 +39327,7 @@ After Adding 1...Class 1 = 4
 
 Tree: 3 |TimeSeries: 295 |Node 0 |Feature 6304 |Threshold -0.913076 |Value -0.944347
 Going LEFT! Jumping to Node: 1...
-Tree: 3 |TimeSeries: 295 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.532636
+Tree: 3 |TimeSeries: 295 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.427975
 Going RIGHT! Jumping to Node: 5...
 HIT LEAF at: 5
 Values to be added: [ 0 1 ]
@@ -39356,7 +39351,7 @@ After Adding 1...Class 1 = 4
 
 Tree: 3 |TimeSeries: 297 |Node 0 |Feature 6304 |Threshold -0.913076 |Value -0.981572
 Going LEFT! Jumping to Node: 1...
-Tree: 3 |TimeSeries: 297 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.675074
+Tree: 3 |TimeSeries: 297 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.532891
 Going RIGHT! Jumping to Node: 5...
 HIT LEAF at: 5
 Values to be added: [ 0 1 ]
@@ -39368,7 +39363,7 @@ After Adding 1...Class 1 = 4
 
 Tree: 3 |TimeSeries: 298 |Node 0 |Feature 6304 |Threshold -0.913076 |Value -1.08895
 Going LEFT! Jumping to Node: 1...
-Tree: 3 |TimeSeries: 298 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.426017
+Tree: 3 |TimeSeries: 298 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.379575
 Going RIGHT! Jumping to Node: 5...
 HIT LEAF at: 5
 Values to be added: [ 0 1 ]
@@ -39446,7 +39441,7 @@ After Adding 1...Class 1 = 2
 
 Tree: 3 |TimeSeries: 304 |Node 0 |Feature 6304 |Threshold -0.913076 |Value -1.05555
 Going LEFT! Jumping to Node: 1...
-Tree: 3 |TimeSeries: 304 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.449893
+Tree: 3 |TimeSeries: 304 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.6037
 Going RIGHT! Jumping to Node: 5...
 HIT LEAF at: 5
 Values to be added: [ 0 1 ]
@@ -39472,7 +39467,7 @@ After Adding 0...Class 1 = 2
 
 Tree: 3 |TimeSeries: 306 |Node 0 |Feature 6304 |Threshold -0.913076 |Value -0.985899
 Going LEFT! Jumping to Node: 1...
-Tree: 3 |TimeSeries: 306 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.480048
+Tree: 3 |TimeSeries: 306 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.449698
 Going RIGHT! Jumping to Node: 5...
 HIT LEAF at: 5
 Values to be added: [ 0 1 ]
@@ -39524,7 +39519,7 @@ After Adding 1...Class 1 = 4
 
 Tree: 3 |TimeSeries: 310 |Node 0 |Feature 6304 |Threshold -0.913076 |Value -1.05092
 Going LEFT! Jumping to Node: 1...
-Tree: 3 |TimeSeries: 310 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.553967
+Tree: 3 |TimeSeries: 310 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.533451
 Going RIGHT! Jumping to Node: 5...
 HIT LEAF at: 5
 Values to be added: [ 0 1 ]
@@ -39536,7 +39531,7 @@ After Adding 1...Class 1 = 2
 
 Tree: 3 |TimeSeries: 311 |Node 0 |Feature 6304 |Threshold -0.913076 |Value -1.08556
 Going LEFT! Jumping to Node: 1...
-Tree: 3 |TimeSeries: 311 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.517175
+Tree: 3 |TimeSeries: 311 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.444714
 Going RIGHT! Jumping to Node: 5...
 HIT LEAF at: 5
 Values to be added: [ 0 1 ]
@@ -39562,7 +39557,7 @@ After Adding 0...Class 1 = 2
 
 Tree: 3 |TimeSeries: 313 |Node 0 |Feature 6304 |Threshold -0.913076 |Value -1.06733
 Going LEFT! Jumping to Node: 1...
-Tree: 3 |TimeSeries: 313 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.456731
+Tree: 3 |TimeSeries: 313 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.356427
 Going RIGHT! Jumping to Node: 5...
 HIT LEAF at: 5
 Values to be added: [ 0 1 ]
@@ -39660,7 +39655,7 @@ After Adding 1...Class 1 = 4
 
 Tree: 3 |TimeSeries: 321 |Node 0 |Feature 6304 |Threshold -0.913076 |Value -1.10359
 Going LEFT! Jumping to Node: 1...
-Tree: 3 |TimeSeries: 321 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.37586
+Tree: 3 |TimeSeries: 321 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.386199
 Going RIGHT! Jumping to Node: 5...
 HIT LEAF at: 5
 Values to be added: [ 0 1 ]
@@ -39672,16 +39667,14 @@ After Adding 1...Class 1 = 2
 
 Tree: 3 |TimeSeries: 322 |Node 0 |Feature 6304 |Threshold -0.913076 |Value -0.988179
 Going LEFT! Jumping to Node: 1...
-Tree: 3 |TimeSeries: 322 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value -0.0286063
-Going LEFT! Jumping to Node: 2...
-Tree: 3 |TimeSeries: 322 |Node 2 |Feature 1078 |Threshold -0.385613 |Value 0.257986
-Going RIGHT! Jumping to Node: 4...
-HIT LEAF at: 4
-Values to be added: [ 1 0 ]
+Tree: 3 |TimeSeries: 322 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.563393
+Going RIGHT! Jumping to Node: 5...
+HIT LEAF at: 5
+Values to be added: [ 0 1 ]
 Before Adding...Class 0 = 2
-After Adding 1...Class 0 = 3
+After Adding 0...Class 0 = 2
 Before Adding...Class 1 = 1
-After Adding 0...Class 1 = 1
+After Adding 1...Class 1 = 2
 
 
 Tree: 3 |TimeSeries: 323 |Node 0 |Feature 6304 |Threshold -0.913076 |Value -0.0864122
@@ -39698,14 +39691,16 @@ After Adding 1...Class 1 = 4
 
 Tree: 3 |TimeSeries: 324 |Node 0 |Feature 6304 |Threshold -0.913076 |Value -1.14476
 Going LEFT! Jumping to Node: 1...
-Tree: 3 |TimeSeries: 324 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.306128
-Going RIGHT! Jumping to Node: 5...
-HIT LEAF at: 5
-Values to be added: [ 0 1 ]
+Tree: 3 |TimeSeries: 324 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value -0.321643
+Going LEFT! Jumping to Node: 2...
+Tree: 3 |TimeSeries: 324 |Node 2 |Feature 1078 |Threshold -0.385613 |Value 0.287788
+Going RIGHT! Jumping to Node: 4...
+HIT LEAF at: 4
+Values to be added: [ 1 0 ]
 Before Adding...Class 0 = 2
-After Adding 0...Class 0 = 2
+After Adding 1...Class 0 = 3
 Before Adding...Class 1 = 1
-After Adding 1...Class 1 = 2
+After Adding 0...Class 1 = 1
 
 
 Tree: 3 |TimeSeries: 325 |Node 0 |Feature 6304 |Threshold -0.913076 |Value -0.399327
@@ -39724,7 +39719,7 @@ After Adding 0...Class 1 = 1
 
 Tree: 3 |TimeSeries: 326 |Node 0 |Feature 6304 |Threshold -0.913076 |Value -0.919683
 Going LEFT! Jumping to Node: 1...
-Tree: 3 |TimeSeries: 326 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.282409
+Tree: 3 |TimeSeries: 326 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.279672
 Going RIGHT! Jumping to Node: 5...
 HIT LEAF at: 5
 Values to be added: [ 0 1 ]
@@ -39764,7 +39759,7 @@ After Adding 0...Class 1 = 1
 
 Tree: 3 |TimeSeries: 329 |Node 0 |Feature 6304 |Threshold -0.913076 |Value -1.04401
 Going LEFT! Jumping to Node: 1...
-Tree: 3 |TimeSeries: 329 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.410836
+Tree: 3 |TimeSeries: 329 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.497692
 Going RIGHT! Jumping to Node: 5...
 HIT LEAF at: 5
 Values to be added: [ 0 1 ]
@@ -39788,7 +39783,7 @@ After Adding 1...Class 1 = 4
 
 Tree: 3 |TimeSeries: 331 |Node 0 |Feature 6304 |Threshold -0.913076 |Value -1.17753
 Going LEFT! Jumping to Node: 1...
-Tree: 3 |TimeSeries: 331 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.317395
+Tree: 3 |TimeSeries: 331 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.196404
 Going RIGHT! Jumping to Node: 5...
 HIT LEAF at: 5
 Values to be added: [ 0 1 ]
@@ -39826,7 +39821,7 @@ After Adding 0...Class 1 = 1
 
 Tree: 3 |TimeSeries: 334 |Node 0 |Feature 6304 |Threshold -0.913076 |Value -0.983445
 Going LEFT! Jumping to Node: 1...
-Tree: 3 |TimeSeries: 334 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.449673
+Tree: 3 |TimeSeries: 334 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.529716
 Going RIGHT! Jumping to Node: 5...
 HIT LEAF at: 5
 Values to be added: [ 0 1 ]
@@ -39852,7 +39847,7 @@ After Adding 0...Class 1 = 1
 
 Tree: 3 |TimeSeries: 336 |Node 0 |Feature 6304 |Threshold -0.913076 |Value -1.06424
 Going LEFT! Jumping to Node: 1...
-Tree: 3 |TimeSeries: 336 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.545189
+Tree: 3 |TimeSeries: 336 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.59671
 Going RIGHT! Jumping to Node: 5...
 HIT LEAF at: 5
 Values to be added: [ 0 1 ]
@@ -39902,7 +39897,7 @@ After Adding 1...Class 1 = 3
 
 Tree: 3 |TimeSeries: 340 |Node 0 |Feature 6304 |Threshold -0.913076 |Value -0.970872
 Going LEFT! Jumping to Node: 1...
-Tree: 3 |TimeSeries: 340 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.437776
+Tree: 3 |TimeSeries: 340 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.50618
 Going RIGHT! Jumping to Node: 5...
 HIT LEAF at: 5
 Values to be added: [ 0 1 ]
@@ -39914,7 +39909,7 @@ After Adding 1...Class 1 = 4
 
 Tree: 3 |TimeSeries: 341 |Node 0 |Feature 6304 |Threshold -0.913076 |Value -0.964046
 Going LEFT! Jumping to Node: 1...
-Tree: 3 |TimeSeries: 341 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.529433
+Tree: 3 |TimeSeries: 341 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.587782
 Going RIGHT! Jumping to Node: 5...
 HIT LEAF at: 5
 Values to be added: [ 0 1 ]
@@ -39938,7 +39933,7 @@ After Adding 1...Class 1 = 2
 
 Tree: 3 |TimeSeries: 343 |Node 0 |Feature 6304 |Threshold -0.913076 |Value -0.985098
 Going LEFT! Jumping to Node: 1...
-Tree: 3 |TimeSeries: 343 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.531731
+Tree: 3 |TimeSeries: 343 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.464081
 Going RIGHT! Jumping to Node: 5...
 HIT LEAF at: 5
 Values to be added: [ 0 1 ]
@@ -39950,7 +39945,7 @@ After Adding 1...Class 1 = 2
 
 Tree: 3 |TimeSeries: 344 |Node 0 |Feature 6304 |Threshold -0.913076 |Value -0.987413
 Going LEFT! Jumping to Node: 1...
-Tree: 3 |TimeSeries: 344 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.344133
+Tree: 3 |TimeSeries: 344 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.590698
 Going RIGHT! Jumping to Node: 5...
 HIT LEAF at: 5
 Values to be added: [ 0 1 ]
@@ -39998,7 +39993,7 @@ After Adding 1...Class 1 = 4
 
 Tree: 3 |TimeSeries: 348 |Node 0 |Feature 6304 |Threshold -0.913076 |Value -1.13623
 Going LEFT! Jumping to Node: 1...
-Tree: 3 |TimeSeries: 348 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.406303
+Tree: 3 |TimeSeries: 348 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.480873
 Going RIGHT! Jumping to Node: 5...
 HIT LEAF at: 5
 Values to be added: [ 0 1 ]
@@ -40110,7 +40105,7 @@ After Adding 1...Class 1 = 2
 
 Tree: 3 |TimeSeries: 357 |Node 0 |Feature 6304 |Threshold -0.913076 |Value -1.10434
 Going LEFT! Jumping to Node: 1...
-Tree: 3 |TimeSeries: 357 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.275156
+Tree: 3 |TimeSeries: 357 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.396343
 Going RIGHT! Jumping to Node: 5...
 HIT LEAF at: 5
 Values to be added: [ 0 1 ]
@@ -40172,7 +40167,7 @@ After Adding 1...Class 1 = 4
 
 Tree: 3 |TimeSeries: 362 |Node 0 |Feature 6304 |Threshold -0.913076 |Value -0.929142
 Going LEFT! Jumping to Node: 1...
-Tree: 3 |TimeSeries: 362 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.335237
+Tree: 3 |TimeSeries: 362 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.351679
 Going RIGHT! Jumping to Node: 5...
 HIT LEAF at: 5
 Values to be added: [ 0 1 ]
@@ -40220,7 +40215,7 @@ After Adding 1...Class 1 = 4
 
 Tree: 3 |TimeSeries: 366 |Node 0 |Feature 6304 |Threshold -0.913076 |Value -1.03017
 Going LEFT! Jumping to Node: 1...
-Tree: 3 |TimeSeries: 366 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.203043
+Tree: 3 |TimeSeries: 366 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.474094
 Going RIGHT! Jumping to Node: 5...
 HIT LEAF at: 5
 Values to be added: [ 0 1 ]
@@ -40284,7 +40279,7 @@ After Adding 1...Class 1 = 2
 
 Tree: 3 |TimeSeries: 371 |Node 0 |Feature 6304 |Threshold -0.913076 |Value -1.10938
 Going LEFT! Jumping to Node: 1...
-Tree: 3 |TimeSeries: 371 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.160819
+Tree: 3 |TimeSeries: 371 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.190439
 Going RIGHT! Jumping to Node: 5...
 HIT LEAF at: 5
 Values to be added: [ 0 1 ]
@@ -40296,7 +40291,7 @@ After Adding 1...Class 1 = 2
 
 Tree: 3 |TimeSeries: 372 |Node 0 |Feature 6304 |Threshold -0.913076 |Value -0.914276
 Going LEFT! Jumping to Node: 1...
-Tree: 3 |TimeSeries: 372 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.400043
+Tree: 3 |TimeSeries: 372 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.452398
 Going RIGHT! Jumping to Node: 5...
 HIT LEAF at: 5
 Values to be added: [ 0 1 ]
@@ -40332,7 +40327,7 @@ After Adding 1...Class 1 = 3
 
 Tree: 3 |TimeSeries: 375 |Node 0 |Feature 6304 |Threshold -0.913076 |Value -1.00934
 Going LEFT! Jumping to Node: 1...
-Tree: 3 |TimeSeries: 375 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.446704
+Tree: 3 |TimeSeries: 375 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.496366
 Going RIGHT! Jumping to Node: 5...
 HIT LEAF at: 5
 Values to be added: [ 0 1 ]
@@ -40344,7 +40339,7 @@ After Adding 1...Class 1 = 3
 
 Tree: 3 |TimeSeries: 376 |Node 0 |Feature 6304 |Threshold -0.913076 |Value -1.05174
 Going LEFT! Jumping to Node: 1...
-Tree: 3 |TimeSeries: 376 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.184393
+Tree: 3 |TimeSeries: 376 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.304658
 Going RIGHT! Jumping to Node: 5...
 HIT LEAF at: 5
 Values to be added: [ 0 1 ]
@@ -40392,7 +40387,7 @@ After Adding 1...Class 1 = 3
 
 Tree: 3 |TimeSeries: 380 |Node 0 |Feature 6304 |Threshold -0.913076 |Value -0.976171
 Going LEFT! Jumping to Node: 1...
-Tree: 3 |TimeSeries: 380 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.499527
+Tree: 3 |TimeSeries: 380 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.644806
 Going RIGHT! Jumping to Node: 5...
 HIT LEAF at: 5
 Values to be added: [ 0 1 ]
@@ -40600,7 +40595,7 @@ After Adding 1...Class 1 = 4
 
 Tree: 3 |TimeSeries: 397 |Node 0 |Feature 6304 |Threshold -0.913076 |Value -1.09888
 Going LEFT! Jumping to Node: 1...
-Tree: 3 |TimeSeries: 397 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.363024
+Tree: 3 |TimeSeries: 397 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.444268
 Going RIGHT! Jumping to Node: 5...
 HIT LEAF at: 5
 Values to be added: [ 0 1 ]
@@ -40616,10 +40611,10 @@ Tree: 3 |TimeSeries: 398 |Node 6 |Feature 2192 |Threshold 1.28177 |Value 0.47816
 Going LEFT! Jumping to Node: 7...
 HIT LEAF at: 7
 Values to be added: [ 0 1 ]
-Before Adding...Class 0 = 1
-After Adding 0...Class 0 = 1
-Before Adding...Class 1 = 2
-After Adding 1...Class 1 = 3
+Before Adding...Class 0 = 2
+After Adding 0...Class 0 = 2
+Before Adding...Class 1 = 1
+After Adding 1...Class 1 = 2
 
 
 Tree: 3 |TimeSeries: 399 |Node 0 |Feature 6304 |Threshold -0.913076 |Value -0.495708
@@ -40638,7 +40633,7 @@ After Adding 0...Class 1 = 1
 
 Tree: 3 |TimeSeries: 400 |Node 0 |Feature 6304 |Threshold -0.913076 |Value -1.02416
 Going LEFT! Jumping to Node: 1...
-Tree: 3 |TimeSeries: 400 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.375429
+Tree: 3 |TimeSeries: 400 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.403507
 Going RIGHT! Jumping to Node: 5...
 HIT LEAF at: 5
 Values to be added: [ 0 1 ]
@@ -40678,7 +40673,7 @@ After Adding 0...Class 1 = 1
 
 Tree: 3 |TimeSeries: 403 |Node 0 |Feature 6304 |Threshold -0.913076 |Value -0.983001
 Going LEFT! Jumping to Node: 1...
-Tree: 3 |TimeSeries: 403 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.455195
+Tree: 3 |TimeSeries: 403 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.597735
 Going RIGHT! Jumping to Node: 5...
 HIT LEAF at: 5
 Values to be added: [ 0 1 ]
@@ -40714,7 +40709,7 @@ After Adding 1...Class 1 = 2
 
 Tree: 3 |TimeSeries: 406 |Node 0 |Feature 6304 |Threshold -0.913076 |Value -0.931764
 Going LEFT! Jumping to Node: 1...
-Tree: 3 |TimeSeries: 406 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.45755
+Tree: 3 |TimeSeries: 406 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.349709
 Going RIGHT! Jumping to Node: 5...
 HIT LEAF at: 5
 Values to be added: [ 0 1 ]
@@ -40726,7 +40721,7 @@ After Adding 1...Class 1 = 4
 
 Tree: 3 |TimeSeries: 407 |Node 0 |Feature 6304 |Threshold -0.913076 |Value -0.924506
 Going LEFT! Jumping to Node: 1...
-Tree: 3 |TimeSeries: 407 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.407796
+Tree: 3 |TimeSeries: 407 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.498232
 Going RIGHT! Jumping to Node: 5...
 HIT LEAF at: 5
 Values to be added: [ 0 1 ]
@@ -40738,7 +40733,7 @@ After Adding 1...Class 1 = 4
 
 Tree: 3 |TimeSeries: 408 |Node 0 |Feature 6304 |Threshold -0.913076 |Value -1.02526
 Going LEFT! Jumping to Node: 1...
-Tree: 3 |TimeSeries: 408 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.222863
+Tree: 3 |TimeSeries: 408 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.498816
 Going RIGHT! Jumping to Node: 5...
 HIT LEAF at: 5
 Values to be added: [ 0 1 ]
@@ -40762,7 +40757,7 @@ After Adding 1...Class 1 = 4
 
 Tree: 3 |TimeSeries: 410 |Node 0 |Feature 6304 |Threshold -0.913076 |Value -1.16968
 Going LEFT! Jumping to Node: 1...
-Tree: 3 |TimeSeries: 410 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.136866
+Tree: 3 |TimeSeries: 410 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.257378
 Going RIGHT! Jumping to Node: 5...
 HIT LEAF at: 5
 Values to be added: [ 0 1 ]
@@ -40810,7 +40805,7 @@ After Adding 1...Class 1 = 2
 
 Tree: 3 |TimeSeries: 414 |Node 0 |Feature 6304 |Threshold -0.913076 |Value -1.03262
 Going LEFT! Jumping to Node: 1...
-Tree: 3 |TimeSeries: 414 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.406742
+Tree: 3 |TimeSeries: 414 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.473943
 Going RIGHT! Jumping to Node: 5...
 HIT LEAF at: 5
 Values to be added: [ 0 1 ]
@@ -40822,7 +40817,7 @@ After Adding 1...Class 1 = 2
 
 Tree: 3 |TimeSeries: 415 |Node 0 |Feature 6304 |Threshold -0.913076 |Value -1.01066
 Going LEFT! Jumping to Node: 1...
-Tree: 3 |TimeSeries: 415 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.123914
+Tree: 3 |TimeSeries: 415 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.340502
 Going RIGHT! Jumping to Node: 5...
 HIT LEAF at: 5
 Values to be added: [ 0 1 ]
@@ -40898,7 +40893,7 @@ After Adding 1...Class 1 = 4
 
 Tree: 3 |TimeSeries: 421 |Node 0 |Feature 6304 |Threshold -0.913076 |Value -1.1573
 Going LEFT! Jumping to Node: 1...
-Tree: 3 |TimeSeries: 421 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.482816
+Tree: 3 |TimeSeries: 421 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.513135
 Going RIGHT! Jumping to Node: 5...
 HIT LEAF at: 5
 Values to be added: [ 0 1 ]
@@ -40910,7 +40905,7 @@ After Adding 1...Class 1 = 3
 
 Tree: 3 |TimeSeries: 422 |Node 0 |Feature 6304 |Threshold -0.913076 |Value -1.06744
 Going LEFT! Jumping to Node: 1...
-Tree: 3 |TimeSeries: 422 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.173927
+Tree: 3 |TimeSeries: 422 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.504507
 Going RIGHT! Jumping to Node: 5...
 HIT LEAF at: 5
 Values to be added: [ 0 1 ]
@@ -40934,7 +40929,7 @@ After Adding 1...Class 1 = 3
 
 Tree: 3 |TimeSeries: 424 |Node 0 |Feature 6304 |Threshold -0.913076 |Value -1.1109
 Going LEFT! Jumping to Node: 1...
-Tree: 3 |TimeSeries: 424 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.294339
+Tree: 3 |TimeSeries: 424 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.369348
 Going RIGHT! Jumping to Node: 5...
 HIT LEAF at: 5
 Values to be added: [ 0 1 ]
@@ -40970,7 +40965,7 @@ After Adding 1...Class 1 = 4
 
 Tree: 3 |TimeSeries: 427 |Node 0 |Feature 6304 |Threshold -0.913076 |Value -1.02069
 Going LEFT! Jumping to Node: 1...
-Tree: 3 |TimeSeries: 427 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.458169
+Tree: 3 |TimeSeries: 427 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.540876
 Going RIGHT! Jumping to Node: 5...
 HIT LEAF at: 5
 Values to be added: [ 0 1 ]
@@ -40982,7 +40977,7 @@ After Adding 1...Class 1 = 2
 
 Tree: 3 |TimeSeries: 428 |Node 0 |Feature 6304 |Threshold -0.913076 |Value -1.03112
 Going LEFT! Jumping to Node: 1...
-Tree: 3 |TimeSeries: 428 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.479694
+Tree: 3 |TimeSeries: 428 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.498262
 Going RIGHT! Jumping to Node: 5...
 HIT LEAF at: 5
 Values to be added: [ 0 1 ]
@@ -40994,7 +40989,7 @@ After Adding 1...Class 1 = 2
 
 Tree: 3 |TimeSeries: 429 |Node 0 |Feature 6304 |Threshold -0.913076 |Value -1.1118
 Going LEFT! Jumping to Node: 1...
-Tree: 3 |TimeSeries: 429 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.257362
+Tree: 3 |TimeSeries: 429 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.588447
 Going RIGHT! Jumping to Node: 5...
 HIT LEAF at: 5
 Values to be added: [ 0 1 ]
@@ -41030,7 +41025,7 @@ After Adding 1...Class 1 = 4
 
 Tree: 3 |TimeSeries: 432 |Node 0 |Feature 6304 |Threshold -0.913076 |Value -1.01172
 Going LEFT! Jumping to Node: 1...
-Tree: 3 |TimeSeries: 432 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.490347
+Tree: 3 |TimeSeries: 432 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.590888
 Going RIGHT! Jumping to Node: 5...
 HIT LEAF at: 5
 Values to be added: [ 0 1 ]
@@ -41042,16 +41037,14 @@ After Adding 1...Class 1 = 3
 
 Tree: 3 |TimeSeries: 433 |Node 0 |Feature 6304 |Threshold -0.913076 |Value -0.997836
 Going LEFT! Jumping to Node: 1...
-Tree: 3 |TimeSeries: 433 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value -0.233374
-Going LEFT! Jumping to Node: 2...
-Tree: 3 |TimeSeries: 433 |Node 2 |Feature 1078 |Threshold -0.385613 |Value 0.213649
-Going RIGHT! Jumping to Node: 4...
-HIT LEAF at: 4
-Values to be added: [ 1 0 ]
+Tree: 3 |TimeSeries: 433 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.18427
+Going RIGHT! Jumping to Node: 5...
+HIT LEAF at: 5
+Values to be added: [ 0 1 ]
 Before Adding...Class 0 = 2
-After Adding 1...Class 0 = 3
+After Adding 0...Class 0 = 2
 Before Adding...Class 1 = 1
-After Adding 0...Class 1 = 1
+After Adding 1...Class 1 = 2
 
 
 Tree: 3 |TimeSeries: 434 |Node 0 |Feature 6304 |Threshold -0.913076 |Value -0.805321
@@ -41106,7 +41099,7 @@ After Adding 0...Class 1 = 1
 
 Tree: 3 |TimeSeries: 438 |Node 0 |Feature 6304 |Threshold -0.913076 |Value -1.00016
 Going LEFT! Jumping to Node: 1...
-Tree: 3 |TimeSeries: 438 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.263988
+Tree: 3 |TimeSeries: 438 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.383884
 Going RIGHT! Jumping to Node: 5...
 HIT LEAF at: 5
 Values to be added: [ 0 1 ]
@@ -41144,7 +41137,7 @@ After Adding 0...Class 1 = 1
 
 Tree: 3 |TimeSeries: 441 |Node 0 |Feature 6304 |Threshold -0.913076 |Value -1.01524
 Going LEFT! Jumping to Node: 1...
-Tree: 3 |TimeSeries: 441 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.326941
+Tree: 3 |TimeSeries: 441 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.456181
 Going RIGHT! Jumping to Node: 5...
 HIT LEAF at: 5
 Values to be added: [ 0 1 ]
@@ -41156,7 +41149,7 @@ After Adding 1...Class 1 = 2
 
 Tree: 3 |TimeSeries: 442 |Node 0 |Feature 6304 |Threshold -0.913076 |Value -1.13047
 Going LEFT! Jumping to Node: 1...
-Tree: 3 |TimeSeries: 442 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.43767
+Tree: 3 |TimeSeries: 442 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.544415
 Going RIGHT! Jumping to Node: 5...
 HIT LEAF at: 5
 Values to be added: [ 0 1 ]
@@ -41180,16 +41173,14 @@ After Adding 1...Class 1 = 4
 
 Tree: 3 |TimeSeries: 444 |Node 0 |Feature 6304 |Threshold -0.913076 |Value -1.09553
 Going LEFT! Jumping to Node: 1...
-Tree: 3 |TimeSeries: 444 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value -0.157083
-Going LEFT! Jumping to Node: 2...
-Tree: 3 |TimeSeries: 444 |Node 2 |Feature 1078 |Threshold -0.385613 |Value 0.30957
-Going RIGHT! Jumping to Node: 4...
-HIT LEAF at: 4
-Values to be added: [ 1 0 ]
+Tree: 3 |TimeSeries: 444 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.375659
+Going RIGHT! Jumping to Node: 5...
+HIT LEAF at: 5
+Values to be added: [ 0 1 ]
 Before Adding...Class 0 = 2
-After Adding 1...Class 0 = 3
+After Adding 0...Class 0 = 2
 Before Adding...Class 1 = 1
-After Adding 0...Class 1 = 1
+After Adding 1...Class 1 = 2
 
 
 Tree: 3 |TimeSeries: 445 |Node 0 |Feature 6304 |Threshold -0.913076 |Value -0.888078
@@ -41254,7 +41245,7 @@ After Adding 1...Class 1 = 3
 
 Tree: 3 |TimeSeries: 450 |Node 0 |Feature 6304 |Threshold -0.913076 |Value -0.998656
 Going LEFT! Jumping to Node: 1...
-Tree: 3 |TimeSeries: 450 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.32148
+Tree: 3 |TimeSeries: 450 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.395155
 Going RIGHT! Jumping to Node: 5...
 HIT LEAF at: 5
 Values to be added: [ 0 1 ]
@@ -41266,7 +41257,7 @@ After Adding 1...Class 1 = 2
 
 Tree: 3 |TimeSeries: 451 |Node 0 |Feature 6304 |Threshold -0.913076 |Value -1.04428
 Going LEFT! Jumping to Node: 1...
-Tree: 3 |TimeSeries: 451 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.266713
+Tree: 3 |TimeSeries: 451 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.372903
 Going RIGHT! Jumping to Node: 5...
 HIT LEAF at: 5
 Values to be added: [ 0 1 ]
@@ -41344,7 +41335,7 @@ After Adding 0...Class 1 = 1
 
 Tree: 3 |TimeSeries: 457 |Node 0 |Feature 6304 |Threshold -0.913076 |Value -1.11035
 Going LEFT! Jumping to Node: 1...
-Tree: 3 |TimeSeries: 457 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.129374
+Tree: 3 |TimeSeries: 457 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.210163
 Going RIGHT! Jumping to Node: 5...
 HIT LEAF at: 5
 Values to be added: [ 0 1 ]
@@ -41356,7 +41347,7 @@ After Adding 1...Class 1 = 3
 
 Tree: 3 |TimeSeries: 458 |Node 0 |Feature 6304 |Threshold -0.913076 |Value -0.913127
 Going LEFT! Jumping to Node: 1...
-Tree: 3 |TimeSeries: 458 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.44567
+Tree: 3 |TimeSeries: 458 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.468634
 Going RIGHT! Jumping to Node: 5...
 HIT LEAF at: 5
 Values to be added: [ 0 1 ]
@@ -41394,7 +41385,7 @@ After Adding 0...Class 1 = 1
 
 Tree: 3 |TimeSeries: 461 |Node 0 |Feature 6304 |Threshold -0.913076 |Value -1.08577
 Going LEFT! Jumping to Node: 1...
-Tree: 3 |TimeSeries: 461 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.373914
+Tree: 3 |TimeSeries: 461 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.412801
 Going RIGHT! Jumping to Node: 5...
 HIT LEAF at: 5
 Values to be added: [ 0 1 ]
@@ -41406,7 +41397,7 @@ After Adding 1...Class 1 = 2
 
 Tree: 3 |TimeSeries: 462 |Node 0 |Feature 6304 |Threshold -0.913076 |Value -1.11786
 Going LEFT! Jumping to Node: 1...
-Tree: 3 |TimeSeries: 462 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.397551
+Tree: 3 |TimeSeries: 462 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.495782
 Going RIGHT! Jumping to Node: 5...
 HIT LEAF at: 5
 Values to be added: [ 0 1 ]
@@ -41422,15 +41413,15 @@ Tree: 3 |TimeSeries: 463 |Node 6 |Feature 2192 |Threshold 1.28177 |Value 0.35234
 Going LEFT! Jumping to Node: 7...
 HIT LEAF at: 7
 Values to be added: [ 0 1 ]
-Before Adding...Class 0 = 1
-After Adding 0...Class 0 = 1
-Before Adding...Class 1 = 2
-After Adding 1...Class 1 = 3
+Before Adding...Class 0 = 0
+After Adding 0...Class 0 = 0
+Before Adding...Class 1 = 3
+After Adding 1...Class 1 = 4
 
 
 Tree: 3 |TimeSeries: 464 |Node 0 |Feature 6304 |Threshold -0.913076 |Value -0.92156
 Going LEFT! Jumping to Node: 1...
-Tree: 3 |TimeSeries: 464 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.422088
+Tree: 3 |TimeSeries: 464 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.411069
 Going RIGHT! Jumping to Node: 5...
 HIT LEAF at: 5
 Values to be added: [ 0 1 ]
@@ -41442,7 +41433,7 @@ After Adding 1...Class 1 = 4
 
 Tree: 3 |TimeSeries: 465 |Node 0 |Feature 6304 |Threshold -0.913076 |Value -0.939629
 Going LEFT! Jumping to Node: 1...
-Tree: 3 |TimeSeries: 465 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.398143
+Tree: 3 |TimeSeries: 465 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.430014
 Going RIGHT! Jumping to Node: 5...
 HIT LEAF at: 5
 Values to be added: [ 0 1 ]
@@ -41516,7 +41507,7 @@ After Adding 1...Class 1 = 2
 
 Tree: 3 |TimeSeries: 471 |Node 0 |Feature 6304 |Threshold -0.913076 |Value -1.14667
 Going LEFT! Jumping to Node: 1...
-Tree: 3 |TimeSeries: 471 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.575015
+Tree: 3 |TimeSeries: 471 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.599973
 Going RIGHT! Jumping to Node: 5...
 HIT LEAF at: 5
 Values to be added: [ 0 1 ]
@@ -41566,7 +41557,7 @@ After Adding 1...Class 1 = 2
 
 Tree: 3 |TimeSeries: 475 |Node 0 |Feature 6304 |Threshold -0.913076 |Value -1.1347
 Going LEFT! Jumping to Node: 1...
-Tree: 3 |TimeSeries: 475 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.359643
+Tree: 3 |TimeSeries: 475 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.474646
 Going RIGHT! Jumping to Node: 5...
 HIT LEAF at: 5
 Values to be added: [ 0 1 ]
@@ -41604,7 +41595,7 @@ After Adding 1...Class 1 = 4
 
 Tree: 3 |TimeSeries: 478 |Node 0 |Feature 6304 |Threshold -0.913076 |Value -1.19924
 Going LEFT! Jumping to Node: 1...
-Tree: 3 |TimeSeries: 478 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.534573
+Tree: 3 |TimeSeries: 478 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.662777
 Going RIGHT! Jumping to Node: 5...
 HIT LEAF at: 5
 Values to be added: [ 0 1 ]
@@ -41616,7 +41607,7 @@ After Adding 1...Class 1 = 2
 
 Tree: 3 |TimeSeries: 479 |Node 0 |Feature 6304 |Threshold -0.913076 |Value -0.976784
 Going LEFT! Jumping to Node: 1...
-Tree: 3 |TimeSeries: 479 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.417978
+Tree: 3 |TimeSeries: 479 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.509318
 Going RIGHT! Jumping to Node: 5...
 HIT LEAF at: 5
 Values to be added: [ 0 1 ]
@@ -41628,7 +41619,7 @@ After Adding 1...Class 1 = 2
 
 Tree: 3 |TimeSeries: 480 |Node 0 |Feature 6304 |Threshold -0.913076 |Value -1.07052
 Going LEFT! Jumping to Node: 1...
-Tree: 3 |TimeSeries: 480 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.189595
+Tree: 3 |TimeSeries: 480 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.501974
 Going RIGHT! Jumping to Node: 5...
 HIT LEAF at: 5
 Values to be added: [ 0 1 ]
@@ -41654,7 +41645,7 @@ After Adding 0...Class 1 = 1
 
 Tree: 3 |TimeSeries: 482 |Node 0 |Feature 6304 |Threshold -0.913076 |Value -1.01693
 Going LEFT! Jumping to Node: 1...
-Tree: 3 |TimeSeries: 482 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.498969
+Tree: 3 |TimeSeries: 482 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.535033
 Going RIGHT! Jumping to Node: 5...
 HIT LEAF at: 5
 Values to be added: [ 0 1 ]
@@ -41666,7 +41657,7 @@ After Adding 1...Class 1 = 4
 
 Tree: 3 |TimeSeries: 483 |Node 0 |Feature 6304 |Threshold -0.913076 |Value -0.98044
 Going LEFT! Jumping to Node: 1...
-Tree: 3 |TimeSeries: 483 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.179391
+Tree: 3 |TimeSeries: 483 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.397373
 Going RIGHT! Jumping to Node: 5...
 HIT LEAF at: 5
 Values to be added: [ 0 1 ]
@@ -41716,16 +41707,14 @@ After Adding 1...Class 1 = 2
 
 Tree: 3 |TimeSeries: 487 |Node 0 |Feature 6304 |Threshold -0.913076 |Value -1.06765
 Going LEFT! Jumping to Node: 1...
-Tree: 3 |TimeSeries: 487 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.0195115
-Going LEFT! Jumping to Node: 2...
-Tree: 3 |TimeSeries: 487 |Node 2 |Feature 1078 |Threshold -0.385613 |Value 0.269721
-Going RIGHT! Jumping to Node: 4...
-HIT LEAF at: 4
-Values to be added: [ 1 0 ]
+Tree: 3 |TimeSeries: 487 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.481306
+Going RIGHT! Jumping to Node: 5...
+HIT LEAF at: 5
+Values to be added: [ 0 1 ]
 Before Adding...Class 0 = 2
-After Adding 1...Class 0 = 3
+After Adding 0...Class 0 = 2
 Before Adding...Class 1 = 1
-After Adding 0...Class 1 = 1
+After Adding 1...Class 1 = 2
 
 
 Tree: 3 |TimeSeries: 488 |Node 0 |Feature 6304 |Threshold -0.913076 |Value -0.661831
@@ -41778,7 +41767,7 @@ After Adding 1...Class 1 = 2
 
 Tree: 3 |TimeSeries: 492 |Node 0 |Feature 6304 |Threshold -0.913076 |Value -0.922154
 Going LEFT! Jumping to Node: 1...
-Tree: 3 |TimeSeries: 492 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.314432
+Tree: 3 |TimeSeries: 492 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.481165
 Going RIGHT! Jumping to Node: 5...
 HIT LEAF at: 5
 Values to be added: [ 0 1 ]
@@ -41790,7 +41779,7 @@ After Adding 1...Class 1 = 3
 
 Tree: 3 |TimeSeries: 493 |Node 0 |Feature 6304 |Threshold -0.913076 |Value -0.953919
 Going LEFT! Jumping to Node: 1...
-Tree: 3 |TimeSeries: 493 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.521523
+Tree: 3 |TimeSeries: 493 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.656947
 Going RIGHT! Jumping to Node: 5...
 HIT LEAF at: 5
 Values to be added: [ 0 1 ]
@@ -41802,7 +41791,7 @@ After Adding 1...Class 1 = 2
 
 Tree: 3 |TimeSeries: 494 |Node 0 |Feature 6304 |Threshold -0.913076 |Value -0.916643
 Going LEFT! Jumping to Node: 1...
-Tree: 3 |TimeSeries: 494 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.33785
+Tree: 3 |TimeSeries: 494 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.478205
 Going RIGHT! Jumping to Node: 5...
 HIT LEAF at: 5
 Values to be added: [ 0 1 ]
@@ -41876,7 +41865,7 @@ After Adding 1...Class 1 = 2
 
 Tree: 3 |TimeSeries: 500 |Node 0 |Feature 6304 |Threshold -0.913076 |Value -0.986201
 Going LEFT! Jumping to Node: 1...
-Tree: 3 |TimeSeries: 500 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.41256
+Tree: 3 |TimeSeries: 500 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.477969
 Going RIGHT! Jumping to Node: 5...
 HIT LEAF at: 5
 Values to be added: [ 0 1 ]
@@ -41954,7 +41943,7 @@ After Adding 0...Class 1 = 1
 
 Tree: 3 |TimeSeries: 506 |Node 0 |Feature 6304 |Threshold -0.913076 |Value -0.92264
 Going LEFT! Jumping to Node: 1...
-Tree: 3 |TimeSeries: 506 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.74658
+Tree: 3 |TimeSeries: 506 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.612939
 Going RIGHT! Jumping to Node: 5...
 HIT LEAF at: 5
 Values to be added: [ 0 1 ]
@@ -41966,7 +41955,7 @@ After Adding 1...Class 1 = 3
 
 Tree: 3 |TimeSeries: 507 |Node 0 |Feature 6304 |Threshold -0.913076 |Value -1.01771
 Going LEFT! Jumping to Node: 1...
-Tree: 3 |TimeSeries: 507 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.193127
+Tree: 3 |TimeSeries: 507 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.523809
 Going RIGHT! Jumping to Node: 5...
 HIT LEAF at: 5
 Values to be added: [ 0 1 ]
@@ -42018,7 +42007,7 @@ After Adding 0...Class 1 = 2
 
 Tree: 3 |TimeSeries: 511 |Node 0 |Feature 6304 |Threshold -0.913076 |Value -1.10154
 Going LEFT! Jumping to Node: 1...
-Tree: 3 |TimeSeries: 511 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.324045
+Tree: 3 |TimeSeries: 511 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.441262
 Going RIGHT! Jumping to Node: 5...
 HIT LEAF at: 5
 Values to be added: [ 0 1 ]
@@ -42108,7 +42097,7 @@ After Adding 1...Class 1 = 4
 
 Tree: 3 |TimeSeries: 518 |Node 0 |Feature 6304 |Threshold -0.913076 |Value -0.916912
 Going LEFT! Jumping to Node: 1...
-Tree: 3 |TimeSeries: 518 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.348231
+Tree: 3 |TimeSeries: 518 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.455133
 Going RIGHT! Jumping to Node: 5...
 HIT LEAF at: 5
 Values to be added: [ 0 1 ]
@@ -42132,7 +42121,7 @@ After Adding 1...Class 1 = 2
 
 Tree: 3 |TimeSeries: 520 |Node 0 |Feature 6304 |Threshold -0.913076 |Value -1.14706
 Going LEFT! Jumping to Node: 1...
-Tree: 3 |TimeSeries: 520 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.25207
+Tree: 3 |TimeSeries: 520 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.328532
 Going RIGHT! Jumping to Node: 5...
 HIT LEAF at: 5
 Values to be added: [ 0 1 ]
@@ -42182,7 +42171,7 @@ After Adding 0...Class 1 = 1
 
 Tree: 3 |TimeSeries: 524 |Node 0 |Feature 6304 |Threshold -0.913076 |Value -0.972866
 Going LEFT! Jumping to Node: 1...
-Tree: 3 |TimeSeries: 524 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.304739
+Tree: 3 |TimeSeries: 524 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.377042
 Going RIGHT! Jumping to Node: 5...
 HIT LEAF at: 5
 Values to be added: [ 0 1 ]
@@ -42246,7 +42235,7 @@ After Adding 0...Class 1 = 1
 
 Tree: 3 |TimeSeries: 529 |Node 0 |Feature 6304 |Threshold -0.913076 |Value -0.981154
 Going LEFT! Jumping to Node: 1...
-Tree: 3 |TimeSeries: 529 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.376308
+Tree: 3 |TimeSeries: 529 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.424729
 Going RIGHT! Jumping to Node: 5...
 HIT LEAF at: 5
 Values to be added: [ 0 1 ]
@@ -42282,7 +42271,7 @@ After Adding 1...Class 1 = 4
 
 Tree: 3 |TimeSeries: 532 |Node 0 |Feature 6304 |Threshold -0.913076 |Value -0.98227
 Going LEFT! Jumping to Node: 1...
-Tree: 3 |TimeSeries: 532 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.10438
+Tree: 3 |TimeSeries: 532 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.267478
 Going RIGHT! Jumping to Node: 5...
 HIT LEAF at: 5
 Values to be added: [ 0 1 ]
@@ -42318,19 +42307,21 @@ After Adding 1...Class 1 = 4
 
 Tree: 3 |TimeSeries: 535 |Node 0 |Feature 6304 |Threshold -0.913076 |Value -1.0979
 Going LEFT! Jumping to Node: 1...
-Tree: 3 |TimeSeries: 535 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.456818
-Going RIGHT! Jumping to Node: 5...
-HIT LEAF at: 5
-Values to be added: [ 0 1 ]
+Tree: 3 |TimeSeries: 535 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value -0.303472
+Going LEFT! Jumping to Node: 2...
+Tree: 3 |TimeSeries: 535 |Node 2 |Feature 1078 |Threshold -0.385613 |Value 0.253849
+Going RIGHT! Jumping to Node: 4...
+HIT LEAF at: 4
+Values to be added: [ 1 0 ]
 Before Adding...Class 0 = 1
-After Adding 0...Class 0 = 1
+After Adding 1...Class 0 = 2
 Before Adding...Class 1 = 2
-After Adding 1...Class 1 = 3
+After Adding 0...Class 1 = 2
 
 
 Tree: 3 |TimeSeries: 536 |Node 0 |Feature 6304 |Threshold -0.913076 |Value -1.02539
 Going LEFT! Jumping to Node: 1...
-Tree: 3 |TimeSeries: 536 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.154268
+Tree: 3 |TimeSeries: 536 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.37641
 Going RIGHT! Jumping to Node: 5...
 HIT LEAF at: 5
 Values to be added: [ 0 1 ]
@@ -42474,7 +42465,7 @@ After Adding 1...Class 1 = 4
 
 Tree: 3 |TimeSeries: 548 |Node 0 |Feature 6304 |Threshold -0.913076 |Value -1.12474
 Going LEFT! Jumping to Node: 1...
-Tree: 3 |TimeSeries: 548 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.412105
+Tree: 3 |TimeSeries: 548 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.457988
 Going RIGHT! Jumping to Node: 5...
 HIT LEAF at: 5
 Values to be added: [ 0 1 ]
@@ -42536,7 +42527,7 @@ After Adding 1...Class 1 = 4
 
 Tree: 3 |TimeSeries: 553 |Node 0 |Feature 6304 |Threshold -0.913076 |Value -1.14596
 Going LEFT! Jumping to Node: 1...
-Tree: 3 |TimeSeries: 553 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.554591
+Tree: 3 |TimeSeries: 553 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.567693
 Going RIGHT! Jumping to Node: 5...
 HIT LEAF at: 5
 Values to be added: [ 0 1 ]
@@ -42574,7 +42565,7 @@ After Adding 0...Class 1 = 1
 
 Tree: 3 |TimeSeries: 556 |Node 0 |Feature 6304 |Threshold -0.913076 |Value -0.96973
 Going LEFT! Jumping to Node: 1...
-Tree: 3 |TimeSeries: 556 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.40807
+Tree: 3 |TimeSeries: 556 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.466117
 Going RIGHT! Jumping to Node: 5...
 HIT LEAF at: 5
 Values to be added: [ 0 1 ]
@@ -42586,7 +42577,7 @@ After Adding 1...Class 1 = 2
 
 Tree: 3 |TimeSeries: 557 |Node 0 |Feature 6304 |Threshold -0.913076 |Value -1.11297
 Going LEFT! Jumping to Node: 1...
-Tree: 3 |TimeSeries: 557 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.519791
+Tree: 3 |TimeSeries: 557 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.577528
 Going RIGHT! Jumping to Node: 5...
 HIT LEAF at: 5
 Values to be added: [ 0 1 ]
@@ -42706,7 +42697,7 @@ After Adding 1...Class 1 = 4
 
 Tree: 3 |TimeSeries: 567 |Node 0 |Feature 6304 |Threshold -0.913076 |Value -1.05555
 Going LEFT! Jumping to Node: 1...
-Tree: 3 |TimeSeries: 567 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.517701
+Tree: 3 |TimeSeries: 567 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.613575
 Going RIGHT! Jumping to Node: 5...
 HIT LEAF at: 5
 Values to be added: [ 0 1 ]
@@ -42780,7 +42771,7 @@ After Adding 1...Class 1 = 4
 
 Tree: 3 |TimeSeries: 573 |Node 0 |Feature 6304 |Threshold -0.913076 |Value -1.01143
 Going LEFT! Jumping to Node: 1...
-Tree: 3 |TimeSeries: 573 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.462783
+Tree: 3 |TimeSeries: 573 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.490074
 Going RIGHT! Jumping to Node: 5...
 HIT LEAF at: 5
 Values to be added: [ 0 1 ]
@@ -42830,7 +42821,7 @@ After Adding 1...Class 1 = 3
 
 Tree: 3 |TimeSeries: 577 |Node 0 |Feature 6304 |Threshold -0.913076 |Value -1.03969
 Going LEFT! Jumping to Node: 1...
-Tree: 3 |TimeSeries: 577 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.48346
+Tree: 3 |TimeSeries: 577 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.532871
 Going RIGHT! Jumping to Node: 5...
 HIT LEAF at: 5
 Values to be added: [ 0 1 ]
@@ -42842,7 +42833,7 @@ After Adding 1...Class 1 = 3
 
 Tree: 3 |TimeSeries: 578 |Node 0 |Feature 6304 |Threshold -0.913076 |Value -1.09031
 Going LEFT! Jumping to Node: 1...
-Tree: 3 |TimeSeries: 578 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.48471
+Tree: 3 |TimeSeries: 578 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.55963
 Going RIGHT! Jumping to Node: 5...
 HIT LEAF at: 5
 Values to be added: [ 0 1 ]
@@ -42880,7 +42871,7 @@ After Adding 0...Class 1 = 1
 
 Tree: 3 |TimeSeries: 581 |Node 0 |Feature 6304 |Threshold -0.913076 |Value -0.955736
 Going LEFT! Jumping to Node: 1...
-Tree: 3 |TimeSeries: 581 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.370884
+Tree: 3 |TimeSeries: 581 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.38969
 Going RIGHT! Jumping to Node: 5...
 HIT LEAF at: 5
 Values to be added: [ 0 1 ]
@@ -42904,7 +42895,7 @@ After Adding 1...Class 1 = 4
 
 Tree: 3 |TimeSeries: 583 |Node 0 |Feature 6304 |Threshold -0.913076 |Value -0.949996
 Going LEFT! Jumping to Node: 1...
-Tree: 3 |TimeSeries: 583 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.328976
+Tree: 3 |TimeSeries: 583 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.36837
 Going RIGHT! Jumping to Node: 5...
 HIT LEAF at: 5
 Values to be added: [ 0 1 ]
@@ -42916,7 +42907,7 @@ After Adding 1...Class 1 = 3
 
 Tree: 3 |TimeSeries: 584 |Node 0 |Feature 6304 |Threshold -0.913076 |Value -0.944516
 Going LEFT! Jumping to Node: 1...
-Tree: 3 |TimeSeries: 584 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.41051
+Tree: 3 |TimeSeries: 584 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.446551
 Going RIGHT! Jumping to Node: 5...
 HIT LEAF at: 5
 Values to be added: [ 0 1 ]
@@ -42928,7 +42919,7 @@ After Adding 1...Class 1 = 2
 
 Tree: 3 |TimeSeries: 585 |Node 0 |Feature 6304 |Threshold -0.913076 |Value -0.913112
 Going LEFT! Jumping to Node: 1...
-Tree: 3 |TimeSeries: 585 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.258325
+Tree: 3 |TimeSeries: 585 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.472285
 Going RIGHT! Jumping to Node: 5...
 HIT LEAF at: 5
 Values to be added: [ 0 1 ]
@@ -42988,7 +42979,7 @@ After Adding 1...Class 1 = 3
 
 Tree: 3 |TimeSeries: 590 |Node 0 |Feature 6304 |Threshold -0.913076 |Value -0.985741
 Going LEFT! Jumping to Node: 1...
-Tree: 3 |TimeSeries: 590 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.560641
+Tree: 3 |TimeSeries: 590 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.634661
 Going RIGHT! Jumping to Node: 5...
 HIT LEAF at: 5
 Values to be added: [ 0 1 ]
@@ -43064,7 +43055,7 @@ After Adding 0...Class 1 = 1
 
 Tree: 3 |TimeSeries: 596 |Node 0 |Feature 6304 |Threshold -0.913076 |Value -1.07997
 Going LEFT! Jumping to Node: 1...
-Tree: 3 |TimeSeries: 596 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.268365
+Tree: 3 |TimeSeries: 596 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.392239
 Going RIGHT! Jumping to Node: 5...
 HIT LEAF at: 5
 Values to be added: [ 0 1 ]
@@ -43100,7 +43091,7 @@ After Adding 1...Class 1 = 4
 
 Tree: 3 |TimeSeries: 599 |Node 0 |Feature 6304 |Threshold -0.913076 |Value -0.96197
 Going LEFT! Jumping to Node: 1...
-Tree: 3 |TimeSeries: 599 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.274048
+Tree: 3 |TimeSeries: 599 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.445262
 Going RIGHT! Jumping to Node: 5...
 HIT LEAF at: 5
 Values to be added: [ 0 1 ]
@@ -43288,7 +43279,7 @@ After Adding 1...Class 1 = 2
 
 Tree: 3 |TimeSeries: 614 |Node 0 |Feature 6304 |Threshold -0.913076 |Value -1.02853
 Going LEFT! Jumping to Node: 1...
-Tree: 3 |TimeSeries: 614 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.405384
+Tree: 3 |TimeSeries: 614 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.560725
 Going RIGHT! Jumping to Node: 5...
 HIT LEAF at: 5
 Values to be added: [ 0 1 ]
@@ -43360,7 +43351,7 @@ After Adding 1...Class 1 = 4
 
 Tree: 3 |TimeSeries: 620 |Node 0 |Feature 6304 |Threshold -0.913076 |Value -0.978362
 Going LEFT! Jumping to Node: 1...
-Tree: 3 |TimeSeries: 620 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.458018
+Tree: 3 |TimeSeries: 620 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.64253
 Going RIGHT! Jumping to Node: 5...
 HIT LEAF at: 5
 Values to be added: [ 0 1 ]
@@ -43472,7 +43463,7 @@ After Adding 1...Class 1 = 4
 
 Tree: 3 |TimeSeries: 629 |Node 0 |Feature 6304 |Threshold -0.913076 |Value -0.943943
 Going LEFT! Jumping to Node: 1...
-Tree: 3 |TimeSeries: 629 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.21993
+Tree: 3 |TimeSeries: 629 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.323796
 Going RIGHT! Jumping to Node: 5...
 HIT LEAF at: 5
 Values to be added: [ 0 1 ]
@@ -43510,7 +43501,7 @@ After Adding 1...Class 1 = 4
 
 Tree: 3 |TimeSeries: 632 |Node 0 |Feature 6304 |Threshold -0.913076 |Value -1.05609
 Going LEFT! Jumping to Node: 1...
-Tree: 3 |TimeSeries: 632 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.294008
+Tree: 3 |TimeSeries: 632 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.462561
 Going RIGHT! Jumping to Node: 5...
 HIT LEAF at: 5
 Values to be added: [ 0 1 ]
@@ -43802,7 +43793,7 @@ After Adding 1...Class 1 = 4
 
 Tree: 3 |TimeSeries: 656 |Node 0 |Feature 6304 |Threshold -0.913076 |Value -1.15691
 Going LEFT! Jumping to Node: 1...
-Tree: 3 |TimeSeries: 656 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.666751
+Tree: 3 |TimeSeries: 656 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.645439
 Going RIGHT! Jumping to Node: 5...
 HIT LEAF at: 5
 Values to be added: [ 0 1 ]
@@ -43902,7 +43893,7 @@ After Adding 1...Class 1 = 4
 
 Tree: 3 |TimeSeries: 664 |Node 0 |Feature 6304 |Threshold -0.913076 |Value -1.1731
 Going LEFT! Jumping to Node: 1...
-Tree: 3 |TimeSeries: 664 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.53943
+Tree: 3 |TimeSeries: 664 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.54501
 Going RIGHT! Jumping to Node: 5...
 HIT LEAF at: 5
 Values to be added: [ 0 1 ]
@@ -44034,10 +44025,10 @@ Tree: 3 |TimeSeries: 674 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.423
 Going RIGHT! Jumping to Node: 5...
 HIT LEAF at: 5
 Values to be added: [ 0 1 ]
-Before Adding...Class 0 = 2
-After Adding 0...Class 0 = 2
-Before Adding...Class 1 = 1
-After Adding 1...Class 1 = 2
+Before Adding...Class 0 = 1
+After Adding 0...Class 0 = 1
+Before Adding...Class 1 = 2
+After Adding 1...Class 1 = 3
 
 
 Tree: 3 |TimeSeries: 675 |Node 0 |Feature 6304 |Threshold -0.913076 |Value -0.807652
@@ -44348,7 +44339,7 @@ After Adding 1...Class 1 = 3
 
 Tree: 3 |TimeSeries: 700 |Node 0 |Feature 6304 |Threshold -0.913076 |Value -0.979555
 Going LEFT! Jumping to Node: 1...
-Tree: 3 |TimeSeries: 700 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.405482
+Tree: 3 |TimeSeries: 700 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.337906
 Going RIGHT! Jumping to Node: 5...
 HIT LEAF at: 5
 Values to be added: [ 0 1 ]
@@ -44398,7 +44389,7 @@ After Adding 1...Class 1 = 2
 
 Tree: 3 |TimeSeries: 704 |Node 0 |Feature 6304 |Threshold -0.913076 |Value -1.0021
 Going LEFT! Jumping to Node: 1...
-Tree: 3 |TimeSeries: 704 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.492496
+Tree: 3 |TimeSeries: 704 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.424037
 Going RIGHT! Jumping to Node: 5...
 HIT LEAF at: 5
 Values to be added: [ 0 1 ]
@@ -44450,7 +44441,7 @@ After Adding 1...Class 1 = 4
 
 Tree: 3 |TimeSeries: 708 |Node 0 |Feature 6304 |Threshold -0.913076 |Value -0.958384
 Going LEFT! Jumping to Node: 1...
-Tree: 3 |TimeSeries: 708 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.501249
+Tree: 3 |TimeSeries: 708 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.470877
 Going RIGHT! Jumping to Node: 5...
 HIT LEAF at: 5
 Values to be added: [ 0 1 ]
@@ -44522,7 +44513,7 @@ After Adding 1...Class 1 = 4
 
 Tree: 3 |TimeSeries: 714 |Node 0 |Feature 6304 |Threshold -0.913076 |Value -0.985
 Going LEFT! Jumping to Node: 1...
-Tree: 3 |TimeSeries: 714 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.56098
+Tree: 3 |TimeSeries: 714 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.589276
 Going RIGHT! Jumping to Node: 5...
 HIT LEAF at: 5
 Values to be added: [ 0 1 ]
@@ -44894,7 +44885,7 @@ After Adding 0...Class 1 = 1
 
 Tree: 3 |TimeSeries: 744 |Node 0 |Feature 6304 |Threshold -0.913076 |Value -1.15184
 Going LEFT! Jumping to Node: 1...
-Tree: 3 |TimeSeries: 744 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.414514
+Tree: 3 |TimeSeries: 744 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.415856
 Going RIGHT! Jumping to Node: 5...
 HIT LEAF at: 5
 Values to be added: [ 0 1 ]
@@ -44930,7 +44921,7 @@ After Adding 1...Class 1 = 4
 
 Tree: 3 |TimeSeries: 747 |Node 0 |Feature 6304 |Threshold -0.913076 |Value -1.10956
 Going LEFT! Jumping to Node: 1...
-Tree: 3 |TimeSeries: 747 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.617235
+Tree: 3 |TimeSeries: 747 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.188801
 Going RIGHT! Jumping to Node: 5...
 HIT LEAF at: 5
 Values to be added: [ 0 1 ]
@@ -44966,7 +44957,7 @@ After Adding 1...Class 1 = 2
 
 Tree: 3 |TimeSeries: 750 |Node 0 |Feature 6304 |Threshold -0.913076 |Value -0.914821
 Going LEFT! Jumping to Node: 1...
-Tree: 3 |TimeSeries: 750 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.666179
+Tree: 3 |TimeSeries: 750 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.718507
 Going RIGHT! Jumping to Node: 5...
 HIT LEAF at: 5
 Values to be added: [ 0 1 ]
@@ -45318,7 +45309,7 @@ After Adding 1...Class 1 = 4
 
 Tree: 3 |TimeSeries: 778 |Node 0 |Feature 6304 |Threshold -0.913076 |Value -0.980326
 Going LEFT! Jumping to Node: 1...
-Tree: 3 |TimeSeries: 778 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.459462
+Tree: 3 |TimeSeries: 778 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.459728
 Going RIGHT! Jumping to Node: 5...
 HIT LEAF at: 5
 Values to be added: [ 0 1 ]
@@ -45366,7 +45357,7 @@ After Adding 1...Class 1 = 2
 
 Tree: 3 |TimeSeries: 782 |Node 0 |Feature 6304 |Threshold -0.913076 |Value -1.01403
 Going LEFT! Jumping to Node: 1...
-Tree: 3 |TimeSeries: 782 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.388235
+Tree: 3 |TimeSeries: 782 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.421554
 Going RIGHT! Jumping to Node: 5...
 HIT LEAF at: 5
 Values to be added: [ 0 1 ]
@@ -45378,7 +45369,7 @@ After Adding 1...Class 1 = 2
 
 Tree: 3 |TimeSeries: 783 |Node 0 |Feature 6304 |Threshold -0.913076 |Value -1.02449
 Going LEFT! Jumping to Node: 1...
-Tree: 3 |TimeSeries: 783 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.373833
+Tree: 3 |TimeSeries: 783 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.233808
 Going RIGHT! Jumping to Node: 5...
 HIT LEAF at: 5
 Values to be added: [ 0 1 ]
@@ -45624,7 +45615,7 @@ After Adding 1...Class 1 = 4
 
 Tree: 3 |TimeSeries: 802 |Node 0 |Feature 6304 |Threshold -0.913076 |Value -0.993145
 Going LEFT! Jumping to Node: 1...
-Tree: 3 |TimeSeries: 802 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.436836
+Tree: 3 |TimeSeries: 802 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.441604
 Going RIGHT! Jumping to Node: 5...
 HIT LEAF at: 5
 Values to be added: [ 0 1 ]
@@ -45822,7 +45813,7 @@ After Adding 1...Class 1 = 4
 
 Tree: 3 |TimeSeries: 818 |Node 0 |Feature 6304 |Threshold -0.913076 |Value -1.15108
 Going LEFT! Jumping to Node: 1...
-Tree: 3 |TimeSeries: 818 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.515119
+Tree: 3 |TimeSeries: 818 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.500501
 Going RIGHT! Jumping to Node: 5...
 HIT LEAF at: 5
 Values to be added: [ 0 1 ]
@@ -46078,7 +46069,7 @@ After Adding 1...Class 1 = 4
 
 Tree: 3 |TimeSeries: 838 |Node 0 |Feature 6304 |Threshold -0.913076 |Value -1.05113
 Going LEFT! Jumping to Node: 1...
-Tree: 3 |TimeSeries: 838 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.389335
+Tree: 3 |TimeSeries: 838 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.408886
 Going RIGHT! Jumping to Node: 5...
 HIT LEAF at: 5
 Values to be added: [ 0 1 ]
@@ -46224,7 +46215,7 @@ After Adding 1...Class 1 = 2
 
 Tree: 3 |TimeSeries: 850 |Node 0 |Feature 6304 |Threshold -0.913076 |Value -0.996835
 Going LEFT! Jumping to Node: 1...
-Tree: 3 |TimeSeries: 850 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.588523
+Tree: 3 |TimeSeries: 850 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.595846
 Going RIGHT! Jumping to Node: 5...
 HIT LEAF at: 5
 Values to be added: [ 0 1 ]
@@ -46694,7 +46685,7 @@ After Adding 1...Class 1 = 4
 
 Tree: 3 |TimeSeries: 888 |Node 0 |Feature 6304 |Threshold -0.913076 |Value -1.00866
 Going LEFT! Jumping to Node: 1...
-Tree: 3 |TimeSeries: 888 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.433224
+Tree: 3 |TimeSeries: 888 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.397181
 Going RIGHT! Jumping to Node: 5...
 HIT LEAF at: 5
 Values to be added: [ 0 1 ]
@@ -46756,7 +46747,7 @@ After Adding 0...Class 1 = 1
 
 Tree: 3 |TimeSeries: 893 |Node 0 |Feature 6304 |Threshold -0.913076 |Value -0.919438
 Going LEFT! Jumping to Node: 1...
-Tree: 3 |TimeSeries: 893 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.442296
+Tree: 3 |TimeSeries: 893 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.474412
 Going RIGHT! Jumping to Node: 5...
 HIT LEAF at: 5
 Values to be added: [ 0 1 ]
@@ -46868,7 +46859,7 @@ After Adding 1...Class 1 = 4
 
 Tree: 3 |TimeSeries: 902 |Node 0 |Feature 6304 |Threshold -0.913076 |Value -1.0095
 Going LEFT! Jumping to Node: 1...
-Tree: 3 |TimeSeries: 902 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.369952
+Tree: 3 |TimeSeries: 902 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.395964
 Going RIGHT! Jumping to Node: 5...
 HIT LEAF at: 5
 Values to be added: [ 0 1 ]
@@ -46966,7 +46957,7 @@ After Adding 1...Class 1 = 4
 
 Tree: 3 |TimeSeries: 910 |Node 0 |Feature 6304 |Threshold -0.913076 |Value -1.0463
 Going LEFT! Jumping to Node: 1...
-Tree: 3 |TimeSeries: 910 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.429496
+Tree: 3 |TimeSeries: 910 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.48641
 Going RIGHT! Jumping to Node: 5...
 HIT LEAF at: 5
 Values to be added: [ 0 1 ]
@@ -47026,7 +47017,7 @@ After Adding 1...Class 1 = 4
 
 Tree: 3 |TimeSeries: 915 |Node 0 |Feature 6304 |Threshold -0.913076 |Value -1.14968
 Going LEFT! Jumping to Node: 1...
-Tree: 3 |TimeSeries: 915 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.558023
+Tree: 3 |TimeSeries: 915 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.587395
 Going RIGHT! Jumping to Node: 5...
 HIT LEAF at: 5
 Values to be added: [ 0 1 ]
@@ -47062,7 +47053,7 @@ After Adding 1...Class 1 = 4
 
 Tree: 3 |TimeSeries: 918 |Node 0 |Feature 6304 |Threshold -0.913076 |Value -1.01018
 Going LEFT! Jumping to Node: 1...
-Tree: 3 |TimeSeries: 918 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.677221
+Tree: 3 |TimeSeries: 918 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.671769
 Going RIGHT! Jumping to Node: 5...
 HIT LEAF at: 5
 Values to be added: [ 0 1 ]
@@ -47074,7 +47065,7 @@ After Adding 1...Class 1 = 2
 
 Tree: 3 |TimeSeries: 919 |Node 0 |Feature 6304 |Threshold -0.913076 |Value -0.948431
 Going LEFT! Jumping to Node: 1...
-Tree: 3 |TimeSeries: 919 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.477403
+Tree: 3 |TimeSeries: 919 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.444281
 Going RIGHT! Jumping to Node: 5...
 HIT LEAF at: 5
 Values to be added: [ 0 1 ]
@@ -47160,7 +47151,7 @@ After Adding 1...Class 1 = 4
 
 Tree: 3 |TimeSeries: 926 |Node 0 |Feature 6304 |Threshold -0.913076 |Value -1.15431
 Going LEFT! Jumping to Node: 1...
-Tree: 3 |TimeSeries: 926 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.55453
+Tree: 3 |TimeSeries: 926 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.561456
 Going RIGHT! Jumping to Node: 5...
 HIT LEAF at: 5
 Values to be added: [ 0 1 ]
@@ -47666,7 +47657,7 @@ After Adding 1...Class 1 = 2
 
 Tree: 3 |TimeSeries: 966 |Node 0 |Feature 6304 |Threshold -0.913076 |Value -0.98663
 Going LEFT! Jumping to Node: 1...
-Tree: 3 |TimeSeries: 966 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.567315
+Tree: 3 |TimeSeries: 966 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.610794
 Going RIGHT! Jumping to Node: 5...
 HIT LEAF at: 5
 Values to be added: [ 0 1 ]
@@ -47726,7 +47717,7 @@ After Adding 1...Class 1 = 4
 
 Tree: 3 |TimeSeries: 971 |Node 0 |Feature 6304 |Threshold -0.913076 |Value -0.929306
 Going LEFT! Jumping to Node: 1...
-Tree: 3 |TimeSeries: 971 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.465318
+Tree: 3 |TimeSeries: 971 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.465143
 Going RIGHT! Jumping to Node: 5...
 HIT LEAF at: 5
 Values to be added: [ 0 1 ]
@@ -47750,7 +47741,7 @@ After Adding 1...Class 1 = 3
 
 Tree: 3 |TimeSeries: 973 |Node 0 |Feature 6304 |Threshold -0.913076 |Value -1.01992
 Going LEFT! Jumping to Node: 1...
-Tree: 3 |TimeSeries: 973 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.413838
+Tree: 3 |TimeSeries: 973 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.366275
 Going RIGHT! Jumping to Node: 5...
 HIT LEAF at: 5
 Values to be added: [ 0 1 ]
@@ -47802,7 +47793,7 @@ After Adding 0...Class 1 = 1
 
 Tree: 3 |TimeSeries: 977 |Node 0 |Feature 6304 |Threshold -0.913076 |Value -0.953027
 Going LEFT! Jumping to Node: 1...
-Tree: 3 |TimeSeries: 977 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.499433
+Tree: 3 |TimeSeries: 977 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.457882
 Going RIGHT! Jumping to Node: 5...
 HIT LEAF at: 5
 Values to be added: [ 0 1 ]
@@ -47912,7 +47903,7 @@ After Adding 1...Class 1 = 4
 
 Tree: 3 |TimeSeries: 986 |Node 0 |Feature 6304 |Threshold -0.913076 |Value -0.93839
 Going LEFT! Jumping to Node: 1...
-Tree: 3 |TimeSeries: 986 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.574943
+Tree: 3 |TimeSeries: 986 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.515327
 Going RIGHT! Jumping to Node: 5...
 HIT LEAF at: 5
 Values to be added: [ 0 1 ]
@@ -47962,7 +47953,7 @@ After Adding 0...Class 1 = 1
 
 Tree: 3 |TimeSeries: 990 |Node 0 |Feature 6304 |Threshold -0.913076 |Value -1.06724
 Going LEFT! Jumping to Node: 1...
-Tree: 3 |TimeSeries: 990 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.33107
+Tree: 3 |TimeSeries: 990 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.340608
 Going RIGHT! Jumping to Node: 5...
 HIT LEAF at: 5
 Values to be added: [ 0 1 ]
@@ -47974,7 +47965,7 @@ After Adding 1...Class 1 = 2
 
 Tree: 3 |TimeSeries: 991 |Node 0 |Feature 6304 |Threshold -0.913076 |Value -1.03287
 Going LEFT! Jumping to Node: 1...
-Tree: 3 |TimeSeries: 991 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.50896
+Tree: 3 |TimeSeries: 991 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.495906
 Going RIGHT! Jumping to Node: 5...
 HIT LEAF at: 5
 Values to be added: [ 0 1 ]
@@ -48022,7 +48013,7 @@ After Adding 1...Class 1 = 4
 
 Tree: 3 |TimeSeries: 995 |Node 0 |Feature 6304 |Threshold -0.913076 |Value -0.979346
 Going LEFT! Jumping to Node: 1...
-Tree: 3 |TimeSeries: 995 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.370912
+Tree: 3 |TimeSeries: 995 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.423243
 Going RIGHT! Jumping to Node: 5...
 HIT LEAF at: 5
 Values to be added: [ 0 1 ]
@@ -48070,7 +48061,7 @@ After Adding 1...Class 1 = 4
 
 Tree: 3 |TimeSeries: 999 |Node 0 |Feature 6304 |Threshold -0.913076 |Value -1.00598
 Going LEFT! Jumping to Node: 1...
-Tree: 3 |TimeSeries: 999 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.378225
+Tree: 3 |TimeSeries: 999 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.360593
 Going RIGHT! Jumping to Node: 5...
 HIT LEAF at: 5
 Values to be added: [ 0 1 ]
@@ -48108,7 +48099,7 @@ After Adding 1...Class 1 = 4
 
 Tree: 3 |TimeSeries: 1002 |Node 0 |Feature 6304 |Threshold -0.913076 |Value -1.25989
 Going LEFT! Jumping to Node: 1...
-Tree: 3 |TimeSeries: 1002 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.26219
+Tree: 3 |TimeSeries: 1002 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.260116
 Going RIGHT! Jumping to Node: 5...
 HIT LEAF at: 5
 Values to be added: [ 0 1 ]
@@ -48410,7 +48401,7 @@ After Adding 0...Class 1 = 1
 
 Tree: 3 |TimeSeries: 1026 |Node 0 |Feature 6304 |Threshold -0.913076 |Value -1.26271
 Going LEFT! Jumping to Node: 1...
-Tree: 3 |TimeSeries: 1026 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.371128
+Tree: 3 |TimeSeries: 1026 |Node 1 |Feature 1491 |Threshold 0.0718417 |Value 0.351249
 Going RIGHT! Jumping to Node: 5...
 HIT LEAF at: 5
 Values to be added: [ 0 1 ]
@@ -48588,10 +48579,10 @@ Tree: 4 |TimeSeries: 11 |Node 1 |Feature 4620 |Threshold 0.209297 |Value 0.12446
 Going LEFT! Jumping to Node: 2...
 HIT LEAF at: 2
 Values to be added: [ 1 0 ]
-Before Adding...Class 0 = 1
-After Adding 1...Class 0 = 2
-Before Adding...Class 1 = 3
-After Adding 0...Class 1 = 3
+Before Adding...Class 0 = 2
+After Adding 1...Class 0 = 3
+Before Adding...Class 1 = 2
+After Adding 0...Class 1 = 2
 
 
 Tree: 4 |TimeSeries: 12 |Node 0 |Feature 805 |Threshold 1.10427 |Value 1.05729
@@ -48710,10 +48701,10 @@ Tree: 4 |TimeSeries: 21 |Node 1 |Feature 4620 |Threshold 0.209297 |Value -0.1495
 Going LEFT! Jumping to Node: 2...
 HIT LEAF at: 2
 Values to be added: [ 1 0 ]
-Before Adding...Class 0 = 3
-After Adding 1...Class 0 = 4
-Before Adding...Class 1 = 1
-After Adding 0...Class 1 = 1
+Before Adding...Class 0 = 4
+After Adding 1...Class 0 = 5
+Before Adding...Class 1 = 0
+After Adding 0...Class 1 = 0
 
 
 Tree: 4 |TimeSeries: 22 |Node 0 |Feature 805 |Threshold 1.10427 |Value 1.1389
@@ -48722,10 +48713,10 @@ Tree: 4 |TimeSeries: 22 |Node 6 |Feature 5062 |Threshold 0.82716 |Value 0.564478
 Going LEFT! Jumping to Node: 7...
 HIT LEAF at: 7
 Values to be added: [ 0 1 ]
-Before Adding...Class 0 = 1
-After Adding 0...Class 0 = 1
-Before Adding...Class 1 = 3
-After Adding 1...Class 1 = 4
+Before Adding...Class 0 = 0
+After Adding 0...Class 0 = 0
+Before Adding...Class 1 = 4
+After Adding 1...Class 1 = 5
 
 
 Tree: 4 |TimeSeries: 23 |Node 0 |Feature 805 |Threshold 1.10427 |Value 1.08309
@@ -48734,10 +48725,10 @@ Tree: 4 |TimeSeries: 23 |Node 1 |Feature 4620 |Threshold 0.209297 |Value -0.4071
 Going LEFT! Jumping to Node: 2...
 HIT LEAF at: 2
 Values to be added: [ 1 0 ]
-Before Adding...Class 0 = 2
-After Adding 1...Class 0 = 3
-Before Adding...Class 1 = 2
-After Adding 0...Class 1 = 2
+Before Adding...Class 0 = 1
+After Adding 1...Class 0 = 2
+Before Adding...Class 1 = 3
+After Adding 0...Class 1 = 3
 
 
 Tree: 4 |TimeSeries: 24 |Node 0 |Feature 805 |Threshold 1.10427 |Value 1.05774
@@ -48856,10 +48847,10 @@ Tree: 4 |TimeSeries: 33 |Node 1 |Feature 4620 |Threshold 0.209297 |Value -0.1404
 Going LEFT! Jumping to Node: 2...
 HIT LEAF at: 2
 Values to be added: [ 1 0 ]
-Before Adding...Class 0 = 0
-After Adding 1...Class 0 = 1
-Before Adding...Class 1 = 4
-After Adding 0...Class 1 = 4
+Before Adding...Class 0 = 1
+After Adding 1...Class 0 = 2
+Before Adding...Class 1 = 3
+After Adding 0...Class 1 = 3
 
 
 Tree: 4 |TimeSeries: 34 |Node 0 |Feature 805 |Threshold 1.10427 |Value 1.16252
@@ -48990,10 +48981,10 @@ Tree: 4 |TimeSeries: 44 |Node 1 |Feature 4620 |Threshold 0.209297 |Value -0.3745
 Going LEFT! Jumping to Node: 2...
 HIT LEAF at: 2
 Values to be added: [ 1 0 ]
-Before Adding...Class 0 = 2
-After Adding 1...Class 0 = 3
-Before Adding...Class 1 = 2
-After Adding 0...Class 1 = 2
+Before Adding...Class 0 = 3
+After Adding 1...Class 0 = 4
+Before Adding...Class 1 = 1
+After Adding 0...Class 1 = 1
 
 
 Tree: 4 |TimeSeries: 45 |Node 0 |Feature 805 |Threshold 1.10427 |Value 1.18021
@@ -49308,10 +49299,10 @@ Tree: 4 |TimeSeries: 70 |Node 6 |Feature 5062 |Threshold 0.82716 |Value 0.452579
 Going LEFT! Jumping to Node: 7...
 HIT LEAF at: 7
 Values to be added: [ 0 1 ]
-Before Adding...Class 0 = 0
-After Adding 0...Class 0 = 0
-Before Adding...Class 1 = 4
-After Adding 1...Class 1 = 5
+Before Adding...Class 0 = 1
+After Adding 0...Class 0 = 1
+Before Adding...Class 1 = 3
+After Adding 1...Class 1 = 4
 
 
 Tree: 4 |TimeSeries: 71 |Node 0 |Feature 805 |Threshold 1.10427 |Value 1.19437
@@ -49784,10 +49775,10 @@ Tree: 4 |TimeSeries: 109 |Node 1 |Feature 4620 |Threshold 0.209297 |Value -0.364
 Going LEFT! Jumping to Node: 2...
 HIT LEAF at: 2
 Values to be added: [ 1 0 ]
-Before Adding...Class 0 = 3
-After Adding 1...Class 0 = 4
-Before Adding...Class 1 = 1
-After Adding 0...Class 1 = 1
+Before Adding...Class 0 = 2
+After Adding 1...Class 0 = 3
+Before Adding...Class 1 = 2
+After Adding 0...Class 1 = 2
 
 
 Tree: 4 |TimeSeries: 110 |Node 0 |Feature 805 |Threshold 1.10427 |Value 1.25279
@@ -50142,10 +50133,10 @@ Tree: 4 |TimeSeries: 138 |Node 1 |Feature 4620 |Threshold 0.209297 |Value -0.442
 Going LEFT! Jumping to Node: 2...
 HIT LEAF at: 2
 Values to be added: [ 1 0 ]
-Before Adding...Class 0 = 3
-After Adding 1...Class 0 = 4
-Before Adding...Class 1 = 1
-After Adding 0...Class 1 = 1
+Before Adding...Class 0 = 2
+After Adding 1...Class 0 = 3
+Before Adding...Class 1 = 2
+After Adding 0...Class 1 = 2
 
 
 Tree: 4 |TimeSeries: 139 |Node 0 |Feature 805 |Threshold 1.10427 |Value 1.34407
@@ -50542,10 +50533,10 @@ Tree: 4 |TimeSeries: 171 |Node 1 |Feature 4620 |Threshold 0.209297 |Value -0.458
 Going LEFT! Jumping to Node: 2...
 HIT LEAF at: 2
 Values to be added: [ 1 0 ]
-Before Adding...Class 0 = 2
-After Adding 1...Class 0 = 3
-Before Adding...Class 1 = 2
-After Adding 0...Class 1 = 2
+Before Adding...Class 0 = 3
+After Adding 1...Class 0 = 4
+Before Adding...Class 1 = 1
+After Adding 0...Class 1 = 1
 
 
 Tree: 4 |TimeSeries: 172 |Node 0 |Feature 805 |Threshold 1.10427 |Value 0.954502
@@ -51394,10 +51385,10 @@ Tree: 4 |TimeSeries: 241 |Node 1 |Feature 4620 |Threshold 0.209297 |Value -0.387
 Going LEFT! Jumping to Node: 2...
 HIT LEAF at: 2
 Values to be added: [ 1 0 ]
-Before Adding...Class 0 = 2
-After Adding 1...Class 0 = 3
-Before Adding...Class 1 = 2
-After Adding 0...Class 1 = 2
+Before Adding...Class 0 = 3
+After Adding 1...Class 0 = 4
+Before Adding...Class 1 = 1
+After Adding 0...Class 1 = 1
 
 
 Tree: 4 |TimeSeries: 242 |Node 0 |Feature 805 |Threshold 1.10427 |Value 1.09837
@@ -52380,10 +52371,10 @@ Tree: 4 |TimeSeries: 322 |Node 1 |Feature 4620 |Threshold 0.209297 |Value -0.377
 Going LEFT! Jumping to Node: 2...
 HIT LEAF at: 2
 Values to be added: [ 1 0 ]
-Before Adding...Class 0 = 3
-After Adding 1...Class 0 = 4
-Before Adding...Class 1 = 1
-After Adding 0...Class 1 = 1
+Before Adding...Class 0 = 2
+After Adding 1...Class 0 = 3
+Before Adding...Class 1 = 2
+After Adding 0...Class 1 = 2
 
 
 Tree: 4 |TimeSeries: 323 |Node 0 |Feature 805 |Threshold 1.10427 |Value 1.66842
@@ -52404,10 +52395,10 @@ Tree: 4 |TimeSeries: 324 |Node 1 |Feature 4620 |Threshold 0.209297 |Value -0.335
 Going LEFT! Jumping to Node: 2...
 HIT LEAF at: 2
 Values to be added: [ 1 0 ]
-Before Adding...Class 0 = 2
-After Adding 1...Class 0 = 3
-Before Adding...Class 1 = 2
-After Adding 0...Class 1 = 2
+Before Adding...Class 0 = 3
+After Adding 1...Class 0 = 4
+Before Adding...Class 1 = 1
+After Adding 0...Class 1 = 1
 
 
 Tree: 4 |TimeSeries: 325 |Node 0 |Feature 805 |Threshold 1.10427 |Value 0.852294
@@ -53308,10 +53299,10 @@ Tree: 4 |TimeSeries: 398 |Node 6 |Feature 5062 |Threshold 0.82716 |Value 0.04388
 Going LEFT! Jumping to Node: 7...
 HIT LEAF at: 7
 Values to be added: [ 0 1 ]
-Before Adding...Class 0 = 1
-After Adding 0...Class 0 = 1
-Before Adding...Class 1 = 3
-After Adding 1...Class 1 = 4
+Before Adding...Class 0 = 2
+After Adding 0...Class 0 = 2
+Before Adding...Class 1 = 2
+After Adding 1...Class 1 = 3
 
 
 Tree: 4 |TimeSeries: 399 |Node 0 |Feature 805 |Threshold 1.10427 |Value 1.1428
@@ -53736,10 +53727,10 @@ Tree: 4 |TimeSeries: 433 |Node 1 |Feature 4620 |Threshold 0.209297 |Value -0.388
 Going LEFT! Jumping to Node: 2...
 HIT LEAF at: 2
 Values to be added: [ 1 0 ]
-Before Adding...Class 0 = 3
-After Adding 1...Class 0 = 4
-Before Adding...Class 1 = 1
-After Adding 0...Class 1 = 1
+Before Adding...Class 0 = 2
+After Adding 1...Class 0 = 3
+Before Adding...Class 1 = 2
+After Adding 0...Class 1 = 2
 
 
 Tree: 4 |TimeSeries: 434 |Node 0 |Feature 805 |Threshold 1.10427 |Value 1.32884
@@ -53870,10 +53861,10 @@ Tree: 4 |TimeSeries: 444 |Node 1 |Feature 4620 |Threshold 0.209297 |Value -0.423
 Going LEFT! Jumping to Node: 2...
 HIT LEAF at: 2
 Values to be added: [ 1 0 ]
-Before Adding...Class 0 = 3
-After Adding 1...Class 0 = 4
-Before Adding...Class 1 = 1
-After Adding 0...Class 1 = 1
+Before Adding...Class 0 = 2
+After Adding 1...Class 0 = 3
+Before Adding...Class 1 = 2
+After Adding 0...Class 1 = 2
 
 
 Tree: 4 |TimeSeries: 445 |Node 0 |Feature 805 |Threshold 1.10427 |Value 1.0521
@@ -54102,10 +54093,10 @@ Tree: 4 |TimeSeries: 463 |Node 6 |Feature 5062 |Threshold 0.82716 |Value 0.49648
 Going LEFT! Jumping to Node: 7...
 HIT LEAF at: 7
 Values to be added: [ 0 1 ]
-Before Adding...Class 0 = 1
-After Adding 0...Class 0 = 1
-Before Adding...Class 1 = 3
-After Adding 1...Class 1 = 4
+Before Adding...Class 0 = 0
+After Adding 0...Class 0 = 0
+Before Adding...Class 1 = 4
+After Adding 1...Class 1 = 5
 
 
 Tree: 4 |TimeSeries: 464 |Node 0 |Feature 805 |Threshold 1.10427 |Value 1.14549
@@ -54392,10 +54383,10 @@ Tree: 4 |TimeSeries: 487 |Node 1 |Feature 4620 |Threshold 0.209297 |Value -0.483
 Going LEFT! Jumping to Node: 2...
 HIT LEAF at: 2
 Values to be added: [ 1 0 ]
-Before Adding...Class 0 = 3
-After Adding 1...Class 0 = 4
-Before Adding...Class 1 = 1
-After Adding 0...Class 1 = 1
+Before Adding...Class 0 = 2
+After Adding 1...Class 0 = 3
+Before Adding...Class 1 = 2
+After Adding 0...Class 1 = 2
 
 
 Tree: 4 |TimeSeries: 488 |Node 0 |Feature 805 |Threshold 1.10427 |Value 1.49192
@@ -54978,10 +54969,10 @@ Tree: 4 |TimeSeries: 535 |Node 1 |Feature 4620 |Threshold 0.209297 |Value -0.038
 Going LEFT! Jumping to Node: 2...
 HIT LEAF at: 2
 Values to be added: [ 1 0 ]
-Before Adding...Class 0 = 1
-After Adding 1...Class 0 = 2
-Before Adding...Class 1 = 3
-After Adding 0...Class 1 = 3
+Before Adding...Class 0 = 2
+After Adding 1...Class 0 = 3
+Before Adding...Class 1 = 2
+After Adding 0...Class 1 = 2
 
 
 Tree: 4 |TimeSeries: 536 |Node 0 |Feature 805 |Threshold 1.10427 |Value 1.20371
@@ -56678,10 +56669,10 @@ Tree: 4 |TimeSeries: 674 |Node 6 |Feature 5062 |Threshold 0.82716 |Value 0.79790
 Going LEFT! Jumping to Node: 7...
 HIT LEAF at: 7
 Values to be added: [ 0 1 ]
-Before Adding...Class 0 = 2
-After Adding 0...Class 0 = 2
-Before Adding...Class 1 = 2
-After Adding 1...Class 1 = 3
+Before Adding...Class 0 = 1
+After Adding 0...Class 0 = 1
+Before Adding...Class 1 = 3
+After Adding 1...Class 1 = 4
 
 
 Tree: 4 |TimeSeries: 675 |Node 0 |Feature 805 |Threshold 1.10427 |Value 1.1614
@@ -60983,8 +60974,8 @@ After Adding 1...Class 1 = 5
 
 
 This is allProba (before averaging)
-1 4 0 5 0 5 3 2 0 5 3 2 0 5 2 3 0 5 0 5 1 4 2 3 1 4 4 1 1 4 0 5 2 3 3 2 4 1 0 5 1 4 4 1 1 4 3 2 1 4 3 2 4 1 4 1 0 5 3 2 4 1 3 2 3 2 1 4 0 5 2 3 0 5 3 2 1 4 1 4 1 4 0 5 0 5 1 4 3 2 0 5 1 4 2 3 1 4 2 3 0 5 0 5 1 4 0 5 2 3 0 5 0 5 0 5 0 5 0 5 0 5 1 4 0 5 0 5 1 4 0 5 0 5 3 2 0 5 0 5 0 5 1 4 3 2 1 4 3 2 0 5 3 2 0 5 2 3 3 2 4 1 1 4 1 4 3 2 0 5 0 5 0 5 3 2 0 5 2 3 2 3 3 2 1 4 4 1 0 5 4 1 0 5 3 2 2 3 2 3 2 3 0 5 3 2 1 4 4 1 1 4 4 1 4 1 1 4 4 1 3 2 4 1 0 5 3 2 3 2 0 5 4 1 3 2 3 2 3 2 4 1 0 5 1 4 1 4 0 5 4 1 4 1 0 5 4 1 1 4 2 3 1 4 0 5 1 4 3 2 4 1 3 2 3 2 4 1 0 5 0 5 3 2 0 5 0 5 3 2 3 2 3 2 3 2 4 1 1 4 4 1 0 5 2 3 3 2 3 2 0 5 0 5 0 5 1 4 3 2 0 5 2 3 0 5 4 1 0 5 0 5 3 2 3 2 0 5 0 5 0 5 3 2 2 3 0 5 0 5 4 1 1 4 3 2 2 3 4 1 4 1 3 2 3 2 4 1 3 2 0 5 3 2 0 5 0 5 0 5 3 2 3 2 3 2 0 5 0 5 1 4 1 4 0 5 3 2 4 1 0 5 3 2 0 5 0 5 3 2 4 1 4 1 3 2 1 4 0 5 2 3 0 5 0 5 3 2 4 1 1 4 0 5 0 5 2 3 1 4 3 2 0 5 3 2 0 5 0 5 3 2 0 5 3 2 0 5 0 5 1 4 1 4 3 2 0 5 4 1 0 5 0 5 3 2 4 1 2 3 3 2 3 2 3 2 0 5 0 5 2 3 0 5 0 5 3 2 0 5 0 5 3 2 1 4 0 5 3 2 2 3 3 2 3 2 0 5 4 1 3 2 0 5 1 4 0 5 0 5 0 5 3 2 4 1 0 5 3 2 0 5 2 3 4 1 3 2 0 5 0 5 4 1 3 2 3 2 0 5 2 3 1 4 0 5 2 3 0 5 3 2 0 5 0 5 0 5 3 2 0 5 2 3 1 4 0 5 1 4 2 3 1 4 0 5 3 2 0 5 3 2 4 1 3 2 3 2 3 2 3 2 2 3 4 1 4 1 0 5 3 2 3 2 3 2 2 3 4 1 0 5 1 4 2 3 1 4 0 5 0 5 3 2 4 1 0 5 3 2 4 1 1 4 4 1 4 1 1 4 1 4 3 2 0 5 4 1 3 2 4 1 3 2 0 5 4 1 2 3 0 5 0 5 3 2 3 2 2 3 0 5 2 3 0 5 3 2 1 4 0 5 0 5 0 5 3 2 4 1 0 5 3 2 2 3 1 4 4 1 0 5 0 5 2 3 2 3 1 4 0 5 3 2 0 5 3 2 4 1 3 2 3 2 0 5 1 4 1 4 2 3 3 2 0 5 1 4 2 3 0 5 3 2 1 4 0 5 0 5 1 4 3 2 0 5 0 5 0 5 4 1 0 5 0 5 0 5 0 5 1 4 1 4 2 3 1 4 4 1 2 3 4 1 4 1 0 5 0 5 3 2 1 4 0 5 3 2 1 4 3 2 1 4 3 2 3 2 3 2 1 4 0 5 3 2 1 4 4 1 1 4 2 3 3 2 2 3 2 3 0 5 0 5 3 2 3 2 3 2 3 2 0 5 2 3 4 1 0 5 0 5 1 4 4 1 3 2 0 5 4 1 3 2 2 3 0 5 4 1 1 4 0 5 0 5 1 4 1 4 2 3 3 2 3 2 2 3 3 2 0 5 4 1 2 3 1 4 1 4 4 1 3 2 3 2 1 4 0 5 3 2 0 5 2 3 0 5 2 3 3 2 3 2 4 1 0 5 2 3 3 2 1 4 0 5 3 2 3 2 3 2 4 1 0 5 3 2 3 2 0 5 2 3 4 1 0 5 1 4 1 4 3 2 1 4 2 3 1 4 3 2 0 5 4 1 0 5 3 2 1 4 0 5 4 1 4 1 1 4 4 1 1 4 3 2 4 1 2 3 3 2 3 2 4 1 0 5 3 2 3 2 0 5 0 5 0 5 3 2 2 3 1 4 2 3 4 1 3 2 0 5 2 3 4 1 4 1 2 3 0 5 1 4 1 4 1 4 1 4 2 3 0 5 2 3 0 5 1 4 2 3 2 3 1 4 2 3 1 4 0 5 0 5 1 4 3 2 3 2 2 3 4 1 0 5 3 2 0 5 4 1 3 2 3 2 1 4 1 4 0 5 0 5 0 5 1 4 3 2 1 4 0 5 1 4 2 3 1 4 0 5 4 1 0 5 3 2 4 1 3 2 1 4 2 3 3 2 3 2 4 1 1 4 0 5 2 3 3 2 0 5 3 2 2 3 0 5 1 4 2 3 2 3 4 1 0 5 1 4 4 1 1 4 3 2 0 5 3 2 0 5 4 1 0 5 1 4 3 2 0 5 0 5 0 5 0 5 3 2 3 2 4 1 0 5 3 2 2 3 3 2 3 2 0 5 2 3 0 5 1 4 3 2 3 2 0 5 4 1 3 2 1 4 0 5 1 4 1 4 4 1 0 5 0 5 0 5 0 5 0 5 3 2 0 5 3 2 3 2 1 4 2 3 0 5 1 4 3 2 3 2 0 5 3 2 3 2 3 2 2 3 3 2 2 3 1 4 2 3 1 4 2 3 3 2 4 1 0 5 0 5 3 2 0 5 0 5 0 5 3 2 1 4 4 1 3 2 3 2 3 2 2 3 0 5 0 5 2 3 0 5 0 5 0 5 1 4 4 1 2 3 0 5 1 4 1 4 2 3 2 3 0 5 0 5 4 1 3 2 1 4 1 4 0 5 1 4 3 2 1 4 1 4 0 5 1 4 1 4 2 3 0 5 3 2 3 2 3 2 4 1 3 2 0 5 2 3 3 2 0 5 1 4 3 2 0 5 3 2 4 1 1 4 4 1 0 5 2 3 0 5 0 5 0 5 2 3 0 5 2 3 0 5 0 5 3 2 3 2 1 4 1 4 1 4 0 5 2 3 1 4 3 2 0 5 0 5 1 4 1 4 4 1 0 5 4 1 2 3 0 5 0 5 2 3 2 3 3 2 0 5 1 4 2 3 2 3 4 1 0 5 3 2 3 2 0 5 3 2 4 1 0 5 0 5 2 3 0 5 3 2 4 1 4 1 2 3 1 4 0 5 4 1 2 3 3 2 0 5 3 2 3 2 0 5 1 4 0 5 2 3 3 2 3 2 3 2 4 1 3 2 3 2 4 1 0 5 0 5 3 2 1 4 1 4 4 1 0 5 0 5 4 1 0 5 4 1 3 2 0 5 0 5 1 4 3 2 3 2 2 3 0 5 3 2 3 2 1 4 4 1 2 3 0 5 3 2 0 5 3 2 0 5 0 5 2 3 2 3 4 1 4 1 4 1 3 2 3 2 2 3 0 5 1 4 2 3 4 1 1 4 4 1 1 4 4 1 4 1 4 1 3 2 0 5 3 2 0 5 3 2 0 5 0 5 1 4 0 5 4 1 0 5 0 5 3 2 3 2 2 3 3 2 3 2 0 5 4 1 0 5 4 1 0 5 0 5 0 5 3 2 0 5 0 5 4 1 2 3 3 2 0 5 0 5 3 2 0 5 3 2 1 4 1 4 4 1 0 5 1 4 3 2 3 2 3 2 0 5 3 2 2 3 0 5 0 5 2 3 4 1 1 4 0 5 3 2 3 2 0 5 0 5 4 1 3 2 0 5 4 1 1 4 0 5 0 5 0 5 4 1 1 4 3 2 0 5 0 5 0 5 0 5 4 1 3 2 1 4 2 3 0 5 3 2 0 5 0 5 3 2 2 3 0 5 3 2 3 2 2 3 0 5 3 2 0 5 2 3 1 4 1 4 2 3 2 3 1 4 4 1 0 5 2 3 3 2 0 5 4 1 0 5 4 1 0 5 0 5 0 5 3 2 0 5 3 2 4 1 0 5 0 5 4 1 0 5 0 5 4 1 4 1 0 5 4 1 0 5 3 2 4 1 0 5 4 1 0 5 0 5 3 2 0 5 3 2 0 5 2 3 0 5 0 5 0 5 0 5 0 5 3 2 2 3 3 2 0 5 4 1 4 1 2 3 0 5 1 4 0 5 4 1 0 5 1 4 0 5 0 5 2 3 0 5 0 5 4 1 3 2 3 2 0 5 0 5 1 4 3 2 2 3 0 5 1 4 0 5 4 1 0 5 3 2 0 5 1 4 2 3 2 3 4 1 1 4 0 5 4 1 0 5 0 5 4 1 0 5 0 5 3 2 1 4 1 4 4 1 3 2 4 1 0 5 4 1 0 5 4 1 1 4 1 4 0 5 This is proba, with averaged probabilities
-0.002 0.008 0 0.01 0 0.01 0.006 0.004 0 0.01 0.006 0.004 0 0.01 0.004 0.006 0 0.01 0 0.01 0.002 0.008 0.004 0.006 0.002 0.008 0.008 0.002 0.002 0.008 0 0.01 0.004 0.006 0.006 0.004 0.008 0.002 0 0.01 0.002 0.008 0.008 0.002 0.002 0.008 0.006 0.004 0.002 0.008 0.006 0.004 0.008 0.002 0.008 0.002 0 0.01 0.006 0.004 0.008 0.002 0.006 0.004 0.006 0.004 0.002 0.008 0 0.01 0.004 0.006 0 0.01 0.006 0.004 0.002 0.008 0.002 0.008 0.002 0.008 0 0.01 0 0.01 0.002 0.008 0.006 0.004 0 0.01 0.002 0.008 0.004 0.006 0.002 0.008 0.004 0.006 0 0.01 0 0.01 0.002 0.008 0 0.01 0.004 0.006 0 0.01 0 0.01 0 0.01 0 0.01 0 0.01 0 0.01 0.002 0.008 0 0.01 0 0.01 0.002 0.008 0 0.01 0 0.01 0.006 0.004 0 0.01 0 0.01 0 0.01 0.002 0.008 0.006 0.004 0.002 0.008 0.006 0.004 0 0.01 0.006 0.004 0 0.01 0.004 0.006 0.006 0.004 0.008 0.002 0.002 0.008 0.002 0.008 0.006 0.004 0 0.01 0 0.01 0 0.01 0.006 0.004 0 0.01 0.004 0.006 0.004 0.006 0.006 0.004 0.002 0.008 0.008 0.002 0 0.01 0.008 0.002 0 0.01 0.006 0.004 0.004 0.006 0.004 0.006 0.004 0.006 0 0.01 0.006 0.004 0.002 0.008 0.008 0.002 0.002 0.008 0.008 0.002 0.008 0.002 0.002 0.008 0.008 0.002 0.006 0.004 0.008 0.002 0 0.01 0.006 0.004 0.006 0.004 0 0.01 0.008 0.002 0.006 0.004 0.006 0.004 0.006 0.004 0.008 0.002 0 0.01 0.002 0.008 0.002 0.008 0 0.01 0.008 0.002 0.008 0.002 0 0.01 0.008 0.002 0.002 0.008 0.004 0.006 0.002 0.008 0 0.01 0.002 0.008 0.006 0.004 0.008 0.002 0.006 0.004 0.006 0.004 0.008 0.002 0 0.01 0 0.01 0.006 0.004 0 0.01 0 0.01 0.006 0.004 0.006 0.004 0.006 0.004 0.006 0.004 0.008 0.002 0.002 0.008 0.008 0.002 0 0.01 0.004 0.006 0.006 0.004 0.006 0.004 0 0.01 0 0.01 0 0.01 0.002 0.008 0.006 0.004 0 0.01 0.004 0.006 0 0.01 0.008 0.002 0 0.01 0 0.01 0.006 0.004 0.006 0.004 0 0.01 0 0.01 0 0.01 0.006 0.004 0.004 0.006 0 0.01 0 0.01 0.008 0.002 0.002 0.008 0.006 0.004 0.004 0.006 0.008 0.002 0.008 0.002 0.006 0.004 0.006 0.004 0.008 0.002 0.006 0.004 0 0.01 0.006 0.004 0 0.01 0 0.01 0 0.01 0.006 0.004 0.006 0.004 0.006 0.004 0 0.01 0 0.01 0.002 0.008 0.002 0.008 0 0.01 0.006 0.004 0.008 0.002 0 0.01 0.006 0.004 0 0.01 0 0.01 0.006 0.004 0.008 0.002 0.008 0.002 0.006 0.004 0.002 0.008 0 0.01 0.004 0.006 0 0.01 0 0.01 0.006 0.004 0.008 0.002 0.002 0.008 0 0.01 0 0.01 0.004 0.006 0.002 0.008 0.006 0.004 0 0.01 0.006 0.004 0 0.01 0 0.01 0.006 0.004 0 0.01 0.006 0.004 0 0.01 0 0.01 0.002 0.008 0.002 0.008 0.006 0.004 0 0.01 0.008 0.002 0 0.01 0 0.01 0.006 0.004 0.008 0.002 0.004 0.006 0.006 0.004 0.006 0.004 0.006 0.004 0 0.01 0 0.01 0.004 0.006 0 0.01 0 0.01 0.006 0.004 0 0.01 0 0.01 0.006 0.004 0.002 0.008 0 0.01 0.006 0.004 0.004 0.006 0.006 0.004 0.006 0.004 0 0.01 0.008 0.002 0.006 0.004 0 0.01 0.002 0.008 0 0.01 0 0.01 0 0.01 0.006 0.004 0.008 0.002 0 0.01 0.006 0.004 0 0.01 0.004 0.006 0.008 0.002 0.006 0.004 0 0.01 0 0.01 0.008 0.002 0.006 0.004 0.006 0.004 0 0.01 0.004 0.006 0.002 0.008 0 0.01 0.004 0.006 0 0.01 0.006 0.004 0 0.01 0 0.01 0 0.01 0.006 0.004 0 0.01 0.004 0.006 0.002 0.008 0 0.01 0.002 0.008 0.004 0.006 0.002 0.008 0 0.01 0.006 0.004 0 0.01 0.006 0.004 0.008 0.002 0.006 0.004 0.006 0.004 0.006 0.004 0.006 0.004 0.004 0.006 0.008 0.002 0.008 0.002 0 0.01 0.006 0.004 0.006 0.004 0.006 0.004 0.004 0.006 0.008 0.002 0 0.01 0.002 0.008 0.004 0.006 0.002 0.008 0 0.01 0 0.01 0.006 0.004 0.008 0.002 0 0.01 0.006 0.004 0.008 0.002 0.002 0.008 0.008 0.002 0.008 0.002 0.002 0.008 0.002 0.008 0.006 0.004 0 0.01 0.008 0.002 0.006 0.004 0.008 0.002 0.006 0.004 0 0.01 0.008 0.002 0.004 0.006 0 0.01 0 0.01 0.006 0.004 0.006 0.004 0.004 0.006 0 0.01 0.004 0.006 0 0.01 0.006 0.004 0.002 0.008 0 0.01 0 0.01 0 0.01 0.006 0.004 0.008 0.002 0 0.01 0.006 0.004 0.004 0.006 0.002 0.008 0.008 0.002 0 0.01 0 0.01 0.004 0.006 0.004 0.006 0.002 0.008 0 0.01 0.006 0.004 0 0.01 0.006 0.004 0.008 0.002 0.006 0.004 0.006 0.004 0 0.01 0.002 0.008 0.002 0.008 0.004 0.006 0.006 0.004 0 0.01 0.002 0.008 0.004 0.006 0 0.01 0.006 0.004 0.002 0.008 0 0.01 0 0.01 0.002 0.008 0.006 0.004 0 0.01 0 0.01 0 0.01 0.008 0.002 0 0.01 0 0.01 0 0.01 0 0.01 0.002 0.008 0.002 0.008 0.004 0.006 0.002 0.008 0.008 0.002 0.004 0.006 0.008 0.002 0.008 0.002 0 0.01 0 0.01 0.006 0.004 0.002 0.008 0 0.01 0.006 0.004 0.002 0.008 0.006 0.004 0.002 0.008 0.006 0.004 0.006 0.004 0.006 0.004 0.002 0.008 0 0.01 0.006 0.004 0.002 0.008 0.008 0.002 0.002 0.008 0.004 0.006 0.006 0.004 0.004 0.006 0.004 0.006 0 0.01 0 0.01 0.006 0.004 0.006 0.004 0.006 0.004 0.006 0.004 0 0.01 0.004 0.006 0.008 0.002 0 0.01 0 0.01 0.002 0.008 0.008 0.002 0.006 0.004 0 0.01 0.008 0.002 0.006 0.004 0.004 0.006 0 0.01 0.008 0.002 0.002 0.008 0 0.01 0 0.01 0.002 0.008 0.002 0.008 0.004 0.006 0.006 0.004 0.006 0.004 0.004 0.006 0.006 0.004 0 0.01 0.008 0.002 0.004 0.006 0.002 0.008 0.002 0.008 0.008 0.002 0.006 0.004 0.006 0.004 0.002 0.008 0 0.01 0.006 0.004 0 0.01 0.004 0.006 0 0.01 0.004 0.006 0.006 0.004 0.006 0.004 0.008 0.002 0 0.01 0.004 0.006 0.006 0.004 0.002 0.008 0 0.01 0.006 0.004 0.006 0.004 0.006 0.004 0.008 0.002 0 0.01 0.006 0.004 0.006 0.004 0 0.01 0.004 0.006 0.008 0.002 0 0.01 0.002 0.008 0.002 0.008 0.006 0.004 0.002 0.008 0.004 0.006 0.002 0.008 0.006 0.004 0 0.01 0.008 0.002 0 0.01 0.006 0.004 0.002 0.008 0 0.01 0.008 0.002 0.008 0.002 0.002 0.008 0.008 0.002 0.002 0.008 0.006 0.004 0.008 0.002 0.004 0.006 0.006 0.004 0.006 0.004 0.008 0.002 0 0.01 0.006 0.004 0.006 0.004 0 0.01 0 0.01 0 0.01 0.006 0.004 0.004 0.006 0.002 0.008 0.004 0.006 0.008 0.002 0.006 0.004 0 0.01 0.004 0.006 0.008 0.002 0.008 0.002 0.004 0.006 0 0.01 0.002 0.008 0.002 0.008 0.002 0.008 0.002 0.008 0.004 0.006 0 0.01 0.004 0.006 0 0.01 0.002 0.008 0.004 0.006 0.004 0.006 0.002 0.008 0.004 0.006 0.002 0.008 0 0.01 0 0.01 0.002 0.008 0.006 0.004 0.006 0.004 0.004 0.006 0.008 0.002 0 0.01 0.006 0.004 0 0.01 0.008 0.002 0.006 0.004 0.006 0.004 0.002 0.008 0.002 0.008 0 0.01 0 0.01 0 0.01 0.002 0.008 0.006 0.004 0.002 0.008 0 0.01 0.002 0.008 0.004 0.006 0.002 0.008 0 0.01 0.008 0.002 0 0.01 0.006 0.004 0.008 0.002 0.006 0.004 0.002 0.008 0.004 0.006 0.006 0.004 0.006 0.004 0.008 0.002 0.002 0.008 0 0.01 0.004 0.006 0.006 0.004 0 0.01 0.006 0.004 0.004 0.006 0 0.01 0.002 0.008 0.004 0.006 0.004 0.006 0.008 0.002 0 0.01 0.002 0.008 0.008 0.002 0.002 0.008 0.006 0.004 0 0.01 0.006 0.004 0 0.01 0.008 0.002 0 0.01 0.002 0.008 0.006 0.004 0 0.01 0 0.01 0 0.01 0 0.01 0.006 0.004 0.006 0.004 0.008 0.002 0 0.01 0.006 0.004 0.004 0.006 0.006 0.004 0.006 0.004 0 0.01 0.004 0.006 0 0.01 0.002 0.008 0.006 0.004 0.006 0.004 0 0.01 0.008 0.002 0.006 0.004 0.002 0.008 0 0.01 0.002 0.008 0.002 0.008 0.008 0.002 0 0.01 0 0.01 0 0.01 0 0.01 0 0.01 0.006 0.004 0 0.01 0.006 0.004 0.006 0.004 0.002 0.008 0.004 0.006 0 0.01 0.002 0.008 0.006 0.004 0.006 0.004 0 0.01 0.006 0.004 0.006 0.004 0.006 0.004 0.004 0.006 0.006 0.004 0.004 0.006 0.002 0.008 0.004 0.006 0.002 0.008 0.004 0.006 0.006 0.004 0.008 0.002 0 0.01 0 0.01 0.006 0.004 0 0.01 0 0.01 0 0.01 0.006 0.004 0.002 0.008 0.008 0.002 0.006 0.004 0.006 0.004 0.006 0.004 0.004 0.006 0 0.01 0 0.01 0.004 0.006 0 0.01 0 0.01 0 0.01 0.002 0.008 0.008 0.002 0.004 0.006 0 0.01 0.002 0.008 0.002 0.008 0.004 0.006 0.004 0.006 0 0.01 0 0.01 0.008 0.002 0.006 0.004 0.002 0.008 0.002 0.008 0 0.01 0.002 0.008 0.006 0.004 0.002 0.008 0.002 0.008 0 0.01 0.002 0.008 0.002 0.008 0.004 0.006 0 0.01 0.006 0.004 0.006 0.004 0.006 0.004 0.008 0.002 0.006 0.004 0 0.01 0.004 0.006 0.006 0.004 0 0.01 0.002 0.008 0.006 0.004 0 0.01 0.006 0.004 0.008 0.002 0.002 0.008 0.008 0.002 0 0.01 0.004 0.006 0 0.01 0 0.01 0 0.01 0.004 0.006 0 0.01 0.004 0.006 0 0.01 0 0.01 0.006 0.004 0.006 0.004 0.002 0.008 0.002 0.008 0.002 0.008 0 0.01 0.004 0.006 0.002 0.008 0.006 0.004 0 0.01 0 0.01 0.002 0.008 0.002 0.008 0.008 0.002 0 0.01 0.008 0.002 0.004 0.006 0 0.01 0 0.01 0.004 0.006 0.004 0.006 0.006 0.004 0 0.01 0.002 0.008 0.004 0.006 0.004 0.006 0.008 0.002 0 0.01 0.006 0.004 0.006 0.004 0 0.01 0.006 0.004 0.008 0.002 0 0.01 0 0.01 0.004 0.006 0 0.01 0.006 0.004 0.008 0.002 0.008 0.002 0.004 0.006 0.002 0.008 0 0.01 0.008 0.002 0.004 0.006 0.006 0.004 0 0.01 0.006 0.004 0.006 0.004 0 0.01 0.002 0.008 0 0.01 0.004 0.006 0.006 0.004 0.006 0.004 0.006 0.004 0.008 0.002 0.006 0.004 0.006 0.004 0.008 0.002 0 0.01 0 0.01 0.006 0.004 0.002 0.008 0.002 0.008 0.008 0.002 0 0.01 0 0.01 0.008 0.002 0 0.01 0.008 0.002 0.006 0.004 0 0.01 0 0.01 0.002 0.008 0.006 0.004 0.006 0.004 0.004 0.006 0 0.01 0.006 0.004 0.006 0.004 0.002 0.008 0.008 0.002 0.004 0.006 0 0.01 0.006 0.004 0 0.01 0.006 0.004 0 0.01 0 0.01 0.004 0.006 0.004 0.006 0.008 0.002 0.008 0.002 0.008 0.002 0.006 0.004 0.006 0.004 0.004 0.006 0 0.01 0.002 0.008 0.004 0.006 0.008 0.002 0.002 0.008 0.008 0.002 0.002 0.008 0.008 0.002 0.008 0.002 0.008 0.002 0.006 0.004 0 0.01 0.006 0.004 0 0.01 0.006 0.004 0 0.01 0 0.01 0.002 0.008 0 0.01 0.008 0.002 0 0.01 0 0.01 0.006 0.004 0.006 0.004 0.004 0.006 0.006 0.004 0.006 0.004 0 0.01 0.008 0.002 0 0.01 0.008 0.002 0 0.01 0 0.01 0 0.01 0.006 0.004 0 0.01 0 0.01 0.008 0.002 0.004 0.006 0.006 0.004 0 0.01 0 0.01 0.006 0.004 0 0.01 0.006 0.004 0.002 0.008 0.002 0.008 0.008 0.002 0 0.01 0.002 0.008 0.006 0.004 0.006 0.004 0.006 0.004 0 0.01 0.006 0.004 0.004 0.006 0 0.01 0 0.01 0.004 0.006 0.008 0.002 0.002 0.008 0 0.01 0.006 0.004 0.006 0.004 0 0.01 0 0.01 0.008 0.002 0.006 0.004 0 0.01 0.008 0.002 0.002 0.008 0 0.01 0 0.01 0 0.01 0.008 0.002 0.002 0.008 0.006 0.004 0 0.01 0 0.01 0 0.01 0 0.01 0.008 0.002 0.006 0.004 0.002 0.008 0.004 0.006 0 0.01 0.006 0.004 0 0.01 0 0.01 0.006 0.004 0.004 0.006 0 0.01 0.006 0.004 0.006 0.004 0.004 0.006 0 0.01 0.006 0.004 0 0.01 0.004 0.006 0.002 0.008 0.002 0.008 0.004 0.006 0.004 0.006 0.002 0.008 0.008 0.002 0 0.01 0.004 0.006 0.006 0.004 0 0.01 0.008 0.002 0 0.01 0.008 0.002 0 0.01 0 0.01 0 0.01 0.006 0.004 0 0.01 0.006 0.004 0.008 0.002 0 0.01 0 0.01 0.008 0.002 0 0.01 0 0.01 0.008 0.002 0.008 0.002 0 0.01 0.008 0.002 0 0.01 0.006 0.004 0.008 0.002 0 0.01 0.008 0.002 0 0.01 0 0.01 0.006 0.004 0 0.01 0.006 0.004 0 0.01 0.004 0.006 0 0.01 0 0.01 0 0.01 0 0.01 0 0.01 0.006 0.004 0.004 0.006 0.006 0.004 0 0.01 0.008 0.002 0.008 0.002 0.004 0.006 0 0.01 0.002 0.008 0 0.01 0.008 0.002 0 0.01 0.002 0.008 0 0.01 0 0.01 0.004 0.006 0 0.01 0 0.01 0.008 0.002 0.006 0.004 0.006 0.004 0 0.01 0 0.01 0.002 0.008 0.006 0.004 0.004 0.006 0 0.01 0.002 0.008 0 0.01 0.008 0.002 0 0.01 0.006 0.004 0 0.01 0.002 0.008 0.004 0.006 0.004 0.006 0.008 0.002 0.002 0.008 0 0.01 0.008 0.002 0 0.01 0 0.01 0.008 0.002 0 0.01 0 0.01 0.006 0.004 0.002 0.008 0.002 0.008 0.008 0.002 0.006 0.004 0.008 0.002 0 0.01 0.008 0.002 0 0.01 0.008 0.002 0.002 0.008 0.002 0.008 0 0.01 proba shape: 1 1029
+1 4 0 5 0 5 3 2 0 5 3 2 0 5 2 3 0 5 0 5 1 4 3 2 1 4 4 1 1 4 0 5 2 3 3 2 4 1 0 5 1 4 5 0 0 5 2 3 1 4 3 2 4 1 4 1 0 5 3 2 4 1 3 2 3 2 2 3 0 5 2 3 0 5 3 2 1 4 1 4 1 4 0 5 0 5 1 4 4 1 0 5 1 4 2 3 1 4 2 3 0 5 0 5 1 4 0 5 2 3 0 5 0 5 0 5 0 5 0 5 0 5 1 4 0 5 0 5 1 4 0 5 0 5 3 2 0 5 0 5 1 4 1 4 3 2 1 4 3 2 0 5 3 2 0 5 2 3 3 2 4 1 1 4 1 4 3 2 0 5 0 5 0 5 3 2 0 5 2 3 2 3 3 2 1 4 4 1 0 5 4 1 0 5 3 2 2 3 2 3 2 3 0 5 3 2 1 4 4 1 1 4 4 1 4 1 1 4 3 2 3 2 4 1 0 5 3 2 3 2 0 5 4 1 3 2 3 2 3 2 4 1 0 5 1 4 1 4 0 5 4 1 4 1 0 5 4 1 1 4 2 3 1 4 0 5 1 4 3 2 4 1 3 2 3 2 3 2 0 5 0 5 3 2 0 5 0 5 3 2 3 2 3 2 3 2 4 1 1 4 4 1 0 5 2 3 3 2 3 2 0 5 0 5 0 5 1 4 3 2 0 5 2 3 0 5 4 1 0 5 0 5 3 2 3 2 0 5 0 5 0 5 4 1 2 3 0 5 0 5 4 1 1 4 3 2 2 3 4 1 4 1 3 2 3 2 4 1 3 2 0 5 3 2 0 5 0 5 0 5 3 2 3 2 3 2 0 5 0 5 1 4 1 4 0 5 3 2 4 1 0 5 3 2 0 5 0 5 3 2 4 1 4 1 3 2 1 4 0 5 2 3 0 5 0 5 3 2 4 1 1 4 0 5 0 5 2 3 1 4 3 2 0 5 3 2 0 5 0 5 3 2 0 5 3 2 0 5 0 5 1 4 1 4 3 2 0 5 4 1 0 5 0 5 3 2 4 1 2 3 3 2 4 1 3 2 0 5 0 5 2 3 0 5 0 5 3 2 0 5 0 5 3 2 1 4 0 5 3 2 2 3 3 2 3 2 0 5 4 1 3 2 0 5 1 4 0 5 0 5 0 5 3 2 4 1 0 5 3 2 0 5 2 3 4 1 3 2 0 5 0 5 4 1 3 2 3 2 0 5 2 3 1 4 0 5 2 3 0 5 3 2 0 5 0 5 0 5 3 2 0 5 2 3 1 4 0 5 1 4 2 3 1 4 0 5 3 2 0 5 3 2 4 1 3 2 3 2 3 2 3 2 2 3 4 1 4 1 0 5 3 2 3 2 3 2 2 3 4 1 0 5 1 4 2 3 1 4 0 5 0 5 3 2 3 2 0 5 4 1 4 1 1 4 4 1 4 1 1 4 1 4 3 2 0 5 4 1 3 2 4 1 3 2 0 5 4 1 2 3 0 5 0 5 3 2 3 2 2 3 0 5 2 3 0 5 3 2 1 4 0 5 0 5 0 5 3 2 4 1 0 5 3 2 2 3 1 4 4 1 0 5 0 5 2 3 2 3 1 4 0 5 3 2 0 5 3 2 4 1 3 2 3 2 0 5 1 4 1 4 2 3 3 2 0 5 1 4 2 3 0 5 3 2 1 4 0 5 0 5 1 4 3 2 0 5 0 5 0 5 4 1 0 5 0 5 0 5 0 5 1 4 1 4 2 3 2 3 4 1 2 3 4 1 4 1 0 5 0 5 3 2 1 4 0 5 3 2 1 4 3 2 1 4 3 2 3 2 3 2 1 4 0 5 3 2 1 4 4 1 1 4 2 3 3 2 2 3 2 3 0 5 0 5 3 2 3 2 3 2 3 2 0 5 2 3 3 2 0 5 0 5 1 4 4 1 3 2 0 5 4 1 3 2 2 3 0 5 3 2 1 4 0 5 0 5 1 4 1 4 2 3 3 2 3 2 2 3 3 2 0 5 4 1 2 3 1 4 1 4 4 1 3 2 3 2 0 5 0 5 3 2 0 5 2 3 0 5 2 3 3 2 3 2 4 1 0 5 2 3 3 2 1 4 0 5 3 2 3 2 3 2 4 1 0 5 3 2 3 2 0 5 2 3 3 2 0 5 1 4 1 4 3 2 1 4 2 3 1 4 3 2 0 5 4 1 0 5 3 2 1 4 0 5 4 1 4 1 1 4 4 1 1 4 3 2 4 1 2 3 3 2 3 2 4 1 0 5 3 2 3 2 0 5 0 5 0 5 3 2 2 3 1 4 2 3 4 1 3 2 0 5 2 3 4 1 4 1 2 3 0 5 1 4 1 4 1 4 1 4 3 2 0 5 2 3 0 5 1 4 2 3 2 3 1 4 2 3 1 4 0 5 0 5 1 4 3 2 3 2 2 3 4 1 0 5 3 2 0 5 4 1 3 2 3 2 1 4 1 4 0 5 0 5 0 5 1 4 3 2 1 4 0 5 1 4 2 3 1 4 0 5 4 1 0 5 3 2 4 1 3 2 1 4 2 3 3 2 3 2 4 1 1 4 0 5 2 3 3 2 0 5 3 2 2 3 0 5 1 4 2 3 2 3 4 1 0 5 1 4 4 1 1 4 3 2 0 5 3 2 0 5 4 1 0 5 1 4 3 2 0 5 0 5 0 5 0 5 3 2 3 2 4 1 0 5 3 2 2 3 3 2 3 2 0 5 2 3 0 5 1 4 3 2 3 2 0 5 4 1 3 2 1 4 0 5 1 4 1 4 4 1 0 5 0 5 0 5 0 5 0 5 3 2 0 5 3 2 3 2 1 4 2 3 0 5 1 4 3 2 3 2 0 5 3 2 3 2 3 2 2 3 3 2 2 3 1 4 2 3 1 4 2 3 3 2 4 1 0 5 0 5 3 2 0 5 0 5 0 5 3 2 1 4 4 1 3 2 3 2 3 2 2 3 0 5 0 5 1 4 0 5 0 5 0 5 1 4 4 1 2 3 0 5 1 4 1 4 2 3 2 3 0 5 0 5 4 1 3 2 1 4 1 4 0 5 1 4 3 2 1 4 1 4 0 5 1 4 1 4 2 3 0 5 3 2 3 2 3 2 4 1 3 2 0 5 2 3 3 2 0 5 1 4 3 2 0 5 3 2 4 1 1 4 4 1 0 5 2 3 0 5 0 5 0 5 2 3 0 5 2 3 0 5 0 5 3 2 3 2 1 4 1 4 1 4 0 5 2 3 1 4 3 2 0 5 0 5 1 4 1 4 4 1 0 5 4 1 2 3 0 5 0 5 2 3 2 3 3 2 0 5 1 4 2 3 2 3 4 1 0 5 3 2 3 2 0 5 3 2 4 1 0 5 0 5 2 3 0 5 3 2 4 1 4 1 2 3 1 4 0 5 4 1 2 3 3 2 0 5 3 2 3 2 0 5 1 4 0 5 2 3 3 2 3 2 3 2 4 1 3 2 3 2 4 1 0 5 0 5 3 2 1 4 1 4 4 1 0 5 0 5 4 1 0 5 4 1 3 2 0 5 0 5 1 4 3 2 3 2 2 3 0 5 3 2 3 2 1 4 4 1 2 3 0 5 3 2 0 5 3 2 0 5 0 5 2 3 2 3 4 1 4 1 4 1 3 2 3 2 2 3 0 5 1 4 2 3 4 1 1 4 4 1 1 4 4 1 4 1 4 1 3 2 0 5 3 2 0 5 3 2 0 5 0 5 1 4 0 5 4 1 0 5 0 5 3 2 3 2 2 3 3 2 3 2 0 5 4 1 0 5 4 1 0 5 0 5 0 5 3 2 0 5 0 5 4 1 2 3 3 2 0 5 0 5 3 2 0 5 3 2 1 4 1 4 4 1 0 5 1 4 3 2 3 2 3 2 0 5 3 2 2 3 0 5 0 5 2 3 4 1 1 4 0 5 3 2 3 2 0 5 0 5 4 1 3 2 0 5 4 1 1 4 0 5 0 5 0 5 4 1 1 4 3 2 0 5 0 5 0 5 0 5 4 1 3 2 1 4 2 3 0 5 3 2 0 5 0 5 3 2 2 3 0 5 3 2 3 2 2 3 0 5 3 2 0 5 2 3 1 4 1 4 2 3 2 3 1 4 4 1 0 5 2 3 3 2 0 5 4 1 0 5 4 1 0 5 0 5 0 5 3 2 0 5 3 2 4 1 0 5 0 5 4 1 0 5 0 5 4 1 4 1 0 5 4 1 0 5 3 2 4 1 0 5 4 1 0 5 0 5 3 2 0 5 3 2 0 5 2 3 0 5 0 5 0 5 0 5 0 5 3 2 2 3 3 2 0 5 4 1 4 1 2 3 0 5 1 4 0 5 4 1 0 5 1 4 0 5 0 5 2 3 0 5 0 5 4 1 3 2 3 2 0 5 0 5 1 4 3 2 2 3 0 5 1 4 0 5 4 1 0 5 3 2 0 5 1 4 2 3 2 3 4 1 1 4 0 5 4 1 0 5 0 5 4 1 0 5 0 5 3 2 1 4 1 4 4 1 3 2 4 1 0 5 4 1 0 5 4 1 1 4 1 4 0 5 This is proba, with averaged probabilities
+0.002 0.008 0 0.01 0 0.01 0.006 0.004 0 0.01 0.006 0.004 0 0.01 0.004 0.006 0 0.01 0 0.01 0.002 0.008 0.006 0.004 0.002 0.008 0.008 0.002 0.002 0.008 0 0.01 0.004 0.006 0.006 0.004 0.008 0.002 0 0.01 0.002 0.008 0.01 0 0 0.01 0.004 0.006 0.002 0.008 0.006 0.004 0.008 0.002 0.008 0.002 0 0.01 0.006 0.004 0.008 0.002 0.006 0.004 0.006 0.004 0.004 0.006 0 0.01 0.004 0.006 0 0.01 0.006 0.004 0.002 0.008 0.002 0.008 0.002 0.008 0 0.01 0 0.01 0.002 0.008 0.008 0.002 0 0.01 0.002 0.008 0.004 0.006 0.002 0.008 0.004 0.006 0 0.01 0 0.01 0.002 0.008 0 0.01 0.004 0.006 0 0.01 0 0.01 0 0.01 0 0.01 0 0.01 0 0.01 0.002 0.008 0 0.01 0 0.01 0.002 0.008 0 0.01 0 0.01 0.006 0.004 0 0.01 0 0.01 0.002 0.008 0.002 0.008 0.006 0.004 0.002 0.008 0.006 0.004 0 0.01 0.006 0.004 0 0.01 0.004 0.006 0.006 0.004 0.008 0.002 0.002 0.008 0.002 0.008 0.006 0.004 0 0.01 0 0.01 0 0.01 0.006 0.004 0 0.01 0.004 0.006 0.004 0.006 0.006 0.004 0.002 0.008 0.008 0.002 0 0.01 0.008 0.002 0 0.01 0.006 0.004 0.004 0.006 0.004 0.006 0.004 0.006 0 0.01 0.006 0.004 0.002 0.008 0.008 0.002 0.002 0.008 0.008 0.002 0.008 0.002 0.002 0.008 0.006 0.004 0.006 0.004 0.008 0.002 0 0.01 0.006 0.004 0.006 0.004 0 0.01 0.008 0.002 0.006 0.004 0.006 0.004 0.006 0.004 0.008 0.002 0 0.01 0.002 0.008 0.002 0.008 0 0.01 0.008 0.002 0.008 0.002 0 0.01 0.008 0.002 0.002 0.008 0.004 0.006 0.002 0.008 0 0.01 0.002 0.008 0.006 0.004 0.008 0.002 0.006 0.004 0.006 0.004 0.006 0.004 0 0.01 0 0.01 0.006 0.004 0 0.01 0 0.01 0.006 0.004 0.006 0.004 0.006 0.004 0.006 0.004 0.008 0.002 0.002 0.008 0.008 0.002 0 0.01 0.004 0.006 0.006 0.004 0.006 0.004 0 0.01 0 0.01 0 0.01 0.002 0.008 0.006 0.004 0 0.01 0.004 0.006 0 0.01 0.008 0.002 0 0.01 0 0.01 0.006 0.004 0.006 0.004 0 0.01 0 0.01 0 0.01 0.008 0.002 0.004 0.006 0 0.01 0 0.01 0.008 0.002 0.002 0.008 0.006 0.004 0.004 0.006 0.008 0.002 0.008 0.002 0.006 0.004 0.006 0.004 0.008 0.002 0.006 0.004 0 0.01 0.006 0.004 0 0.01 0 0.01 0 0.01 0.006 0.004 0.006 0.004 0.006 0.004 0 0.01 0 0.01 0.002 0.008 0.002 0.008 0 0.01 0.006 0.004 0.008 0.002 0 0.01 0.006 0.004 0 0.01 0 0.01 0.006 0.004 0.008 0.002 0.008 0.002 0.006 0.004 0.002 0.008 0 0.01 0.004 0.006 0 0.01 0 0.01 0.006 0.004 0.008 0.002 0.002 0.008 0 0.01 0 0.01 0.004 0.006 0.002 0.008 0.006 0.004 0 0.01 0.006 0.004 0 0.01 0 0.01 0.006 0.004 0 0.01 0.006 0.004 0 0.01 0 0.01 0.002 0.008 0.002 0.008 0.006 0.004 0 0.01 0.008 0.002 0 0.01 0 0.01 0.006 0.004 0.008 0.002 0.004 0.006 0.006 0.004 0.008 0.002 0.006 0.004 0 0.01 0 0.01 0.004 0.006 0 0.01 0 0.01 0.006 0.004 0 0.01 0 0.01 0.006 0.004 0.002 0.008 0 0.01 0.006 0.004 0.004 0.006 0.006 0.004 0.006 0.004 0 0.01 0.008 0.002 0.006 0.004 0 0.01 0.002 0.008 0 0.01 0 0.01 0 0.01 0.006 0.004 0.008 0.002 0 0.01 0.006 0.004 0 0.01 0.004 0.006 0.008 0.002 0.006 0.004 0 0.01 0 0.01 0.008 0.002 0.006 0.004 0.006 0.004 0 0.01 0.004 0.006 0.002 0.008 0 0.01 0.004 0.006 0 0.01 0.006 0.004 0 0.01 0 0.01 0 0.01 0.006 0.004 0 0.01 0.004 0.006 0.002 0.008 0 0.01 0.002 0.008 0.004 0.006 0.002 0.008 0 0.01 0.006 0.004 0 0.01 0.006 0.004 0.008 0.002 0.006 0.004 0.006 0.004 0.006 0.004 0.006 0.004 0.004 0.006 0.008 0.002 0.008 0.002 0 0.01 0.006 0.004 0.006 0.004 0.006 0.004 0.004 0.006 0.008 0.002 0 0.01 0.002 0.008 0.004 0.006 0.002 0.008 0 0.01 0 0.01 0.006 0.004 0.006 0.004 0 0.01 0.008 0.002 0.008 0.002 0.002 0.008 0.008 0.002 0.008 0.002 0.002 0.008 0.002 0.008 0.006 0.004 0 0.01 0.008 0.002 0.006 0.004 0.008 0.002 0.006 0.004 0 0.01 0.008 0.002 0.004 0.006 0 0.01 0 0.01 0.006 0.004 0.006 0.004 0.004 0.006 0 0.01 0.004 0.006 0 0.01 0.006 0.004 0.002 0.008 0 0.01 0 0.01 0 0.01 0.006 0.004 0.008 0.002 0 0.01 0.006 0.004 0.004 0.006 0.002 0.008 0.008 0.002 0 0.01 0 0.01 0.004 0.006 0.004 0.006 0.002 0.008 0 0.01 0.006 0.004 0 0.01 0.006 0.004 0.008 0.002 0.006 0.004 0.006 0.004 0 0.01 0.002 0.008 0.002 0.008 0.004 0.006 0.006 0.004 0 0.01 0.002 0.008 0.004 0.006 0 0.01 0.006 0.004 0.002 0.008 0 0.01 0 0.01 0.002 0.008 0.006 0.004 0 0.01 0 0.01 0 0.01 0.008 0.002 0 0.01 0 0.01 0 0.01 0 0.01 0.002 0.008 0.002 0.008 0.004 0.006 0.004 0.006 0.008 0.002 0.004 0.006 0.008 0.002 0.008 0.002 0 0.01 0 0.01 0.006 0.004 0.002 0.008 0 0.01 0.006 0.004 0.002 0.008 0.006 0.004 0.002 0.008 0.006 0.004 0.006 0.004 0.006 0.004 0.002 0.008 0 0.01 0.006 0.004 0.002 0.008 0.008 0.002 0.002 0.008 0.004 0.006 0.006 0.004 0.004 0.006 0.004 0.006 0 0.01 0 0.01 0.006 0.004 0.006 0.004 0.006 0.004 0.006 0.004 0 0.01 0.004 0.006 0.006 0.004 0 0.01 0 0.01 0.002 0.008 0.008 0.002 0.006 0.004 0 0.01 0.008 0.002 0.006 0.004 0.004 0.006 0 0.01 0.006 0.004 0.002 0.008 0 0.01 0 0.01 0.002 0.008 0.002 0.008 0.004 0.006 0.006 0.004 0.006 0.004 0.004 0.006 0.006 0.004 0 0.01 0.008 0.002 0.004 0.006 0.002 0.008 0.002 0.008 0.008 0.002 0.006 0.004 0.006 0.004 0 0.01 0 0.01 0.006 0.004 0 0.01 0.004 0.006 0 0.01 0.004 0.006 0.006 0.004 0.006 0.004 0.008 0.002 0 0.01 0.004 0.006 0.006 0.004 0.002 0.008 0 0.01 0.006 0.004 0.006 0.004 0.006 0.004 0.008 0.002 0 0.01 0.006 0.004 0.006 0.004 0 0.01 0.004 0.006 0.006 0.004 0 0.01 0.002 0.008 0.002 0.008 0.006 0.004 0.002 0.008 0.004 0.006 0.002 0.008 0.006 0.004 0 0.01 0.008 0.002 0 0.01 0.006 0.004 0.002 0.008 0 0.01 0.008 0.002 0.008 0.002 0.002 0.008 0.008 0.002 0.002 0.008 0.006 0.004 0.008 0.002 0.004 0.006 0.006 0.004 0.006 0.004 0.008 0.002 0 0.01 0.006 0.004 0.006 0.004 0 0.01 0 0.01 0 0.01 0.006 0.004 0.004 0.006 0.002 0.008 0.004 0.006 0.008 0.002 0.006 0.004 0 0.01 0.004 0.006 0.008 0.002 0.008 0.002 0.004 0.006 0 0.01 0.002 0.008 0.002 0.008 0.002 0.008 0.002 0.008 0.006 0.004 0 0.01 0.004 0.006 0 0.01 0.002 0.008 0.004 0.006 0.004 0.006 0.002 0.008 0.004 0.006 0.002 0.008 0 0.01 0 0.01 0.002 0.008 0.006 0.004 0.006 0.004 0.004 0.006 0.008 0.002 0 0.01 0.006 0.004 0 0.01 0.008 0.002 0.006 0.004 0.006 0.004 0.002 0.008 0.002 0.008 0 0.01 0 0.01 0 0.01 0.002 0.008 0.006 0.004 0.002 0.008 0 0.01 0.002 0.008 0.004 0.006 0.002 0.008 0 0.01 0.008 0.002 0 0.01 0.006 0.004 0.008 0.002 0.006 0.004 0.002 0.008 0.004 0.006 0.006 0.004 0.006 0.004 0.008 0.002 0.002 0.008 0 0.01 0.004 0.006 0.006 0.004 0 0.01 0.006 0.004 0.004 0.006 0 0.01 0.002 0.008 0.004 0.006 0.004 0.006 0.008 0.002 0 0.01 0.002 0.008 0.008 0.002 0.002 0.008 0.006 0.004 0 0.01 0.006 0.004 0 0.01 0.008 0.002 0 0.01 0.002 0.008 0.006 0.004 0 0.01 0 0.01 0 0.01 0 0.01 0.006 0.004 0.006 0.004 0.008 0.002 0 0.01 0.006 0.004 0.004 0.006 0.006 0.004 0.006 0.004 0 0.01 0.004 0.006 0 0.01 0.002 0.008 0.006 0.004 0.006 0.004 0 0.01 0.008 0.002 0.006 0.004 0.002 0.008 0 0.01 0.002 0.008 0.002 0.008 0.008 0.002 0 0.01 0 0.01 0 0.01 0 0.01 0 0.01 0.006 0.004 0 0.01 0.006 0.004 0.006 0.004 0.002 0.008 0.004 0.006 0 0.01 0.002 0.008 0.006 0.004 0.006 0.004 0 0.01 0.006 0.004 0.006 0.004 0.006 0.004 0.004 0.006 0.006 0.004 0.004 0.006 0.002 0.008 0.004 0.006 0.002 0.008 0.004 0.006 0.006 0.004 0.008 0.002 0 0.01 0 0.01 0.006 0.004 0 0.01 0 0.01 0 0.01 0.006 0.004 0.002 0.008 0.008 0.002 0.006 0.004 0.006 0.004 0.006 0.004 0.004 0.006 0 0.01 0 0.01 0.002 0.008 0 0.01 0 0.01 0 0.01 0.002 0.008 0.008 0.002 0.004 0.006 0 0.01 0.002 0.008 0.002 0.008 0.004 0.006 0.004 0.006 0 0.01 0 0.01 0.008 0.002 0.006 0.004 0.002 0.008 0.002 0.008 0 0.01 0.002 0.008 0.006 0.004 0.002 0.008 0.002 0.008 0 0.01 0.002 0.008 0.002 0.008 0.004 0.006 0 0.01 0.006 0.004 0.006 0.004 0.006 0.004 0.008 0.002 0.006 0.004 0 0.01 0.004 0.006 0.006 0.004 0 0.01 0.002 0.008 0.006 0.004 0 0.01 0.006 0.004 0.008 0.002 0.002 0.008 0.008 0.002 0 0.01 0.004 0.006 0 0.01 0 0.01 0 0.01 0.004 0.006 0 0.01 0.004 0.006 0 0.01 0 0.01 0.006 0.004 0.006 0.004 0.002 0.008 0.002 0.008 0.002 0.008 0 0.01 0.004 0.006 0.002 0.008 0.006 0.004 0 0.01 0 0.01 0.002 0.008 0.002 0.008 0.008 0.002 0 0.01 0.008 0.002 0.004 0.006 0 0.01 0 0.01 0.004 0.006 0.004 0.006 0.006 0.004 0 0.01 0.002 0.008 0.004 0.006 0.004 0.006 0.008 0.002 0 0.01 0.006 0.004 0.006 0.004 0 0.01 0.006 0.004 0.008 0.002 0 0.01 0 0.01 0.004 0.006 0 0.01 0.006 0.004 0.008 0.002 0.008 0.002 0.004 0.006 0.002 0.008 0 0.01 0.008 0.002 0.004 0.006 0.006 0.004 0 0.01 0.006 0.004 0.006 0.004 0 0.01 0.002 0.008 0 0.01 0.004 0.006 0.006 0.004 0.006 0.004 0.006 0.004 0.008 0.002 0.006 0.004 0.006 0.004 0.008 0.002 0 0.01 0 0.01 0.006 0.004 0.002 0.008 0.002 0.008 0.008 0.002 0 0.01 0 0.01 0.008 0.002 0 0.01 0.008 0.002 0.006 0.004 0 0.01 0 0.01 0.002 0.008 0.006 0.004 0.006 0.004 0.004 0.006 0 0.01 0.006 0.004 0.006 0.004 0.002 0.008 0.008 0.002 0.004 0.006 0 0.01 0.006 0.004 0 0.01 0.006 0.004 0 0.01 0 0.01 0.004 0.006 0.004 0.006 0.008 0.002 0.008 0.002 0.008 0.002 0.006 0.004 0.006 0.004 0.004 0.006 0 0.01 0.002 0.008 0.004 0.006 0.008 0.002 0.002 0.008 0.008 0.002 0.002 0.008 0.008 0.002 0.008 0.002 0.008 0.002 0.006 0.004 0 0.01 0.006 0.004 0 0.01 0.006 0.004 0 0.01 0 0.01 0.002 0.008 0 0.01 0.008 0.002 0 0.01 0 0.01 0.006 0.004 0.006 0.004 0.004 0.006 0.006 0.004 0.006 0.004 0 0.01 0.008 0.002 0 0.01 0.008 0.002 0 0.01 0 0.01 0 0.01 0.006 0.004 0 0.01 0 0.01 0.008 0.002 0.004 0.006 0.006 0.004 0 0.01 0 0.01 0.006 0.004 0 0.01 0.006 0.004 0.002 0.008 0.002 0.008 0.008 0.002 0 0.01 0.002 0.008 0.006 0.004 0.006 0.004 0.006 0.004 0 0.01 0.006 0.004 0.004 0.006 0 0.01 0 0.01 0.004 0.006 0.008 0.002 0.002 0.008 0 0.01 0.006 0.004 0.006 0.004 0 0.01 0 0.01 0.008 0.002 0.006 0.004 0 0.01 0.008 0.002 0.002 0.008 0 0.01 0 0.01 0 0.01 0.008 0.002 0.002 0.008 0.006 0.004 0 0.01 0 0.01 0 0.01 0 0.01 0.008 0.002 0.006 0.004 0.002 0.008 0.004 0.006 0 0.01 0.006 0.004 0 0.01 0 0.01 0.006 0.004 0.004 0.006 0 0.01 0.006 0.004 0.006 0.004 0.004 0.006 0 0.01 0.006 0.004 0 0.01 0.004 0.006 0.002 0.008 0.002 0.008 0.004 0.006 0.004 0.006 0.002 0.008 0.008 0.002 0 0.01 0.004 0.006 0.006 0.004 0 0.01 0.008 0.002 0 0.01 0.008 0.002 0 0.01 0 0.01 0 0.01 0.006 0.004 0 0.01 0.006 0.004 0.008 0.002 0 0.01 0 0.01 0.008 0.002 0 0.01 0 0.01 0.008 0.002 0.008 0.002 0 0.01 0.008 0.002 0 0.01 0.006 0.004 0.008 0.002 0 0.01 0.008 0.002 0 0.01 0 0.01 0.006 0.004 0 0.01 0.006 0.004 0 0.01 0.004 0.006 0 0.01 0 0.01 0 0.01 0 0.01 0 0.01 0.006 0.004 0.004 0.006 0.006 0.004 0 0.01 0.008 0.002 0.008 0.002 0.004 0.006 0 0.01 0.002 0.008 0 0.01 0.008 0.002 0 0.01 0.002 0.008 0 0.01 0 0.01 0.004 0.006 0 0.01 0 0.01 0.008 0.002 0.006 0.004 0.006 0.004 0 0.01 0 0.01 0.002 0.008 0.006 0.004 0.004 0.006 0 0.01 0.002 0.008 0 0.01 0.008 0.002 0 0.01 0.006 0.004 0 0.01 0.002 0.008 0.004 0.006 0.004 0.006 0.008 0.002 0.002 0.008 0 0.01 0.008 0.002 0 0.01 0 0.01 0.008 0.002 0 0.01 0 0.01 0.006 0.004 0.002 0.008 0.002 0.008 0.008 0.002 0.006 0.004 0.008 0.002 0 0.01 0.008 0.002 0 0.01 0.008 0.002 0.002 0.008 0.002 0.008 0 0.01 proba shape: 1 1029
 proba: 
 [[0.002, 0.008]
 [0, 0.01]
@@ -60997,7 +60988,7 @@ proba:
 [0, 0.01]
 [0, 0.01]
 [0.002, 0.008]
-[0.004, 0.006]
+[0.006, 0.004]
 [0.002, 0.008]
 [0.008, 0.002]
 [0.002, 0.008]
@@ -61006,10 +60997,10 @@ proba:
 [0.006, 0.004]
 [0.008, 0.002]
 [0, 0.01]
-[0.002, 0.008]
-[0.008, 0.002]
 [0.002, 0.008]
-[0.006, 0.004]
+[0.01, 0]
+[0, 0.01]
+[0.004, 0.006]
 [0.002, 0.008]
 [0.006, 0.004]
 [0.008, 0.002]
@@ -61019,7 +61010,7 @@ proba:
 [0.008, 0.002]
 [0.006, 0.004]
 [0.006, 0.004]
-[0.002, 0.008]
+[0.004, 0.006]
 [0, 0.01]
 [0.004, 0.006]
 [0, 0.01]
@@ -61030,7 +61021,7 @@ proba:
 [0, 0.01]
 [0, 0.01]
 [0.002, 0.008]
-[0.006, 0.004]
+[0.008, 0.002]
 [0, 0.01]
 [0.002, 0.008]
 [0.004, 0.006]
@@ -61056,8 +61047,8 @@ proba:
 [0.006, 0.004]
 [0, 0.01]
 [0, 0.01]
-[0, 0.01]
 [0.002, 0.008]
+[0.002, 0.008]
 [0.006, 0.004]
 [0.002, 0.008]
 [0.006, 0.004]
@@ -61095,8 +61086,8 @@ proba:
 [0.008, 0.002]
 [0.008, 0.002]
 [0.002, 0.008]
-[0.008, 0.002]
 [0.006, 0.004]
+[0.006, 0.004]
 [0.008, 0.002]
 [0, 0.01]
 [0.006, 0.004]
@@ -61124,7 +61115,7 @@ proba:
 [0.008, 0.002]
 [0.006, 0.004]
 [0.006, 0.004]
-[0.008, 0.002]
+[0.006, 0.004]
 [0, 0.01]
 [0, 0.01]
 [0.006, 0.004]
@@ -61157,7 +61148,7 @@ proba:
 [0, 0.01]
 [0, 0.01]
 [0, 0.01]
-[0.006, 0.004]
+[0.008, 0.002]
 [0.004, 0.006]
 [0, 0.01]
 [0, 0.01]
@@ -61227,7 +61218,7 @@ proba:
 [0.008, 0.002]
 [0.004, 0.006]
 [0.006, 0.004]
-[0.006, 0.004]
+[0.008, 0.002]
 [0.006, 0.004]
 [0, 0.01]
 [0, 0.01]
@@ -61308,10 +61299,10 @@ proba:
 [0, 0.01]
 [0, 0.01]
 [0.006, 0.004]
-[0.008, 0.002]
-[0, 0.01]
 [0.006, 0.004]
+[0, 0.01]
 [0.008, 0.002]
+[0.008, 0.002]
 [0.002, 0.008]
 [0.008, 0.002]
 [0.008, 0.002]
@@ -61384,7 +61375,7 @@ proba:
 [0.002, 0.008]
 [0.002, 0.008]
 [0.004, 0.006]
-[0.002, 0.008]
+[0.004, 0.006]
 [0.008, 0.002]
 [0.004, 0.006]
 [0.008, 0.002]
@@ -61419,7 +61410,7 @@ proba:
 [0.006, 0.004]
 [0, 0.01]
 [0.004, 0.006]
-[0.008, 0.002]
+[0.006, 0.004]
 [0, 0.01]
 [0, 0.01]
 [0.002, 0.008]
@@ -61430,7 +61421,7 @@ proba:
 [0.006, 0.004]
 [0.004, 0.006]
 [0, 0.01]
-[0.008, 0.002]
+[0.006, 0.004]
 [0.002, 0.008]
 [0, 0.01]
 [0, 0.01]
@@ -61449,8 +61440,8 @@ proba:
 [0.008, 0.002]
 [0.006, 0.004]
 [0.006, 0.004]
-[0.002, 0.008]
 [0, 0.01]
+[0, 0.01]
 [0.006, 0.004]
 [0, 0.01]
 [0.004, 0.006]
@@ -61473,7 +61464,7 @@ proba:
 [0.006, 0.004]
 [0, 0.01]
 [0.004, 0.006]
-[0.008, 0.002]
+[0.006, 0.004]
 [0, 0.01]
 [0.002, 0.008]
 [0.002, 0.008]
@@ -61521,7 +61512,7 @@ proba:
 [0.002, 0.008]
 [0.002, 0.008]
 [0.002, 0.008]
-[0.004, 0.006]
+[0.006, 0.004]
 [0, 0.01]
 [0.004, 0.006]
 [0, 0.01]
@@ -61660,7 +61651,7 @@ proba:
 [0.004, 0.006]
 [0, 0.01]
 [0, 0.01]
-[0.004, 0.006]
+[0.002, 0.008]
 [0, 0.01]
 [0, 0.01]
 [0, 0.01]
@@ -62017,7 +62008,7 @@ proba:
 [0, 0.01]
 ]
 yPred Size: 1029
-1 1 1 0 1 0 1 1 1 1 1 1 1 0 1 1 1 0 0 1 1 0 1 0 1 0 0 0 1 0 
+1 1 1 0 1 0 1 1 1 1 1 0 1 0 1 1 1 0 0 1 1 0 1 1 1 0 0 0 1 0 
 0 0 0 1 1 1 1 0 1 1 1 1 1 1 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
 1 1 1 1 1 1 1 0 1 1 1 1 0 1 0 1 0 1 1 0 0 1 1 0 1 1 1 0 1 1 
 1 0 1 0 1 0 1 0 1 1 1 1 0 1 0 1 0 0 1 0 0 0 1 0 0 1 0 0 0 0 
@@ -62034,7 +62025,7 @@ yPred Size: 1029
 1 1 0 1 1 1 1 0 0 0 0 1 1 0 1 1 1 0 0 1 0 0 1 1 0 1 1 1 1 1 
 1 0 0 1 0 1 0 1 1 1 0 0 0 1 1 0 1 1 1 1 0 0 0 1 1 0 1 1 0 0 
 0 0 1 0 0 1 1 0 1 1 1 0 1 1 1 0 1 0 1 0 1 1 0 0 1 0 1 0 0 1 
-0 0 0 1 0 0 1 1 1 0 1 1 1 0 0 1 1 0 0 1 1 1 1 1 1 1 1 1 1 1 
+0 0 0 1 0 0 1 1 1 0 1 1 1 0 0 1 1 0 0 1 1 1 1 1 1 0 1 1 1 1 
 1 1 1 1 1 1 1 1 0 0 1 0 1 0 1 0 0 0 1 1 1 1 1 1 0 1 1 1 1 1 
 1 0 1 0 0 0 1 1 0 0 0 1 1 1 0 1 0 1 1 1 1 1 0 1 1 0 1 0 1 0 
 1 0 1 1 0 1 1 1 1 0 0 0 1 0 1 0 0 1 1 1 1 0 0 1 0 0 1 1 1 1 
@@ -62053,5 +62044,5 @@ yPred Size: 1029
 0 0 1 1 1 0 1 1 1 1 0 1 0 1 1 1 1 0 1 1 0 1 1 0 1 1 0 1 1 0 
 0 0 1 0 1 0 1 1 1 
 calling compare vectors
-Errors: 144
-accuracy: 0.860058
+Errors: 147
+accuracy: 0.857143
