@@ -143,51 +143,68 @@ vector<vector<vector<double>>> getTreeProba(const vector<vector<Node>>& forest,
                                             vector<vector<vector<double>>>& all_proba, 
                                             const int& numSamples, 
                                             const int& numClasses, 
-                                            const int& numOut){
-        for (size_t i=0; i<numOut; i++){ //Output i 
-            for (size_t j = 0; j < 5; j++) {  // Tree j
-                const auto& tree = forest[j];
-                for (size_t k=0; k<numSamples; k++){   //Sample k 
-                    //Get row of X 
-                    vector<double> XRow = X[k];
+                                            const int& numOut)
 
-                    //TREE TRAVERSAL STEP 
-                    int nodeIdx = 0;           //Start at root node 
-                    while (tree[nodeIdx].left != -1 && tree[nodeIdx].right != -1){
-                        const Node& node = tree[nodeIdx]; 
-                        double xValue = XRow[node.feature];
-                        cout << "Tree " << j 
-                            << " Sample " << k 
-                            << " Node " << nodeIdx
-                            << " Feature " << node.feature 
-                            << " Threshold " << node.threshold 
-                            << " Value " << xValue << endl;
-                        if(xValue <= node.threshold){
-                            nodeIdx = node.left; 
-                        }else{
-                            nodeIdx = node.right; 
-                        }
-                    }
+{
+    cout << "Starting Tree Traversals" << endl; 
 
-                    //Once a leaf node is hit, get the values 
-                    const vector<double>& probs = tree[nodeIdx].values;
-                    cout << "Hit leaf at: " << nodeIdx << endl; 
-                    cout << "Values to be added: [ "; 
-                    for (int p=0; p<numClasses; p++){
-                        cout << probs[p] << " " << endl; 
-                    }
-                    cout << "]" << endl; 
+    for (size_t i=0; i<numOut; i++){ //Output i 
+        for (size_t j = 0; j < 5; j++) {  // Tree j
+            const auto& tree = forest[j];
+            for (size_t k=0; k<numSamples; k++){   //Sample k 
+                //Get row of X 
+                vector<double> XRow = X[k];
 
-                    //Summing the probabilities and adding to all_proba 
-                    for (size_t c = 0; c < probs.size(); ++c) {
-                        cout << "Before Adding...Class " << c << " = " << all_proba[i][k][c];
-                        all_proba[i][k][c] += probs[c];
-                        cout << "After Adding " << probs[c] << "...Class " << c << " = " << all_proba[i][k][c] << endl; 
+                //TREE TRAVERSAL STEP 
+                //Start at the root node
+                int nodeIdx = 0; 
+
+                //Looking for Leaf Nodes.
+                while (tree[nodeIdx].left != -1 && tree[nodeIdx].right != -1){
+                    const Node& node = tree[nodeIdx]; 
+                    double xValue = XRow[node.feature];
+
+                    //𝓓𝓮𝓫𝓾𝓰𝓰𝓲𝓷𝓰 𓆣⊹ ࣪ 𖢥: Tracking Current Tree 
+                    cout << "Tree: " << j 
+                        << " |TimeSeries: " << k 
+                        << " |Node " << nodeIdx
+                        << " |Feature " << node.feature 
+                        << " |Threshold " << node.threshold 
+                        << " |Value " << xValue << endl;
+
+                    //Go to the the next Node 
+                    if(xValue <= node.threshold){
+                        nodeIdx = node.left; 
+                        cout << "Going LEFT! Jumping to Node: " << nodeIdx << "..." << endl;
+
+                    }else{
+                        nodeIdx = node.right; 
+                        cout << "Going RIGHT! Jumping to Node: " << nodeIdx << "..." << endl;
+
                     }
-                }  
-            }
+                }
+
+                //Once a leaf node is hit, get the values 
+                const vector<double>& probs = tree[nodeIdx].values;
+                cout << "HIT LEAF at: " << nodeIdx << endl; 
+                cout << "Values to be added: [ "; 
+                for (int p=0; p<numClasses; p++){
+                    cout << probs[p] << " ";
+                }
+                cout << "]" << endl; 
+
+                //Summing the probabilities and adding to all_proba 
+                for (size_t c = 0; c < probs.size(); ++c) {
+                    cout << "Before Adding...Class " << c << " = " << all_proba[i][k][c] << endl;
+                    all_proba[i][k][c] += probs[c];
+                    cout << "After Adding " << probs[c] << "...Class " << c << " = " << all_proba[i][k][c] << endl; 
+                }
+
+                cout << "\n" << endl; //formatting 
+            } 
         }
-       
+    }
+    
     return all_proba;
 }
 
@@ -219,6 +236,15 @@ vector<vector<vector<double>>> predictProba(const vector<vector<double>>& X_inpu
 
     //4. TRAVERSING THE TREES TO GET PROBABILITIES  
     allProba = getTreeProba(forest, X, allProba, numSamples, numClasses, numOut); 
+    //4. 𝓓𝓮𝓫𝓾𝓰𝓰𝓲𝓷𝓰 𓆣⊹ ࣪ 𖢥: Checking allProba
+    cout << "This is allProba (before averaging)" << endl;  
+    for (int k = 0; k < numSamples; ++k) {
+        for (int i = 0; i < numOut; ++i) {
+            for (int c = 0; c < numClasses; ++c) {
+            cout << allProba[i][k][c] << " ";  
+            }
+        }
+    }
 
     //5. AVERAGING THE PROBABILITIES
     int numTrees = forest.size();
@@ -229,6 +255,16 @@ vector<vector<vector<double>>> predictProba(const vector<vector<double>>& X_inpu
             }
         }
     }
+    //5. 𝓓𝓮𝓫𝓾𝓰𝓰𝓲𝓷𝓰 𓆣⊹ ࣪ 𖢥: Checking averaged proba 
+    cout << "This is proba, with averaged probabilities" << endl;
+    for (int k = 0; k < numSamples; ++k) {
+        for (int i = 0; i < numOut; ++i) {
+            for (int c = 0; c < numClasses; ++c) {
+            cout << allProba[i][k][c] << " ";  
+            }
+        }
+    }
+
 
     return allProba;
 }
@@ -255,28 +291,28 @@ vector<int> treeBasedPredict(const vector<vector<double>>& X){
     vector<vector<Node>> forest = readTreesFromFile("/home/ccuev029/DATA/extraTrees.txt"); 
     vector<int> classes = {0,1};    //Caution 
     int numOut = 1;                 //Caution 
-    //𝓓𝓮𝓫𝓾𝓰𝓰𝓲𝓷𝓰 𓆣⊹ ࣪ 𖢥: Printing the Forest 
-    cout << "Number of Trees: " << forest.size() << endl; 
-    for (size_t t = 0; t < forest.size(); ++t) {
-        cout << "Tree " << t << ":\n";
-        for (size_t n = 0; n < forest[t].size(); ++n) {
-            const Node& node = forest[t][n];
-            cout << "  Node " << n << ": ";
-            cout << "feature=" << node.feature << ", ";
-            cout << "threshold=" << node.threshold << ", ";
-            cout << "left=" << node.left << ", ";
-            cout << "right=" << node.right << ", ";
-            cout << "values=[";
-            for (size_t v = 0; v < node.values.size(); ++v) {
-                cout << node.values[v];
-                if (v + 1 < node.values.size()) cout << ", ";
-            }
-            cout << "]\n";
-        }
-        cout << endl;
-    }
+    // //𝓓𝓮𝓫𝓾𝓰𝓰𝓲𝓷𝓰 𓆣⊹ ࣪ 𖢥: Printing the Forest 
+    // cout << "Number of Trees: " << forest.size() << endl; 
+    // for (size_t t = 0; t < forest.size(); ++t) {
+    //     cout << "Tree " << t << ":\n";
+    //     for (size_t n = 0; n < forest[t].size(); ++n) {
+    //         const Node& node = forest[t][n];
+    //         cout << "  Node " << n << ": ";
+    //         cout << "feature=" << node.feature << ", ";
+    //         cout << "threshold=" << node.threshold << ", ";
+    //         cout << "left=" << node.left << ", ";
+    //         cout << "right=" << node.right << ", ";
+    //         cout << "values=[";
+    //         for (size_t v = 0; v < node.values.size(); ++v) {
+    //             cout << node.values[v];
+    //             if (v + 1 < node.values.size()) cout << ", ";
+    //         }
+    //         cout << "]\n";
+    //     }
+    //     cout << endl;
+    // }
 
-    //3. GET THE PROBABILITIES OF TRANSFORMED MATRIX (Using the forest)
+    //3. PREDICTPROBA - Gets the probabilities of transformed matrix (Tree Traversal)
     vector<vector<vector<double>>> proba = predictProba(X, forest, classes, numOut); 
     //𝓓𝓮𝓫𝓾𝓰𝓰𝓲𝓷𝓰 𓆣⊹ ࣪ 𖢥: Printing Proba  
     if (proba.empty()) {
