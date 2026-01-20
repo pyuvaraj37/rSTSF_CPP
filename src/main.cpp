@@ -97,9 +97,10 @@ vector<int> readVector(const string& filename){
  * @return errors  
  * catches the amount of mismatches between two matrices + writes mismatches to txt file 
  */
-int compareMatrices(const vector<vector<double>>& matrixOne, 
+int writeMatrixMismatches(const vector<vector<double>>& matrixOne, 
                         const vector<vector<double>>& matrixTwo, 
                         const string& filename, const int& precision){
+    cout << "calling writeMatrixMismatches..." << endl; 
     //Open a file to write to 
     ofstream outFile(filename);
     if (!outFile.is_open()) {
@@ -130,8 +131,11 @@ int compareMatrices(const vector<vector<double>>& matrixOne,
     return errors; 
 }
 
-//compares the contents of two inputted vectors, couts the 
-//number of errors, doesn't write to file
+/** compareVectors <int>
+ * @param A, B 
+ * @return errors  
+ * compares the contents of two inputted vectors, couts the 
+ * number of errors, doesn't write to file**/
 int compareVectorsAndErrors(const vector<int>& A, const vector<int>& B){
     cout << "calling compare vectors" << endl; 
     int errors = 0; 
@@ -161,73 +165,67 @@ int compareVectorsAndErrors(const vector<int>& A, const vector<int>& B){
 
 int main() {
 
-    //1. GETTING THE COPIED DATA NEEDED from r-STSF
+    //I. GETTING THE COPIED DATA NEEDED from r-STSF
     //For actual use
-    vector<vector<double>> X_test = readMatrix("/home/ccuev029/rSTSF_CPP/DATA/XtestData.txt");       //X_test: the original time series
-    vector<vector<double>> X_per = readMatrix("/home/ccuev029/rSTSF_CPP/DATA/XperData.txt");        //Other Time Representations
-    vector<vector<double>> X_diff = readMatrix("/home/ccuev029/rSTSF_CPP/DATA/XdiffData.txt");
-    vector<int> relevantCaf = readVector("/home/ccuev029/rSTSF_CPP/DATA/relevant_caf_idx.txt");      //relevantCaf
-    vector<vector<double>> allCaf = readMatrix("/home/ccuev029/rSTSF_CPP/DATA/all_candidate_agg_feats.txt");
+    vector<vector<double>> X_test = readMatrix("/home/ccuev029/DATA/XTest.txt");       //X_test: the original time series
+    vector<vector<double>> X_per = readMatrix("/home/ccuev029/DATA/XPer.txt");        //Other Time Representations
+    vector<vector<double>> X_diff = readMatrix("/home/ccuev029/DATA/XDiff.txt");
+    vector<int> relevantCaf = readVector("/home/ccuev029/DATA/relevant_CAF_idx.txt");      //relevantCaf
+    vector<vector<double>> allCaf = readMatrix("/home/ccuev029/DATA/allCAF.txt");
     //For comparison/debugging 
-    vector<vector<double>> ar_X_test = readMatrix("/home/ccuev029/rSTSF_CPP/DATA/XarData.txt");      //ar_X_test: for comparison with X_ar
-    vector<vector<double>> X_Test_T = readMatrix("/home/ccuev029/rSTSF_CPP/DATA/X_test_T.txt");     //Transformed Matrix for comparison
-    vector<int> yTest = readVector("/home/ccuev029/rSTSF_CPP/DATA/y_test.txt"); 
+    vector<vector<double>> ar_X_test = readMatrix("/home/ccuev029/DATA/XAr.txt");      //ar_X_test: for comparison with X_ar
+    vector<vector<double>> X_Test_T = readMatrix("/home/ccuev029/DATA/XIntTrans.txt");     //Transformed Matrix for comparison
+    vector<int> yTest = readVector("/home/ccuev029/DATA/YTest.txt"); 
 
-    //1.1 𝓓𝓮𝓫𝓾𝓰𝓰𝓲𝓷𝓰 𓆣⊹ ࣪ 𖢥: Checking Sizes of Copied Data to make sure they match  
-    cout << "\nChecking sizes: " << endl;
-    cout << "Size of X_test: " << X_test.size() <<  "(rows) x " << X_test[0].size() << "(cols)" << endl; 
-    cout << "Size of X_per: " << X_per.size() <<  "(rows) x " << X_per[0].size() << "(cols)" << endl; 
-    cout << "Size of X_diff: " << X_diff.size() <<  "(rows) x " << X_diff[0].size() << "(cols)" << endl;
-    cout << "Size of relevantCaf: " << relevantCaf.size() <<  endl;
-    cout << "Size of allCaf: " << allCaf.size() << "(rows) x " << allCaf[0].size() << endl; 
-
-
-
-
-    //2. COMPUTING XAr (CPP) (different from ar_X_test, computed in rSTSF_CPP)
+    //II. COMPUTING AR REPRESENTATION.... (different from ar_X_test, computed in rSTSF_CPP)
     vector<vector<double>> X_ar = ar_coeffs(X_test); 
-    //2.1Flip the Signs (for now)
-    for (auto& row : X_ar) {                      
+    for (auto& row : X_ar) {                      //Flip the signs
         for (auto& val : row) {
             val = -val;
         }
     }
-    //2.2 Save generated XAr
-    writeMatrixToFile(X_ar, "/home/ccuev029/rSTSF_CPP/DATA_CPP/XAr_cpp.txt");
-    //2.3 𝓓𝓮𝓫𝓾𝓰𝓰𝓲𝓷𝓰 𓆣⊹ ࣪ 𖢥: XAr (CPP) cs XAr (Py)
-    cout << "This is XAr (Py)| Rows: " << ar_X_test.size() << " Cols: " << ar_X_test[0].size() << endl;
-    cout << "This is XAr (CPP)| Rows: " << X_ar.size() << " Cols: " << X_ar[0].size() << endl;
-    cout << "(ERRORS) XAr (Py) vs XAr (CPP): " << compareMatrices(ar_X_test, X_ar, "/home/ccuev029/rSTSF_CPP/DEBUGGING/AR_Mismatch.txt", 16) << " / " << X_ar.size()*X_ar[0].size() << endl; 
 
+    // //𝓓𝓮𝓫𝓾𝓰𝓰𝓲𝓷𝓰 𓆣⊹ ࣪ 𖢥: Write X_ar to file for comparison 
+    // writeMatrixToFile(X_ar, "/home/ccuev029/rSTSF_CPP/DATA/X_ar_cpp.txt");
+
+    //Comparison:Original AR vs Computed AR 
+    cout << "\nSize of X_ar: " << X_ar.size() <<  " " << X_ar[0].size() << endl; 
+    cout << "Size of ar_X_Test: " << ar_X_test.size() << " " << ar_X_test[0].size() << endl; 
+    cout << "ar_X_test vs X_ar Errors " << writeMatrixMismatches(ar_X_test, X_ar, "/home/ccuev029/rSTSF_CPP/DEBUGGING/AR_Mismatch.txt", 16) << " / " << X_ar.size()*X_ar[0].size() << endl; 
+
+    //𝓓𝓮𝓫𝓾𝓰𝓰𝓲𝓷𝓰 𓆣⊹ ࣪ 𖢥: Checking Sizes of Copied Data to make sure they match  
+    cout << "\nSize of X_test: " << X_test.size() <<  " " << X_test[0].size() << endl; 
+    cout << "Size of X_per: " << X_per.size() <<  " " << X_per[0].size() << endl; 
+    cout << "Size of X_diff: " << X_diff.size() <<  " " << X_diff[0].size() << endl;
 
     //III. GET INTERVAL BASED TRANSFORMATION  
     cout << "\nWith X_ar: " << endl; 
-    vector<vector<double>> XIntTrans = getIntervalBasedTransform(X_test, X_ar, X_per, X_diff, allCaf, relevantCaf);
-
-
-    //𝓓𝓮𝓫𝓾𝓰𝓰𝓲𝓷𝓰 𓆣⊹ ࣪ 𖢥: Trying method with original X_ar Data to see if this works...
-    // cout << "\nWith ar_X_test: " << endl; 
-    // vector<vector<double>> XIntTrans = getIntervalBasedTransform(X_test, ar_X_test, X_per, X_diff, allCaf, relevantCaf);
+    vector<vector<double>> XIntTrans = getIntervalBasedTransform(X_test, ar_X_test, X_per, X_diff, allCaf, relevantCaf);
 
     //Write transformed matrice to file 
-    writeMatrixToFile(XIntTrans, "/home/ccuev029/rSTSF_CPP/DATA/XIntTransform.txt"); 
+    writeMatrixToFile(XIntTrans, "/home/ccuev029/rSTSF_CPP/DATA_CPP/XIntTrans_cpp.txt"); 
     
-    // //𝓓𝓮𝓫𝓾𝓰𝓰𝓲𝓷𝓰 𓆣⊹ ࣪ 𖢥: Checking sizes...
-    // cout << "\nSize of xIntTrans: " << XIntTrans.size() << " " << XIntTrans[0].size() << endl; 
-    // cout << "Size of X_Test_T: " << X_Test_T.size() << " " << X_Test_T[0].size() << endl;
+    //𝓓𝓮𝓫𝓾𝓰𝓰𝓲𝓷𝓰 𓆣⊹ ࣪ 𖢥: Checking sizes...
+    cout << "\nSize of xIntTrans: " << XIntTrans.size() << " " << XIntTrans[0].size() << endl; 
+    cout << "Size of X_Test_T: " << X_Test_T.size() << " " << X_Test_T[0].size() << endl;
 
-    // //Comparison! X_int_T in Python vs XIntTrans in C++ - writing to file
-    // cout << "X_Test_T vs xIntTrans errors: " << matrixMismatches(X_Test_T, XIntTrans, "/home/ccuev029/rSTSF_CPP/DEBUGGING/xIntTrans_Mismatch.txt", 8) << " / " << XIntTrans.size() * XIntTrans[0].size() << endl; 
+    //Comparison! X_int_T in Python vs XIntTrans in C++ - writing to file
+    cout << "X_Test_T vs xIntTrans errors: " << writeMatrixMismatches(X_Test_T, XIntTrans, "/home/ccuev029/rSTSF_CPP/DEBUGGING/xIntTrans_Mismatch.txt", 8) << " / " << XIntTrans.size() * XIntTrans[0].size() << endl; 
 
 
     //IV. TREE BASED PREDICT (Y_PRED)
     vector<int> yPred = treeBasedPredict(XIntTrans); 
+
+    // // //Debugging: Using Original Transformed Data
+    // vector<int> yPred = treeBasedPredict(X_Test_T); 
+
     //𝓓𝓮𝓫𝓾𝓰𝓰𝓲𝓷𝓰 𓆣⊹ ࣪ 𖢥: Printing yPred 
     cout << "yPred Size: " << yPred.size() << endl; 
     for (size_t i = 0; i < yPred.size(); ++i) {
-        cout << yPred[i] << " ";
+        std::cout << yPred[i] << " ";
+        
         if ((i + 1) % 30 == 0) {
-            cout << endl; // Start a new line after every 30 elements
+            std::cout << std::endl; // Start a new line after every 30 elements
         }
     }
     // Optional: Final newline if total isn't a multiple of 30
@@ -239,6 +237,6 @@ int main() {
     int total = yTest.size(); 
     double errors = compareVectorsAndErrors(yPred, yTest); 
     double accuracy = (double)(total - errors) / total;
-    cout << "accuracy: " << accuracy << endl;  //FINAL PRODUCT
+    cout << "accuracy: " << accuracy << endl; 
 }
  
