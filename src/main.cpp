@@ -3,7 +3,7 @@
 #include "intBasedT.hpp"
 #include "treeBasedPredict.hpp"
 
-//✦•··MAIN.CPP of rSTSF_CPP HELPER FUNCTIONS - START ···············•✦•·················•✦•·················•✦
+//✦•··MAIN.CPP HELPER FUNCTIONS - START ····················•✦•······················•✦•······················•✦
 
 /*FOR READING/WRITING TO FILES... */
 
@@ -153,7 +153,8 @@ int compareVectorsAndErrors(const vector<int>& A, const vector<int>& B){
     return errors; 
 }
 
-//✦•··MAIN.CPP HELPER FUNCTIONS - END ·················•✦•···················•✦•···················•✦
+//✦•··MAIN.CPP HELPER FUNCTIONS - END ····················•✦•······················•✦•······················•✦
+
 
 
 /*MAIN FUNCTION PREDICT EQUIVALENT in rSTSF*/ 
@@ -162,15 +163,15 @@ int main() {
 
     //1. GETTING THE COPIED DATA NEEDED from r-STSF
     //For actual use
-    vector<vector<double>> X_test = readMatrix("/home/ccuev029/DATA/XTest.txt");       
-    vector<vector<double>> X_per = readMatrix("/home/ccuev029/DATA/XPer.txt");        
-    vector<vector<double>> X_diff = readMatrix("/home/ccuev029/DATA/XDiff.txt");
-    vector<int> relevantCaf = readVector("/home/ccuev029/DATA/relevant_CAF_idx.txt");  
-    vector<vector<double>> allCaf = readMatrix("/home/ccuev029/DATA/allCAF.txt");
+    vector<vector<double>> X_test = readMatrix("/home/ccuev029/rSTSF_CPP/DATA/XtestData.txt");       //X_test: the original time series
+    vector<vector<double>> X_per = readMatrix("/home/ccuev029/rSTSF_CPP/DATA/XperData.txt");        //Other Time Representations
+    vector<vector<double>> X_diff = readMatrix("/home/ccuev029/rSTSF_CPP/DATA/XdiffData.txt");
+    vector<int> relevantCaf = readVector("/home/ccuev029/rSTSF_CPP/DATA/relevant_caf_idx.txt");      //relevantCaf
+    vector<vector<double>> allCaf = readMatrix("/home/ccuev029/rSTSF_CPP/DATA/all_candidate_agg_feats.txt");
     //For comparison/debugging 
-    vector<vector<double>> ar_X_test = readMatrix("/home/ccuev029/DATA/XAr.txt");      
-    vector<vector<double>> X_Test_T = readMatrix("/home/ccuev029/DATA/XIntTrans.txt");     
-    vector<int> yTest = readVector("/home/ccuev029/DATA/YTest.txt"); 
+    vector<vector<double>> ar_X_test = readMatrix("/home/ccuev029/rSTSF_CPP/DATA/XarData.txt");      //ar_X_test: for comparison with X_ar
+    vector<vector<double>> X_Test_T = readMatrix("/home/ccuev029/rSTSF_CPP/DATA/X_test_T.txt");     //Transformed Matrix for comparison
+    vector<int> yTest = readVector("/home/ccuev029/rSTSF_CPP/DATA/y_test.txt"); 
 
     //1.1 𝓓𝓮𝓫𝓾𝓰𝓰𝓲𝓷𝓰 𓆣⊹ ࣪ 𖢥: Checking Sizes of Copied Data to make sure they match  
     cout << "\nChecking sizes: " << endl;
@@ -199,14 +200,25 @@ int main() {
     cout << "(ERRORS) XAr (Py) vs XAr (CPP): " << compareMatrices(ar_X_test, X_ar, "/home/ccuev029/rSTSF_CPP/DEBUGGING/AR_Mismatch.txt", 16) << " / " << X_ar.size()*X_ar[0].size() << endl; 
 
 
-    //3. GET INTERVAL BASED TRANSFORMATION  
-    vector<vector<double>> XIntTrans = getIntervalBasedTransform(X_test, ar_X_test/*with Xar_PY*/, X_per, X_diff, allCaf, relevantCaf);
-    //3.2 Save generated XIntTrans 
-    writeMatrixToFile(XIntTrans, "/home/ccuev029/rSTSF_CPP/DATA_CPP/XIntTrans_cpp.txt");
-    //3.3 𝓓𝓮𝓫𝓾𝓰𝓰𝓲𝓷𝓰 𓆣⊹ ࣪ 𖢥: XIntTrans (PY) vs XIntTrans (CPP)
-    cout << "This is XIntTrans (Py)| Rows: " << X_Test_T.size() << " Cols: " << X_Test_T[0].size() << endl;
-    cout << "This is XIntTrans (CPP)| Rows: " << XIntTrans.size() << " Cols: " << XIntTrans[0].size() << endl;
-    cout << "(ERRORS) XIntTrans (Py) vs XIntTrans (CPP): " << compareMatrices(X_Test_T, XIntTrans, "/home/ccuev029/rSTSF_CPP/DEBUGGING/xIntTrans_Mismatch.txt", 16) << endl;
+    //III. GET INTERVAL BASED TRANSFORMATION  
+    cout << "\nWith X_ar: " << endl; 
+    vector<vector<double>> XIntTrans = getIntervalBasedTransform(X_test, X_ar, X_per, X_diff, allCaf, relevantCaf);
+
+
+    //𝓓𝓮𝓫𝓾𝓰𝓰𝓲𝓷𝓰 𓆣⊹ ࣪ 𖢥: Trying method with original X_ar Data to see if this works...
+    // cout << "\nWith ar_X_test: " << endl; 
+    // vector<vector<double>> XIntTrans = getIntervalBasedTransform(X_test, ar_X_test, X_per, X_diff, allCaf, relevantCaf);
+
+    //Write transformed matrice to file 
+    writeMatrixToFile(XIntTrans, "/home/ccuev029/rSTSF_CPP/DATA/XIntTransform.txt"); 
+    
+    // //𝓓𝓮𝓫𝓾𝓰𝓰𝓲𝓷𝓰 𓆣⊹ ࣪ 𖢥: Checking sizes...
+    // cout << "\nSize of xIntTrans: " << XIntTrans.size() << " " << XIntTrans[0].size() << endl; 
+    // cout << "Size of X_Test_T: " << X_Test_T.size() << " " << X_Test_T[0].size() << endl;
+
+    // //Comparison! X_int_T in Python vs XIntTrans in C++ - writing to file
+    // cout << "X_Test_T vs xIntTrans errors: " << matrixMismatches(X_Test_T, XIntTrans, "/home/ccuev029/rSTSF_CPP/DEBUGGING/xIntTrans_Mismatch.txt", 8) << " / " << XIntTrans.size() * XIntTrans[0].size() << endl; 
+
 
     //IV. TREE BASED PREDICT (Y_PRED)
     vector<int> yPred = treeBasedPredict(XIntTrans); 
