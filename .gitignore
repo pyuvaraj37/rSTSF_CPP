@@ -3,4 +3,3 @@ build/*
 DEBUGGING/*
 CMakeFiles/*
 DATA_CPP/*
-.vscode/*
