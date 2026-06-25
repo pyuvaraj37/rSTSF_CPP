@@ -7,13 +7,6 @@
 
 //✦•··MAIN.CPP HELPER FUNCTIONS - START ····················•✦•······················•✦•······················•✦
 
-/*FOR READING/WRITING TO FILES... */
-
-/**writeMatrixToFile
- * @param   matrix to write
- *          name of file 
- * Matriix -> File 
-**/
 void writeMatrixToFile(const vector<vector<double>>& matrix, const string& filename) {
     cout << "calling writeMatrixToFile..." << endl; 
     ofstream outFile(filename);
@@ -33,11 +26,6 @@ void writeMatrixToFile(const vector<vector<double>>& matrix, const string& filen
     outFile.close();
 }
 
-/**readMatrix (dtype double)
- * @param           string name of txt file
- * @return          matrix from txt file 
- * File -> Matrix(double)
-**/ 
 vector<vector<double>> readMatrix(const string& filename){
     cout << "calling readMatrix.." << endl; 
     ifstream infile(filename);
@@ -70,10 +58,6 @@ vector<vector<double>> readMatrix(const string& filename){
     return matrix;
 }
 
-/**readVector (int vector)
- * @param           string name of txt file
- * @return          vector from txt file 
-**/ 
 vector<int> readVector(const string& filename){
     cout << "calling readVector..." << endl; 
     vector<int> vector;
@@ -92,13 +76,7 @@ vector<int> readVector(const string& filename){
 }
 
 
-/*FOR DEBUGGING*/
-
-/** matrixMismatches 
- * @param matrixOne, matrixTwo, filename, precision 
- * @return errors  
- * catches the amount of mismatches between two matrices + writes mismatches to txt file 
- */
+//catches amount of mismatches between two matrices, writes to file, returns number of errors
 int writeMatrixMismatches(const vector<vector<double>>& matrixOne, 
                         const vector<vector<double>>& matrixTwo, 
                         const string& filename, const int& precision){
@@ -133,11 +111,7 @@ int writeMatrixMismatches(const vector<vector<double>>& matrixOne,
     return errors; 
 }
 
-/** compareVectors <int>
- * @param A, B 
- * @return errors  
- * compares the contents of two inputted vectors, couts the 
- * number of errors, doesn't write to file**/
+// compares the contents of two inputted vectors, couts the number of errors, doesn't write to file
 int compareVectorsAndErrors(const vector<int>& A, const vector<int>& B){
     cout << "calling compare vectors" << endl; 
     int errors = 0; 
@@ -261,6 +235,7 @@ int main(int argc, char* argv[]) {
 
     //Transform features
     vector<vector<vector<float>>> all_caf;
+    vector<int> relevant_caf_idx;
 
     //Tree 
     vector<vector<Node>> trees;
@@ -269,15 +244,41 @@ int main(int argc, char* argv[]) {
     vector<int> y_test; // For compatibility with expected_outputs
     vector<int> y_pred; 
 
-
+    //Load the test data from json 
     std::string test_filename = argv[1];
-
     std::cout << "Test filename: " << test_filename << std::endl;
 
     Loader loader;
     if (loader.load_test_data(test_filename, X_Test, X_Diff, X_Per, X_Ar, all_caf, trees, y_test, y_pred)) {
         cout << "Test inputs and expected outputs loaded successfully." << endl;
         cout << "Number of test samples: " << X_Test.size() << endl;
+        cout << "X_Diff size: " << X_Diff.size() << " x " << X_Diff[0].size() << endl;
+        cout << "X_Per size: " << X_Per.size() << " x " << X_Per[0].size() << endl;
+        cout << "X_Ar size: " << X_Ar.size() << " x " << X_Ar[0].size() << endl;
+        cout << "all_caf size: " << all_caf.size() << " x " << all_caf[0].size() << endl;
+        cout << "Number of trees: " << trees.size() << endl;
+        cout << "Number of expected outputs: " << y_test.size() << endl;
+        cout << "Number of relevant CAF indices: " << relevant_caf_idx.size() << endl;
+
+
+    //1. Getting X_Ar Representation 
+
+    //2. Interval Based Transform 
+    vector<vector<float>> XIntTrans = getIntervalBasedTransform(X_Test, X_Ar, X_Per, X_Diff, all_caf);//testing with no relCaf
+    cout << "getIntervalBasedTransform executed successfully." << endl;
+
+    //3. Tree Based Predict
+    vector<int> yPred = treeBasedPredict(XIntTrans, trees); //Error
+    cout << "treeBasedPredict executed successfully." << endl;
+
+    //4. Compare yPred with y_test
+    int total = y_test.size();
+    double errors = compareVectorsAndErrors(yPred, y_test);
+    double accuracy = (double)(total - errors) / total;
+    cout << "Accuracy: " << accuracy << endl;
+
+
+    
     } else {
         cout << "Failed to load test data." << endl;
     }

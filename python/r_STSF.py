@@ -4,6 +4,7 @@ import json
 import numpy as np
 from aeon.utils.numba.stats import row_mean, row_median, row_std, row_slope, row_numba_min, row_numba_max, row_iqr, row_count_mean_crossing, row_count_above_mean
 
+#For agg_functions
 func_map = {
     row_mean: 0,
     row_median: 1,
@@ -16,18 +17,27 @@ func_map = {
     row_count_above_mean: 8,
 }
 
+
 X_train, y_train = load_italy_power_demand(split="TRAIN")
 X_test, y_test = load_italy_power_demand(split="TEST")
 
+#call RSTSF with 10 trees and 5 intervals
 clf = RSTSF(n_estimators=10, n_intervals=5, random_state=0)  
 
+#Fit the model
 clf.fit(X_train, y_train)  
 
 
+#Trying to get relevent_caf_idx 
+print([attr for attr in dir(clf) if not attr.startswith('__')])
+
+
+#3 Diff Representations
 X_Diff = clf._series_transformers[0].transform(X_test)
 X_Per = clf._series_transformers[1].transform(X_test)
 X_Ar = clf._series_transformers[2].transform(X_test)
 
+#All Candidate Aggregated Features
 all_caf = []
 
 for si in clf._transformers:
@@ -40,6 +50,7 @@ for si in clf._transformers:
 def py(x):
     return x.item() if hasattr(x, "item") else x
 
+#Trees 
 trees = []
 for tree_idx, tree in enumerate(clf.clf_.estimators_):
     tree_ = tree.tree_
@@ -59,6 +70,7 @@ for tree_idx, tree in enumerate(clf.clf_.estimators_):
             [py(v) for v in values]
         ])
 
+#Make predictions on the test set
 y_pred = clf.predict(X_test)  
 
 cnt = 0
@@ -69,6 +81,7 @@ for i in range(len(y_pred)):
 print("Accuracy:", cnt / len(y_pred))
 accuracy = cnt / len(y_pred)
 
+#Write the test data to a JSON file
 test_data = {
     "dataset_name": "ItalyPowerDemand",
     "X_test": X_test.squeeze(axis=1).tolist(),
@@ -77,7 +90,7 @@ test_data = {
     "X_Ar": X_Ar.squeeze(axis=1).tolist(),
     "y_test": y_test.astype(int).tolist(),
     "y_pred": y_pred.astype(int).tolist(),
-    "all_candidate_agg_feats": all_caf.squeeze(axis=1).tolist(),
+    "all_candidate_agg_feats": all_caf,
     "trees": trees,
     "test_accuracy": float(accuracy),
     "num_samples": len(X_test),
@@ -85,6 +98,7 @@ test_data = {
     "num_classes": len(np.unique(y_train))
 }
     
+#Write the test data to a JSON file
 test_filename = "test_data.json"
 with open(test_filename, 'w') as f:
     json.dump(test_data, f, indent=2)

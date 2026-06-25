@@ -12,11 +12,11 @@ using namespace std;
 
 
 //Get Interval Based Transform 
-vector<vector<double>> getIntervalBasedTransform (vector<vector<double>> X, 
-                                                vector<vector<double>> X_ar, 
-                                                vector<vector<double>> X_per, 
-                                                vector<vector<double>> X_diff, 
-                                                vector<vector<double>> allCaf, //maybe change this later 
-                                                vector<int> relevantCaf); 
+vector<vector<float>> getIntervalBasedTransform (vector<vector<float>> X, 
+                                                vector<vector<float>> X_ar, 
+                                                vector<vector<float>> X_per, 
+                                                vector<vector<float>> X_diff, 
+                                                vector<vector<vector<float>>> all_caf
+                                                ); 
 
 #endif

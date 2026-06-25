@@ -11,12 +11,12 @@ vector<int> arange(int start, int stop, int step = 1) {
 }
 
 //Inner Mean Equivalent **Corrected**
-double innerMean(const vector<double>& X) {
+float innerMean(const vector<float>& X) {
     //number of columns = length of row of subinterval 
     int ncols = X.size(); 
 
-    //accumulator to add elements  *Caution: double or int? 
-    double accum = 0; 
+    //accumulator to add elements  *Caution: float or int? 
+    float accum = 0; 
 
     //add each element in the row together 
     for(size_t i=0; i<ncols; i++){
@@ -29,13 +29,13 @@ double innerMean(const vector<double>& X) {
 }
 
 //Fast_Mean equivalent **Corrected**
-vector<double> fastMean(const vector<vector<double>>& X){
+vector<float> fastMean(const vector<vector<float>>& X){
     //Get number of rows and columns of the subinterval 
     int nrows = X.size(); 
     int _ = X[0].size(); 
 
     //Allocate the result vector with 0's 
-    vector<double> _X(nrows, 0.0); 
+    vector<float> _X(nrows, 0.0); 
 
     //For each row of the subinterval, calculate innermean of that row 
     for(size_t i=0; i<nrows; i++){
@@ -47,15 +47,15 @@ vector<double> fastMean(const vector<vector<double>>& X){
 }
 
 //Inner Std Equivalent **Corrected**
-double innerStd(const vector<double>& X) {
+float innerStd(const vector<float>& X) {
     //Get number of columns 
     int ncols = X.size(); 
 
     //Initialize accumulator 
-    double accum = 0; 
+    float accum = 0; 
 
     //Calculate the mean of that row 
-    double X_mean = innerMean(X); 
+    float X_mean = innerMean(X); 
 
     //std calculation  *Caution 
     for(size_t i; i<ncols; i++){
@@ -68,13 +68,13 @@ double innerStd(const vector<double>& X) {
 }
 
 //Fast_std equivalent *Corrected*
-vector<double> fastStd(const vector<vector<double>>& X){
+vector<float> fastStd(const vector<vector<float>>& X){
     //Get number of rows and columns of subinterval 
     int nrows = X.size(); 
     int _ = X[0].size(); 
 
     //Allocate result vector, filled with zeroes
-    vector<double> _X(nrows, 0.0); 
+    vector<float> _X(nrows, 0.0); 
 
     //For each row in subinterval, calculate std of that row 
     for(size_t i=0; i<nrows; i++){
@@ -86,15 +86,15 @@ vector<double> fastStd(const vector<vector<double>>& X){
 }
 
 //Inner Slope Equivalent *CORRECTED**
-double innerSlope(const vector<double>& X, const vector<int>& indices) {
+float innerSlope(const vector<float>& X, const vector<int>& indices) {
     //Get number of columns/elements in subinterval row 
     int ncols = X.size(); 
 
-    //Initialize SUMS *Caution: Use double or integers? 
-    double SUMx = 0; 
-    double SUMy = 0; 
-    double SUMxy = 0; 
-    double SUMxx = 0; 
+    //Initialize SUMS *Caution: Use float or integers? 
+    float SUMx = 0; 
+    float SUMy = 0; 
+    float SUMxy = 0; 
+    float SUMxx = 0; 
 
     //For each element in the subinterval row.... 
     for(size_t i=0; i<ncols; i++){
@@ -109,7 +109,7 @@ double innerSlope(const vector<double>& X, const vector<int>& indices) {
 }
 
 //Fast_Slope equivalent **CORRECTED** 
-vector<double> fastSlope(const vector<vector<double>>& Y){
+vector<float> fastSlope(const vector<vector<float>>& Y){
 
     //#Take # of rows and columns in the subinterval 
     int r = Y.size(); 
@@ -119,7 +119,7 @@ vector<double> fastSlope(const vector<vector<double>>& Y){
     vector<int> x = arange(0, c); 
 
     //Create 1D array of 0's, of length r 
-    vector<double> _X(r, 0.0); 
+    vector<float> _X(r, 0.0); 
 
     //For each row in subinterval [], calculate slope of row elements 
     for (size_t i = 0; i < r; ++i) {
@@ -131,7 +131,7 @@ vector<double> fastSlope(const vector<vector<double>>& Y){
 }
 
 //Inner IQR Equivalent 
-double inner_iqr(vector<double> a) {
+float inner_iqr(vector<float> a) {
     size_t n = a.size();
     if (n == 0) return 0.0;
 
@@ -152,10 +152,10 @@ double inner_iqr(vector<double> a) {
 }
 
 //Fast_Iqr equivalent 
-vector<double> fast_iqr(const vector<vector<double>>& Y){
+vector<float> fast_iqr(const vector<vector<float>>& Y){
     //Declare the vector
     int rows = Y.size(); 
-    vector<double> fast_iqr(rows, 0.0);
+    vector<float> fast_iqr(rows, 0.0);
     //Loop through sub interval, calculate inner_iqr for each row, append to fast_iqr 
     for(size_t i=0; i<fast_iqr.size(); i++){
         fast_iqr[i] = inner_iqr(Y[i]); 
@@ -164,17 +164,17 @@ vector<double> fast_iqr(const vector<vector<double>>& Y){
 }
 
 //Count_mean_crossing equivalent 
-vector<double> count_mean_crossing(const vector<vector<double>>& X) {
+vector<float> count_mean_crossing(const vector<vector<float>>& X) {
     size_t nrows = X.size();
-    vector<double> X_(nrows, 0.0);
+    vector<float> X_(nrows, 0.0);
 
     for (size_t i = 0; i < nrows; ++i) {
-        const vector<double>& row = X[i];
+        const vector<float>& row = X[i];
         size_t n = row.size();
 
         // Compute mean
-        double sum = accumulate(row.begin(), row.end(), 0.0);
-        double mean = sum / n;
+        float sum = accumulate(row.begin(), row.end(), 0.0);
+        float mean = sum / n;
 
         // Create boolean sequence: row[j] > mean ? 1 : 0
         vector<int> above_mean(n);
@@ -190,19 +190,19 @@ vector<double> count_mean_crossing(const vector<vector<double>>& X) {
             }
         }
 
-        X_[i] = static_cast<double>(crossings);
+        X_[i] = static_cast<float>(crossings);
     }
 
     return X_;
 }
 
 //Count Values above mean equivalent 
-vector<double> count_values_above_mean(const vector<vector<double>>& X) {
+vector<float> count_values_above_mean(const vector<vector<float>>& X) {
     size_t nrows = X.size();
-    vector<double> X_(nrows, 0.0);
+    vector<float> X_(nrows, 0.0);
 
     for (size_t i = 0; i < nrows; ++i) {
-        const vector<double>& row = X[i];
+        const vector<float>& row = X[i];
         size_t n = row.size();
 
         if (n == 0) {
@@ -211,8 +211,8 @@ vector<double> count_values_above_mean(const vector<vector<double>>& X) {
         }
 
         // Compute mean
-        double sum = accumulate(row.begin(), row.end(), 0.0);
-        double mean = sum / n;
+        float sum = accumulate(row.begin(), row.end(), 0.0);
+        float mean = sum / n;
 
         // Count values above mean
         int count = 0;
@@ -222,7 +222,7 @@ vector<double> count_values_above_mean(const vector<vector<double>>& X) {
             }
         }
 
-        X_[i] = static_cast<double>(count);
+        X_[i] = static_cast<float>(count);
     }
 
     return X_;
@@ -232,7 +232,7 @@ vector<double> count_values_above_mean(const vector<vector<double>>& X) {
 
 
 //innerMedian, computing the median of the row  *Caution
-double innerMedian(vector<double> Y) {
+float innerMedian(vector<float> Y) {
     //Get the number of elements in row of subinterval; 
     int n = Y.size(); 
 
@@ -241,24 +241,24 @@ double innerMedian(vector<double> Y) {
 
     //If odd number of elements in row, return middle element
     if(n%2 == 1){
-        double median = Y[n / 2];
+        float median = Y[n / 2];
         return median; 
     //If even number of elements in row, average of two middle elements 
     } else {
-        double median = ((Y[n/2-1] + Y[n/2])/2.0); 
+        float median = ((Y[n/2-1] + Y[n/2])/2.0); 
         return median;
     }
     
 }
 
 //Median, getting a vector of medians *Caution
-vector<double> median(const vector<vector<double>>& X){
+vector<float> median(const vector<vector<float>>& X){
     //Getting #rows and columns of subinterval 
     int rows = X.size(); 
     int columns = X[0].size(); 
 
     //Declare the result matrix 
-    vector<double> _X(rows, 0.0); 
+    vector<float> _X(rows, 0.0); 
 
     //For each row within the sub interval, calculate median and append to result matrix 
     for(size_t i=0; i<rows; i++){
@@ -270,9 +270,9 @@ vector<double> median(const vector<vector<double>>& X){
 }
 
 //innerMin : Getting the minimum value in a given row 
-double innerMin(const vector<double>& Y){
+float innerMin(const vector<float>& Y){
     //Compute the min value of the given row directly 
-    double min = Y[0]; 
+    float min = Y[0]; 
     for(size_t i=0; i<Y.size(); i++){
         if(Y[i]<min){
             min = Y[i];
@@ -283,13 +283,13 @@ double innerMin(const vector<double>& Y){
 }
 
 //Min : Getting a vector of minimum values  
-vector<double> min(const vector<vector<double>>& X) {
+vector<float> min(const vector<vector<float>>& X) {
     //Get #rows and columns of subinterval 
     int rows = X.size(); 
     int columns = X[0].size(); 
 
     //Declare result array 
-    vector<double> _X(rows, 0.0);
+    vector<float> _X(rows, 0.0);
 
     //For each row of subinterval, compute min and append to result array 
     for(size_t i=0; i<rows; i++){
@@ -300,9 +300,9 @@ vector<double> min(const vector<vector<double>>& X) {
 }
 
 //innerMax : Max value in a given row 
-double innerMax(const vector<double>& Y){
+float innerMax(const vector<float>& Y){
     //Compute the max value of the given row directly 
-    double max = Y[0]; 
+    float max = Y[0]; 
     for(size_t i=0; i<Y.size(); i++){
         if(Y[i]>max){
             max = Y[i];
@@ -313,13 +313,13 @@ double innerMax(const vector<double>& Y){
 }
 
 //Max : Getting a vector of max values 
-vector<double> max(const vector<vector<double>>& X) {
+vector<float> max(const vector<vector<float>>& X) {
     //Get rows and columns of subinterval matrix 
     int rows = X.size(); 
     int columns = X[0].size(); 
 
     //Declare result array (the return)
-    vector<double> _X(rows, 0.0); 
+    vector<float> _X(rows, 0.0); 
 
     //For each row of subInt, calculate max value, append to array 
     for(size_t i=0; i<rows; i++){
@@ -335,9 +335,9 @@ vector<double> max(const vector<vector<double>>& X) {
 
 /**getIntervalFeature
  * @param       sub_interval, agg_fn 
- * @return      vector of doubles with corresponding calculation
+ * @return      vector of floats with corresponding calculation
  * **/
-vector<double> getIntervalFeature(vector<vector<double>> sub_interval, int agg_fn){
+vector<float> getIntervalFeature(vector<vector<float>> sub_interval, int agg_fn){
     if(agg_fn == 0){ 
         //0. polyfit -> fastSlope
         return fastSlope(sub_interval);
@@ -382,59 +382,55 @@ vector<double> getIntervalFeature(vector<vector<double>> sub_interval, int agg_f
 
 /** getIntervalBasedTransform
  * @param    X, X_ar, X_per, X_diff
- * @param    allCaf, relevantCaf  //??
+ * @param    allCaf  //??
  *             #an empty list
  * @return   X_test_T: _Array[tuple[int, int], floating[_32Bit]] 
  *          in C++, this is a 2D dynamic array? 
  * 
  * 
  * **/
-vector<vector<double>> getIntervalBasedTransform(vector<vector<double>> X,
-                                                 vector<vector<double>> X_ar,
-                                                 vector<vector<double>> X_per,
-                                                 vector<vector<double>> X_diff,
-                                                 vector<vector<double>> allCaf,
-                                                 vector<int> relevantCaf)
+vector<vector<float>> getIntervalBasedTransform(vector<vector<float>> X,
+                                                 vector<vector<float>> X_ar,
+                                                 vector<vector<float>> X_per,
+                                                 vector<vector<float>> X_diff,
+                                                 vector<vector<vector<float>>> allCaf
+                                                 )
 {
 
-    //Debugging: 
-    cout << "\nSize of relevantCaf: " << relevantCaf.size() << endl; 
-    cout << "Size of allCaf: " << allCaf.size() << " " << allCaf[0].size() << endl; 
 
     //Allocate the Result Matrix with zeroes (rows of X, columns of allCaf)
     size_t numRows = X.size();
-    size_t numColumns = allCaf.size();
-    vector<vector<double>> XIntTrans(numRows, vector<double>(numColumns, 0.0));
+    size_t numColumns = allCaf[0].size();
+    vector<vector<float>> XIntTrans(numRows, vector<float>(numColumns, 0.0));
 
     //For each jth item in relavantCaf (actual value) SF (Save features)
-    for(int j : relevantCaf){//*Caution with j 
+    for(/*int j : relevantCaf*/ int j=0; j<allCaf.size(); j++){//*Caution with j 
 
         //Save each element of each row into corresponding variables 
-        double w        = allCaf[j][0];
-        double score    = allCaf[j][1];
-        int li = static_cast<int>(allCaf[j][2]);     //*Caution
-        int ls = static_cast<int>(allCaf[j][3]);     //*Caution
-        int agg_fn      = static_cast<int>(allCaf[j][4]);
-        int repr_type   = static_cast<int>(allCaf[j][5]);
+        // float w        = allCaf[0][j][0];
+        // float score    = allCaf[0][j][1];
+        int li = static_cast<int>(allCaf[0][j][0]);     //*Caution
+        int ls = static_cast<int>(allCaf[0][j][1]);     //*Caution
+        int agg_fn      = static_cast<int>(allCaf[0][j][2]);
+        int repr_type   = static_cast<int>(allCaf[0][j][3]);
 
-        vector<vector<double>> X_temp;
-        if (repr_type == 1)      { X_temp = X; }
-        else if (repr_type == 2) { X_temp = X_per; }
-        else if (repr_type == 3) { X_temp = X_ar; }
-        else if (repr_type == 4) { X_temp = X_diff; }
-        else { throw invalid_argument("Invalid repr_type in getIntervalBasedTransform"); } 
- 
+        vector<vector<float>> X_temp;
+        if (repr_type == 0)      { X_temp = X; }
+        else if (repr_type == 1) { X_temp = X_per; }
+        else if (repr_type == 2) { X_temp = X_ar; }
+        else if (repr_type == 3) { X_temp = X_diff; }
+        else { throw invalid_argument("Invalid repr_type in getIntervalBasedTransform at " + to_string(j) + " value: " + to_string(repr_type)); }
 
         //Getting the subintervals 
-        vector<vector<double>> sub_interval(numRows);
+        vector<vector<float>> sub_interval(numRows);
         //For each subinterval 
         for (size_t row = 0; row < numRows; ++row) {
-            sub_interval[row] = vector<double>(X_temp[row].begin() + li, X_temp[row].begin() + ls);
+            sub_interval[row] = vector<float>(X_temp[row].begin() + li, X_temp[row].begin() + ls);
         }
 
 
         //getIntervalFeature on subinterval
-        vector<double> to_add = getIntervalFeature(sub_interval, agg_fn);
+        vector<float> to_add = getIntervalFeature(sub_interval, agg_fn);
         //put into return matrix
         for (size_t row = 0; row < numRows; ++row) {
             XIntTrans[row][j] = to_add[row];
