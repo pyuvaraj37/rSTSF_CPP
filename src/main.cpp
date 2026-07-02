@@ -171,11 +171,7 @@ int main(int argc, char* argv[]) {
         cout << "X_Ar size: " << X_Ar.size() << " x " << X_Ar[0].size() << endl;
         cout << "all_caf size: " << all_caf.size() << " x " << all_caf[0].size() << endl;
         cout << "Number of trees: " << trees.size() << endl;
-        cout << "Number of expected outputs: " << y_test.size() << endl;
-
-        cout << "X_Ar[0] first 5: ";
-        for (int i = 0; i < 5; i++) cout << X_Ar[0][i] << " ";
-        cout << endl;
+        cout << "y_test size: " << y_test.size() << endl;
 
 
         //2. Interval Based Transform
@@ -199,6 +195,10 @@ int main(int argc, char* argv[]) {
         cout << "YTest size: " << y_test.size() << endl;
         cout << "YPred size: " << yPred.size() << endl;
         cout << "Number of trees: " << trees.size() << endl;
+        cout << "ypred:"; 
+        for (int i=0; i<yPred.size(); i++){
+            cout << yPred[i] << " "; 
+        }
 
 
         //4. Compare yPred with y_test

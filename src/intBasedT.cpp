@@ -381,15 +381,7 @@ vector<double> getIntervalFeature(vector<vector<double>> sub_interval, int agg_f
 }   
 
 
-/** getIntervalBasedTransform
- * @param    X, X_ar, X_per, X_diff
- * @param    allCaf  //??
- *             #an empty list
- * @return   X_test_T: _Array[tuple[int, int], doubleing[_32Bit]] 
- *          in C++, this is a 2D dynamic array? 
- * 
- * 
- * **/
+//getIntervalBasedTransform
 vector<vector<double>> getIntervalBasedTransform(vector<vector<double>> X,
                                                  vector<vector<double>> X_ar,
                                                  vector<vector<double>> X_per,
@@ -398,34 +390,29 @@ vector<vector<double>> getIntervalBasedTransform(vector<vector<double>> X,
                                                  )
 {
 
-
     //Allocate the Result Matrix with zeroes (rows of X, columns of allCaf)
     size_t numRows = X.size();
     //Change num columns
     size_t numColumns = 0;
     for (auto& rep : allCaf) numColumns += rep.size();
-
     vector<vector<double>> XIntTrans(numRows, vector<double>(numColumns, 0.0));
-
     int col = 0;
+
     for (int rep = 0; rep < (int)allCaf.size(); rep++) {
         for (int j = 0; j < (int)allCaf[rep].size(); j++) {
 
-
         //Save each element of each row into corresponding variables 
-        // double w        = allCaf[0][j][0];
-        // double score    = allCaf[0][j][1];
-        // CORRECT - use rep instead of 0
         int li        = static_cast<int>(allCaf[rep][j][0]);
         int ls        = static_cast<int>(allCaf[rep][j][1]);
         int repr_type = static_cast<int>(allCaf[rep][j][2]);
         int agg_fn    = static_cast<int>(allCaf[rep][j][3]);
 
+        //Get which representation to use based on repr_type
         vector<vector<double>> X_temp;
-        if (repr_type == 0)      { X_temp = X; }
-        else if (repr_type == 1) { X_temp = X_per; }
-        else if (repr_type == 2) { X_temp = X_ar; }
-        else if (repr_type == 3) { X_temp = X_diff; }
+        if      (rep == 0) { X_temp = X; }
+        else if (rep == 1) { X_temp = X_diff; }
+        else if (rep == 2) { X_temp = X_per; }
+        else if (rep == 3) { X_temp = X_ar; }
         else { throw invalid_argument("Invalid repr_type in getIntervalBasedTransform at " + to_string(j) + " value: " + to_string(repr_type)); }
 
         //Getting the subintervals 
@@ -434,7 +421,6 @@ vector<vector<double>> getIntervalBasedTransform(vector<vector<double>> X,
         for (size_t row = 0; row < numRows; ++row) {
             sub_interval[row] = vector<double>(X_temp[row].begin() + li, X_temp[row].begin() + ls);
         }
-
 
         //getIntervalFeature on subinterval
         vector<double> to_add = getIntervalFeature(sub_interval, agg_fn);

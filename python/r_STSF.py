@@ -32,10 +32,9 @@ clf.fit(X_train, y_train)
 
 #3 Diff Representations
 X_Diff = clf._series_transformers[0].transform(X_test)
-print(S)
-
 X_Per = clf._series_transformers[1].transform(X_test)
 X_Ar = clf._series_transformers[2].transform(X_test)
+
 
 
 #All Candidate Aggregated Features
@@ -84,10 +83,11 @@ print("X_Diff shape:", X_Diff.shape)
 print("X_Per shape:", X_Per.shape)
 print("X_Ar shape:", X_Ar.shape)
 print("XIntTrans shape:", np.array(clf._transformers[0].intervals_).shape)
-print("all_caf shape:", np.array(all_caf).shape)
 print("y_test shape:", y_test.shape)
 print("y_pred shape:", y_pred.shape)
 print("Number of trees:", len(trees))
+#print y_pred 
+print("y_pred:", y_pred)
 
 
 cnt = 0
