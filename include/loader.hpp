@@ -14,11 +14,11 @@
 class Loader {
 private:
     // Simple JSON parser for arrays
-    std::vector<float> parse_float_array(const std::string& content, const std::string& key);
+    std::vector<double> parse_double_array(const std::string& content, const std::string& key);
     std::vector<int> parse_int_array(const std::string& content, const std::string& key);
     std::vector<std::vector<int>> parse_2d_int_array(const std::string& content, const std::string& key);
-    std::vector<std::vector<float>> parse_2d_float_array(const std::string& content, const std::string& key);
-    std::vector<std::vector<std::vector<float>>> parse_3d_float_array(const std::string& content, const std::string& key);
+    std::vector<std::vector<double>> parse_2d_double_array(const std::string& content, const std::string& key);
+    std::vector<std::vector<std::vector<double>>> parse_3d_double_array(const std::string& content, const std::string& key);
     std::vector<std::vector<Node>> parse_trees(const std::string& content);
     int parse_int_value(const std::string& content, const std::string& key);
     
@@ -29,11 +29,11 @@ public:
     // Load test data for verification (testbench only)
     bool load_test_data(
         const std::string& test_filename, 
-        std::vector<std::vector<float>>& X_test,
-        std::vector<std::vector<float>>& X_Diff,
-        std::vector<std::vector<float>>& X_Per,
-        std::vector<std::vector<float>>& X_Ar,
-        std::vector<std::vector<std::vector<float>>>& all_caf,
+        std::vector<std::vector<double>>& X_test,
+        std::vector<std::vector<double>>& X_Diff,
+        std::vector<std::vector<double>>& X_Per,
+        std::vector<std::vector<double>>& X_Ar,
+        std::vector<std::vector<std::vector<double>>>& all_caf,
         std::vector<std::vector<Node>>& trees,
         std::vector<int>& y_test,
         std::vector<int>& y_pred

@@ -9,7 +9,7 @@
  /** Explanation: self.extra_trees representation 
   * self.extra_trees is a list of individal decision TREE OBJECTS 
   * Tree Objects    :   each tree holds a certain number of NODES 
-  * Nodes           :   each node has five features, all saved as type float 
+  * Nodes           :   each node has five features, all saved as type double 
   * 
   * struct Node is declared to handle these features 
   * vector<vector<Node>> Creates the matrix representation 
@@ -109,16 +109,16 @@ void checkIsFitted(const vector<vector<Node>>& forest) {
 
 /**validateXPredict (complete ai)
  * @param   X, original matrix 
- * @return  vector<vector<float>> X, validated matrix 
+ * @return  vector<vector<double>> X, validated matrix 
  * **/
-vector<vector<float>> validateXPredict(const vector<vector<float>>& X, bool allow_nan = false) {
+vector<vector<double>> validateXPredict(const vector<vector<double>>& X, bool allow_nan = false) {
     // 1. Check if model is fitted
     // (Assuming you have a boolean flag like `is_fitted` in your class)
     // if (!is_fitted) throw runtime_error("Model not fitted yet.");
 
     // 2. Check if X contains any NaN or infinite values (if allow_nan == false)
     for (const auto& row : X) {
-        for (float val : row) {
+        for (double val : row) {
             if (!allow_nan && !isfinite(val)) {
                 throw runtime_error("Input contains NaN or infinite values.");
             }
@@ -138,9 +138,9 @@ vector<vector<float>> validateXPredict(const vector<vector<float>>& X, bool allo
  * @return      matrice of probabilities
  * Traverses each tree of each forest with corresponding row of X 
  * **/
-vector<vector<vector<float>>> getTreeProba(const vector<vector<Node>>& forest, 
-                                            const vector<vector<float>>& X, 
-                                            vector<vector<vector<float>>>& all_proba, 
+vector<vector<vector<double>>> getTreeProba(const vector<vector<Node>>& forest, 
+                                            const vector<vector<double>>& X, 
+                                            vector<vector<vector<double>>>& all_proba, 
                                             const int& numSamples, 
                                             const int& numClasses, 
                                             const int& numOut){
@@ -149,13 +149,13 @@ vector<vector<vector<float>>> getTreeProba(const vector<vector<Node>>& forest,
                 const auto& tree = forest[j];
                 for (size_t k=0; k<numSamples; k++){   //Sample k 
                     //Get row of X 
-                    vector<float> XRow = X[k];
+                    vector<double> XRow = X[k];
 
                     //TREE TRAVERSAL STEP 
                     int nodeIdx = 0;           //Start at root node 
                     while (tree[nodeIdx].left != -1 && tree[nodeIdx].right != -1){
                         const Node& node = tree[nodeIdx]; 
-                        float xValue = XRow[node.feature];
+                        double xValue = XRow[node.feature];
                         if(xValue <= node.threshold){
                             nodeIdx = node.left; 
                         }else{
@@ -164,7 +164,7 @@ vector<vector<vector<float>>> getTreeProba(const vector<vector<Node>>& forest,
                     }
 
                     //Once a leaf node is hit, get the values 
-                    const vector<float>& probs = tree[nodeIdx].values;
+                    const vector<double>& probs = tree[nodeIdx].values;
 
                     //Summing the probabilities and adding to all_proba 
                     for (size_t c = 0; c < probs.size(); ++c) {
@@ -181,7 +181,7 @@ vector<vector<vector<float>>> getTreeProba(const vector<vector<Node>>& forest,
 /**predictProba (for 1D Array)
  * Here is where we are getting the probabilities of the forest 
  */
-vector<vector<vector<float>>> predictProba(const vector<vector<float>>& X_input, 
+vector<vector<vector<double>>> predictProba(const vector<vector<double>>& X_input, 
                                             const vector<vector<Node>>& forest, 
                                             const vector<int>& classes, 
                                             const int& numOut)
@@ -193,13 +193,13 @@ vector<vector<vector<float>>> predictProba(const vector<vector<float>>& X_input,
    
     // //1. VALIDATE TRANSFORMED DATA 
     checkIsFitted(forest); 
-    vector<vector<float>> X = validateXPredict(X_input);
+    vector<vector<double>> X = validateXPredict(X_input);
 
     //3. ALLOCATE RESULT LIST OF MATRICES w/zeroes  
     int XRows = X.size(); 
     int XColumns = X[0].size(); 
     int selfNClasses = 2; 
-    vector<vector<vector<float>>> allProba(numOut, vector<vector<float>>(numSamples, vector<float>(numClasses, 0.0)));
+    vector<vector<vector<double>>> allProba(numOut, vector<vector<double>>(numSamples, vector<double>(numClasses, 0.0)));
 
     //4. TRAVERSING THE TREES TO GET PROBABILITIES  
     allProba = getTreeProba(forest, X, allProba, numSamples, numClasses, numOut); 
@@ -209,7 +209,7 @@ vector<vector<vector<float>>> predictProba(const vector<vector<float>>& X_input,
     for (int k = 0; k < numSamples; ++k) {
         for (int i = 0; i < numOut; ++i) {
             for (int c = 0; c < numClasses; ++c) {
-            allProba[i][k][c] /= static_cast<float>(numTrees);  
+            allProba[i][k][c] /= static_cast<double>(numTrees);  
             }
         }
     }
@@ -228,18 +228,18 @@ vector<vector<vector<float>>> predictProba(const vector<vector<float>>& X_input,
  *
  * The C++ equivalent of 
  * 
- * @param       X, a matrix of floats (XIntTrans in intBasedTrans)
+ * @param       X, a matrix of doubles (XIntTrans in intBasedTrans)
  * @return      
  * 
  * */
 
 
  //ToDo: Change Parameters
-vector<int> treeBasedPredict(const vector<vector<float>>& X, vector<vector<Node>>& forest){
+vector<int> treeBasedPredict(const vector<vector<double>>& X, vector<vector<Node>>& forest){
 
     //PRESTEP: GET FORESTS AND OTHER VARS 
     // vector<vector<Node>> forest = readTreesFromFile("/home/ccuev029/rSTSF_CPP/DATA/self.extra_trees.txt"); 
-    vector<int> classes = {0,1};    //Caution 
+    vector<int> classes = {1,2};    //Caution 
     int numOut = 1;                 //Caution 
     //𝓓𝓮𝓫𝓾𝓰𝓰𝓲𝓷𝓰 𓆣⊹ ࣪ 𖢥: Printing the Forest 
     // cout << "Number of Trees: " << forest.size() << endl; 
@@ -263,7 +263,7 @@ vector<int> treeBasedPredict(const vector<vector<float>>& X, vector<vector<Node>
     // }
 
     //3. GET THE PROBABILITIES OF TRANSFORMED MATRIX (Using the forest)
-    vector<vector<vector<float>>> proba = predictProba(X, forest, classes, numOut); 
+    vector<vector<vector<double>>> proba = predictProba(X, forest, classes, numOut); 
     //𝓓𝓮𝓫𝓾𝓰𝓰𝓲𝓷𝓰 𓆣⊹ ࣪ 𖢥: Printing Proba  
     if (proba.empty()) {
     cerr << "ERROR: proba is empty!" << endl;
@@ -290,8 +290,8 @@ vector<int> treeBasedPredict(const vector<vector<float>>& X, vector<vector<Node>
     //3. GET THE LARGEST PROBABILITIES //caution
     for(size_t i=0; i<proba.size(); i++){//For first (and only output)
             for(size_t j=0; j<proba[i].size(); j++){//Probability set of sample j 
-                const vector<float>& classProbs = proba[i][j]; //Get the row of probabilities for that sample
-                float maxValue = -1;  
+                const vector<double>& classProbs = proba[i][j]; //Get the row of probabilities for that sample
+                double maxValue = -1;  
                 int classification = 0; 
                 for(size_t k=0; k<proba[i][j].size(); k++){//Probability k 
                     if (classProbs[k]>maxValue){

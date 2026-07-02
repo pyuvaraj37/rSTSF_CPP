@@ -59,8 +59,8 @@ std::vector<int> Loader::parse_int_array(const std::string& content, const std::
     return result;
 }
 
-std::vector<float> Loader::parse_float_array(const std::string& content, const std::string& key) {
-    std::vector<float> result;
+std::vector<double> Loader::parse_double_array(const std::string& content, const std::string& key) {
+    std::vector<double> result;
     
     size_t key_pos = content.find("\"" + key + "\"");
     if (key_pos == std::string::npos) return result;
@@ -78,7 +78,7 @@ std::vector<float> Loader::parse_float_array(const std::string& content, const s
     while (std::getline(ss, item, ',')) {
         trim_whitespace(item);
         if (!item.empty()) {
-            result.push_back(std::stof(item));
+            result.push_back(std::stod(item));
         }
     }
     
@@ -136,8 +136,8 @@ std::vector<std::vector<int>> Loader::parse_2d_int_array(const std::string& cont
     return result;
 }
 
-std::vector<std::vector<float>> Loader::parse_2d_float_array(const std::string& content, const std::string& key) {
-    std::vector<std::vector<float>> result;
+std::vector<std::vector<double>> Loader::parse_2d_double_array(const std::string& content, const std::string& key) {
+    std::vector<std::vector<double>> result;
     
     size_t key_pos = content.find("\"" + key + "\"");
     if (key_pos == std::string::npos) return result;
@@ -169,14 +169,14 @@ std::vector<std::vector<float>> Loader::parse_2d_float_array(const std::string& 
         
         std::string sub_array = array_content.substr(sub_start + 1, sub_end - sub_start - 1);
         
-        std::vector<float> sub_result;
+        std::vector<double> sub_result;
         std::stringstream ss(sub_array);
         std::string item;
         
         while (std::getline(ss, item, ',')) {
             trim_whitespace(item);
             if (!item.empty()) {
-                sub_result.push_back(std::stof(item));
+                sub_result.push_back(std::stod(item));
             }
         }
         
@@ -188,11 +188,11 @@ std::vector<std::vector<float>> Loader::parse_2d_float_array(const std::string& 
 }
 
 
-std::vector<std::vector<std::vector<float>>>
-Loader::parse_3d_float_array(const std::string& content,
+std::vector<std::vector<std::vector<double>>>
+Loader::parse_3d_double_array(const std::string& content,
                              const std::string& key)
 {
-    std::vector<std::vector<std::vector<float>>> result;
+    std::vector<std::vector<std::vector<double>>> result;
 
     size_t key_pos = content.find("\"" + key + "\"");
     if (key_pos == std::string::npos) return result;
@@ -242,7 +242,7 @@ Loader::parse_3d_float_array(const std::string& content,
             array_content.substr(slice_start + 1, slice_end - slice_start - 1);
 
         // ---- parse rows inside slice ----
-        std::vector<std::vector<float>> slice_result;
+        std::vector<std::vector<double>> slice_result;
 
         size_t row_pos = 0;
         while (row_pos < slice.size()) {
@@ -256,14 +256,14 @@ Loader::parse_3d_float_array(const std::string& content,
             std::string row =
                 slice.substr(row_start + 1, row_end - row_start - 1);
 
-            std::vector<float> row_vals;
+            std::vector<double> row_vals;
             std::stringstream ss(row);
             std::string item;
 
             while (std::getline(ss, item, ',')) {
                 trim_whitespace(item);
                 if (!item.empty()) {
-                    row_vals.push_back(std::stof(item));
+                    row_vals.push_back(std::stod(item));
                 }
             }
 
@@ -394,11 +394,11 @@ Loader::parse_trees(const std::string& content)
 
 bool Loader::load_test_data(
     const std::string& test_filename, 
-    std::vector<std::vector<float>>& X_test,
-    std::vector<std::vector<float>>& X_Diff,
-    std::vector<std::vector<float>>& X_Per,
-    std::vector<std::vector<float>>& X_Ar,
-    std::vector<std::vector<std::vector<float>>>& all_caf,
+    std::vector<std::vector<double>>& X_test,
+    std::vector<std::vector<double>>& X_Diff,
+    std::vector<std::vector<double>>& X_Per,
+    std::vector<std::vector<double>>& X_Ar,
+    std::vector<std::vector<std::vector<double>>>& all_caf,
     std::vector<std::vector<Node>>& trees,
     std::vector<int>& y_test,
     std::vector<int>& y_pred
@@ -406,11 +406,11 @@ bool Loader::load_test_data(
     std::string content = read_file(test_filename);
     if (content.empty()) return false;
     
-    X_test = parse_2d_float_array(content, "X_test");
-    X_Diff = parse_2d_float_array(content, "X_Diff");
-    X_Per = parse_2d_float_array(content, "X_Per");
-    X_Ar = parse_2d_float_array(content, "X_Ar");
-    all_caf = parse_3d_float_array(content, "all_candidate_agg_feats");
+    X_test = parse_2d_double_array(content, "X_test");
+    X_Diff = parse_2d_double_array(content, "X_Diff");
+    X_Per = parse_2d_double_array(content, "X_Per");
+    X_Ar = parse_2d_double_array(content, "X_Ar");
+    all_caf = parse_3d_double_array(content, "all_candidate_agg_feats");
     trees = parse_trees(content);
     y_test = parse_int_array(content, "y_test");
     y_pred = parse_int_array(content, "y_pred");

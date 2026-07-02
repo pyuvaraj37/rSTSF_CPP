@@ -1,3 +1,5 @@
+#to compile: python3 python/r_STSF.py > pythonlog.txt
+
 from aeon.classification.interval_based import RSTSF
 from aeon.datasets import load_italy_power_demand
 import json
@@ -17,7 +19,7 @@ func_map = {
     row_count_above_mean: 8,
 }
 
-
+#Load the Italy Power Demand dataset
 X_train, y_train = load_italy_power_demand(split="TRAIN")
 X_test, y_test = load_italy_power_demand(split="TEST")
 
@@ -28,14 +30,13 @@ clf = RSTSF(n_estimators=10, n_intervals=5, random_state=0)
 clf.fit(X_train, y_train)  
 
 
-#Trying to get relevent_caf_idx 
-print([attr for attr in dir(clf) if not attr.startswith('__')])
-
-
 #3 Diff Representations
 X_Diff = clf._series_transformers[0].transform(X_test)
+print(S)
+
 X_Per = clf._series_transformers[1].transform(X_test)
 X_Ar = clf._series_transformers[2].transform(X_test)
+
 
 #All Candidate Aggregated Features
 all_caf = []
@@ -49,6 +50,7 @@ for si in clf._transformers:
 
 def py(x):
     return x.item() if hasattr(x, "item") else x
+
 
 #Trees 
 trees = []
@@ -73,6 +75,21 @@ for tree_idx, tree in enumerate(clf.clf_.estimators_):
 #Make predictions on the test set
 y_pred = clf.predict(X_test)  
 
+
+
+#Debug Print
+print("Debug Information:")
+print("X_test shape:", X_test.shape)
+print("X_Diff shape:", X_Diff.shape)
+print("X_Per shape:", X_Per.shape)
+print("X_Ar shape:", X_Ar.shape)
+print("XIntTrans shape:", np.array(clf._transformers[0].intervals_).shape)
+print("all_caf shape:", np.array(all_caf).shape)
+print("y_test shape:", y_test.shape)
+print("y_pred shape:", y_pred.shape)
+print("Number of trees:", len(trees))
+
+
 cnt = 0
 for i in range(len(y_pred)):
     if y_pred[i] == y_test[i]:
@@ -80,6 +97,8 @@ for i in range(len(y_pred)):
 
 print("Accuracy:", cnt / len(y_pred))
 accuracy = cnt / len(y_pred)
+
+
 
 #Write the test data to a JSON file
 test_data = {
