@@ -195,10 +195,6 @@ int main(int argc, char* argv[]) {
         cout << "YTest size: " << y_test.size() << endl;
         cout << "YPred size: " << yPred.size() << endl;
         cout << "Number of trees: " << trees.size() << endl;
-        cout << "ypred:"; 
-        for (int i=0; i<yPred.size(); i++){
-            cout << yPred[i] << " "; 
-        }
 
 
         //4. Compare yPred with y_test

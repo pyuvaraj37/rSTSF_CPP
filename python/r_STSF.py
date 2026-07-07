@@ -36,6 +36,23 @@ X_Per = clf._series_transformers[1].transform(X_test)
 X_Ar = clf._series_transformers[2].transform(X_test)
 
 
+from scipy.stats import iqr as scipy_iqr
+import numpy as np
+
+# Test IQR on a small example
+test = np.array([1.0, 2.0, 3.0, 4.0, 5.0, 6.0])
+print("scipy iqr:", scipy_iqr(test))
+
+# Your C++ method (using array indices)
+sorted_test = np.sort(test)
+n = len(sorted_test)
+q1_idx = n//4
+q3_idx = 3*n//4
+print("cpp iqr:", sorted_test[q3_idx] - sorted_test[q1_idx])
+
+# Also check aeon's row_iqr
+from aeon.utils.numba.stats import row_iqr
+print("aeon row_iqr:", row_iqr(test.reshape(1,-1))[0])
 
 #All Candidate Aggregated Features
 all_caf = []
@@ -86,8 +103,6 @@ print("XIntTrans shape:", np.array(clf._transformers[0].intervals_).shape)
 print("y_test shape:", y_test.shape)
 print("y_pred shape:", y_pred.shape)
 print("Number of trees:", len(trees))
-#print y_pred 
-print("y_pred:", y_pred)
 
 
 cnt = 0

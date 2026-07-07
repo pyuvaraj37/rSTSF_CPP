@@ -137,18 +137,17 @@ double inner_iqr(vector<double> a) {
 
     sort(a.begin(), a.end());
 
-    if (n % 2 != 0) {
-        size_t median_idx = n / 2;
-        size_t q1_idx = median_idx / 2;
-        size_t q3_idx = ((n - median_idx) / 2) + median_idx;
-        return a[q3_idx] - a[q1_idx];
-    } else {
-        size_t median_idx_lower = (n - 1) / 2;
-        size_t median_idx_upper = n / 2;
-        size_t q1_idx = median_idx_lower / 2;
-        size_t q3_idx = (median_idx_upper / 2) + median_idx_upper;
-        return a[q3_idx] - a[q1_idx];
-    }
+    // Use linear interpolation like scipy/numpy (method='linear')
+    auto percentile = [&](double p) -> double {
+        double idx = p * (n - 1);
+        size_t lo = (size_t)idx;
+        size_t hi = lo + 1;
+        double frac = idx - lo;
+        if (hi >= n) return a[lo];
+        return a[lo] + frac * (a[hi] - a[lo]);
+    };
+
+    return percentile(0.75) - percentile(0.25);
 }
 
 //Fast_Iqr equivalent 
@@ -398,8 +397,8 @@ vector<vector<double>> getIntervalBasedTransform(vector<vector<double>> X,
     vector<vector<double>> XIntTrans(numRows, vector<double>(numColumns, 0.0));
     int col = 0;
 
-    for (int rep = 0; rep < (int)allCaf.size(); rep++) {
-        for (int j = 0; j < (int)allCaf[rep].size(); j++) {
+    for (int rep = 0; rep < (int)allCaf.size(); rep++) {//For each representation in allCaf
+        for (int j = 0; j < (int)allCaf[rep].size(); j++) {//For each row in the representation
 
         //Save each element of each row into corresponding variables 
         int li        = static_cast<int>(allCaf[rep][j][0]);
