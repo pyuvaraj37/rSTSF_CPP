@@ -8,5 +8,7 @@ using namespace std;
 //Function Declaration 
 vector<double> BurgAlgorithm(const vector<double>& data, int order);
 vector<vector<double>> ar_coeffs(const vector<vector<double>> &X);
+vector<vector<double>> periodogram(const vector<vector<double>> &X);
+vector<vector<double>> difference(const vector<vector<double>> &X);
 
 #endif 

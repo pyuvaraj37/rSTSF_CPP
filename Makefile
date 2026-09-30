@@ -123,32 +123,32 @@ main/fast:
 	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/build
 .PHONY : main/fast
 
-src/autoreg.o: src/autoreg.cpp.o
+src/XTransformations.o: src/XTransformations.cpp.o
 
-.PHONY : src/autoreg.o
+.PHONY : src/XTransformations.o
 
 # target to build an object file
-src/autoreg.cpp.o:
-	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/autoreg.cpp.o
-.PHONY : src/autoreg.cpp.o
+src/XTransformations.cpp.o:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/XTransformations.cpp.o
+.PHONY : src/XTransformations.cpp.o
 
-src/autoreg.i: src/autoreg.cpp.i
+src/XTransformations.i: src/XTransformations.cpp.i
 
-.PHONY : src/autoreg.i
+.PHONY : src/XTransformations.i
 
 # target to preprocess a source file
-src/autoreg.cpp.i:
-	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/autoreg.cpp.i
-.PHONY : src/autoreg.cpp.i
+src/XTransformations.cpp.i:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/XTransformations.cpp.i
+.PHONY : src/XTransformations.cpp.i
 
-src/autoreg.s: src/autoreg.cpp.s
+src/XTransformations.s: src/XTransformations.cpp.s
 
-.PHONY : src/autoreg.s
+.PHONY : src/XTransformations.s
 
 # target to generate assembly for a file
-src/autoreg.cpp.s:
-	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/autoreg.cpp.s
-.PHONY : src/autoreg.cpp.s
+src/XTransformations.cpp.s:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/XTransformations.cpp.s
+.PHONY : src/XTransformations.cpp.s
 
 src/intBasedT.o: src/intBasedT.cpp.o
 
@@ -267,9 +267,9 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... main"
-	@echo "... src/autoreg.o"
-	@echo "... src/autoreg.i"
-	@echo "... src/autoreg.s"
+	@echo "... src/XTransformations.o"
+	@echo "... src/XTransformations.i"
+	@echo "... src/XTransformations.s"
 	@echo "... src/intBasedT.o"
 	@echo "... src/intBasedT.i"
 	@echo "... src/intBasedT.s"

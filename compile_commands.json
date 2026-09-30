@@ -6,8 +6,8 @@
 },
 {
   "directory": "/home/ccuev029/rSTSF_CPP",
-  "command": "/usr/bin/c++    -g -I/home/ccuev029/rSTSF_CPP/include    -o CMakeFiles/main.dir/src/autoreg.cpp.o -c /home/ccuev029/rSTSF_CPP/src/autoreg.cpp",
-  "file": "/home/ccuev029/rSTSF_CPP/src/autoreg.cpp"
+  "command": "/usr/bin/c++    -g -I/home/ccuev029/rSTSF_CPP/include    -o CMakeFiles/main.dir/src/XTransformations.cpp.o -c /home/ccuev029/rSTSF_CPP/src/XTransformations.cpp",
+  "file": "/home/ccuev029/rSTSF_CPP/src/XTransformations.cpp"
 },
 {
   "directory": "/home/ccuev029/rSTSF_CPP",

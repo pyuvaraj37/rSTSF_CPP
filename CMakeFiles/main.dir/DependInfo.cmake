@@ -4,7 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/ccuev029/rSTSF_CPP/src/autoreg.cpp" "/home/ccuev029/rSTSF_CPP/CMakeFiles/main.dir/src/autoreg.cpp.o"
+  "/home/ccuev029/rSTSF_CPP/src/XTransformations.cpp" "/home/ccuev029/rSTSF_CPP/CMakeFiles/main.dir/src/XTransformations.cpp.o"
   "/home/ccuev029/rSTSF_CPP/src/intBasedT.cpp" "/home/ccuev029/rSTSF_CPP/CMakeFiles/main.dir/src/intBasedT.cpp.o"
   "/home/ccuev029/rSTSF_CPP/src/loader.cpp" "/home/ccuev029/rSTSF_CPP/CMakeFiles/main.dir/src/loader.cpp.o"
   "/home/ccuev029/rSTSF_CPP/src/main.cpp" "/home/ccuev029/rSTSF_CPP/CMakeFiles/main.dir/src/main.cpp.o"

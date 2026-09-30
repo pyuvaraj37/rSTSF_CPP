@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
   "CMakeFiles/main.dir/src/main.cpp.o"
-  "CMakeFiles/main.dir/src/autoreg.cpp.o"
+  "CMakeFiles/main.dir/src/XTransformations.cpp.o"
   "CMakeFiles/main.dir/src/intBasedT.cpp.o"
   "CMakeFiles/main.dir/src/treeBasedPredict.cpp.o"
   "CMakeFiles/main.dir/src/loader.cpp.o"

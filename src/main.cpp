@@ -1,12 +1,11 @@
 #include "../include/main.hpp"
-#include "autoreg.hpp"
+#include "XTransformations.hpp"
 #include "intBasedT.hpp"
 #include "treeBasedPredict.hpp"
 #include "loader.hpp"
 
 
 //✦•··MAIN.CPP HELPER FUNCTIONS - START ····················•✦•······················•✦•······················•✦
-
 void writeMatrixToFile(const vector<vector<double>>& matrix, const string& filename) {
     cout << "calling writeMatrixToFile..." << endl; 
     ofstream outFile(filename);
@@ -25,7 +24,6 @@ void writeMatrixToFile(const vector<vector<double>>& matrix, const string& filen
     //Close File 
     outFile.close();
 }
-
 vector<vector<double>> readMatrix(const string& filename){
     cout << "calling readMatrix.." << endl; 
     ifstream infile(filename);
@@ -57,7 +55,6 @@ vector<vector<double>> readMatrix(const string& filename){
     }
     return matrix;
 }
-
 vector<int> readVector(const string& filename){
     cout << "calling readVector..." << endl; 
     vector<int> vector;
@@ -74,8 +71,6 @@ vector<int> readVector(const string& filename){
     infile.close();
     return vector;
 }
-
-
 //catches amount of mismatches between two matrices, writes to file, returns number of errors
 int writeMatrixMismatches(const vector<vector<double>>& matrixOne, 
                         const vector<vector<double>>& matrixTwo, 
@@ -110,7 +105,6 @@ int writeMatrixMismatches(const vector<vector<double>>& matrixOne,
     outFile << "Errors: " << errors << " / " << matrixOne.size()*matrixOne[0].size() << endl; 
     return errors; 
 }
-
 // compares the contents of two inputted vectors, couts the number of errors, doesn't write to file
 int compareVectorsAndErrors(const vector<int>& A, const vector<int>& B){
     cout << "calling compare vectors" << endl; 
@@ -132,13 +126,8 @@ int compareVectorsAndErrors(const vector<int>& A, const vector<int>& B){
     cout << "Errors: " << errors << endl; 
     return errors; 
 }
-
 //✦•··MAIN.CPP HELPER FUNCTIONS - END ····················•✦•······················•✦•······················•✦
 
-
-
-/*MAIN FUNCTION PREDICT EQUIVALENT in rSTSF*/ 
- 
 
 
 int main(int argc, char* argv[]) {
@@ -166,6 +155,7 @@ int main(int argc, char* argv[]) {
     if (loader.load_test_data(test_filename, X_Test, X_Diff, X_Per, X_Ar, all_caf, trees, y_test, y_pred)) {
         cout << "Test inputs and expected outputs loaded successfully." << endl;
         cout << "Number of test samples: " << X_Test.size() << endl;
+        cout << "X_Test size: " << X_Test.size() << " x " << X_Test[0].size() << endl;
         cout << "X_Diff size: " << X_Diff.size() << " x " << X_Diff[0].size() << endl;
         cout << "X_Per size: " << X_Per.size() << " x " << X_Per[0].size() << endl;
         cout << "X_Ar size: " << X_Ar.size() << " x " << X_Ar[0].size() << endl;
@@ -174,14 +164,34 @@ int main(int argc, char* argv[]) {
         cout << "y_test size: " << y_test.size() << endl;
 
 
+        //1. Manual C++ Transformations 
+        vector<vector<double>> X_Ar_Cpp = ar_coeffs(X_Test);
+        cout << "X_Ar Size: " << X_Ar.size() << " x " << X_Ar[0].size() << endl;
+        cout << "X_Ar_Cpp Size: " << X_Ar_Cpp.size() << " x " << X_Ar_Cpp[0].size() << endl;
+        writeMatrixMismatches(X_Ar, X_Ar_Cpp, "ar_mismatches.txt", 16);
+
+        vector<vector<double>> X_Per_Cpp = periodogram(X_Test);
+        cout << "X_Per Size: " << X_Per.size() << " x " << X_Per[0].size() << endl;
+        cout << "X_Per_Cpp Size: " << X_Per_Cpp.size() << " x " << X_Per_Cpp[0].size() << endl;
+        writeMatrixMismatches(X_Per, X_Per_Cpp, "per_mismatches.txt", 16);
+
+        // vector<vector<double>> X_Diff_Cpp = difference(X_Test);
+        // writeMatrixMismatches(X_Diff, X_Diff_Cpp, "diff_mismatches.txt", 16);
+    
+        cout << "Transformations executed successfully." << endl;
+        
+
+
         //2. Interval Based Transform
-        vector<vector<double>> XIntTrans = getIntervalBasedTransform(X_Test, X_Ar, X_Per, X_Diff, all_caf);
+        vector<vector<double>> XIntTrans = getIntervalBasedTransform(X_Test, X_Ar_Cpp, X_Per_Cpp, X_Diff, all_caf);
         cout << "getIntervalBasedTransform executed successfully." << endl;
+
 
 
         //3. Tree Based Predict
         vector<int> yPred = treeBasedPredict(XIntTrans, trees); //Error
         cout << "treeBasedPredict executed successfully." << endl;
+
 
 
         //Debug Print
@@ -204,10 +214,8 @@ int main(int argc, char* argv[]) {
         cout << "Accuracy: " << accuracy << endl;
 
 
-    
     } else {
         cout << "Failed to load test data." << endl;
     }
-    
     return 0;
 }

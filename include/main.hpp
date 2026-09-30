@@ -9,6 +9,6 @@
 #include <iomanip>
 using namespace std; 
 
-#include "autoreg.hpp"
+#include "XTransformations.hpp"
 
 #endif

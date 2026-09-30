@@ -81,28 +81,28 @@ CMakeFiles/main.dir/src/main.cpp.o.provides: CMakeFiles/main.dir/src/main.cpp.o.
 CMakeFiles/main.dir/src/main.cpp.o.provides.build: CMakeFiles/main.dir/src/main.cpp.o
 
 
-CMakeFiles/main.dir/src/autoreg.cpp.o: CMakeFiles/main.dir/flags.make
-CMakeFiles/main.dir/src/autoreg.cpp.o: src/autoreg.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ccuev029/rSTSF_CPP/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/main.dir/src/autoreg.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/main.dir/src/autoreg.cpp.o -c /home/ccuev029/rSTSF_CPP/src/autoreg.cpp
+CMakeFiles/main.dir/src/XTransformations.cpp.o: CMakeFiles/main.dir/flags.make
+CMakeFiles/main.dir/src/XTransformations.cpp.o: src/XTransformations.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ccuev029/rSTSF_CPP/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/main.dir/src/XTransformations.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/main.dir/src/XTransformations.cpp.o -c /home/ccuev029/rSTSF_CPP/src/XTransformations.cpp
 
-CMakeFiles/main.dir/src/autoreg.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/main.dir/src/autoreg.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/ccuev029/rSTSF_CPP/src/autoreg.cpp > CMakeFiles/main.dir/src/autoreg.cpp.i
+CMakeFiles/main.dir/src/XTransformations.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/main.dir/src/XTransformations.cpp.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/ccuev029/rSTSF_CPP/src/XTransformations.cpp > CMakeFiles/main.dir/src/XTransformations.cpp.i
 
-CMakeFiles/main.dir/src/autoreg.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/main.dir/src/autoreg.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/ccuev029/rSTSF_CPP/src/autoreg.cpp -o CMakeFiles/main.dir/src/autoreg.cpp.s
+CMakeFiles/main.dir/src/XTransformations.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/main.dir/src/XTransformations.cpp.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/ccuev029/rSTSF_CPP/src/XTransformations.cpp -o CMakeFiles/main.dir/src/XTransformations.cpp.s
 
-CMakeFiles/main.dir/src/autoreg.cpp.o.requires:
+CMakeFiles/main.dir/src/XTransformations.cpp.o.requires:
 
-.PHONY : CMakeFiles/main.dir/src/autoreg.cpp.o.requires
+.PHONY : CMakeFiles/main.dir/src/XTransformations.cpp.o.requires
 
-CMakeFiles/main.dir/src/autoreg.cpp.o.provides: CMakeFiles/main.dir/src/autoreg.cpp.o.requires
-	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/autoreg.cpp.o.provides.build
-.PHONY : CMakeFiles/main.dir/src/autoreg.cpp.o.provides
+CMakeFiles/main.dir/src/XTransformations.cpp.o.provides: CMakeFiles/main.dir/src/XTransformations.cpp.o.requires
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/XTransformations.cpp.o.provides.build
+.PHONY : CMakeFiles/main.dir/src/XTransformations.cpp.o.provides
 
-CMakeFiles/main.dir/src/autoreg.cpp.o.provides.build: CMakeFiles/main.dir/src/autoreg.cpp.o
+CMakeFiles/main.dir/src/XTransformations.cpp.o.provides.build: CMakeFiles/main.dir/src/XTransformations.cpp.o
 
 
 CMakeFiles/main.dir/src/intBasedT.cpp.o: CMakeFiles/main.dir/flags.make
@@ -180,7 +180,7 @@ CMakeFiles/main.dir/src/loader.cpp.o.provides.build: CMakeFiles/main.dir/src/loa
 # Object files for target main
 main_OBJECTS = \
 "CMakeFiles/main.dir/src/main.cpp.o" \
-"CMakeFiles/main.dir/src/autoreg.cpp.o" \
+"CMakeFiles/main.dir/src/XTransformations.cpp.o" \
 "CMakeFiles/main.dir/src/intBasedT.cpp.o" \
 "CMakeFiles/main.dir/src/treeBasedPredict.cpp.o" \
 "CMakeFiles/main.dir/src/loader.cpp.o"
@@ -189,7 +189,7 @@ main_OBJECTS = \
 main_EXTERNAL_OBJECTS =
 
 main: CMakeFiles/main.dir/src/main.cpp.o
-main: CMakeFiles/main.dir/src/autoreg.cpp.o
+main: CMakeFiles/main.dir/src/XTransformations.cpp.o
 main: CMakeFiles/main.dir/src/intBasedT.cpp.o
 main: CMakeFiles/main.dir/src/treeBasedPredict.cpp.o
 main: CMakeFiles/main.dir/src/loader.cpp.o
@@ -204,7 +204,7 @@ CMakeFiles/main.dir/build: main
 .PHONY : CMakeFiles/main.dir/build
 
 CMakeFiles/main.dir/requires: CMakeFiles/main.dir/src/main.cpp.o.requires
-CMakeFiles/main.dir/requires: CMakeFiles/main.dir/src/autoreg.cpp.o.requires
+CMakeFiles/main.dir/requires: CMakeFiles/main.dir/src/XTransformations.cpp.o.requires
 CMakeFiles/main.dir/requires: CMakeFiles/main.dir/src/intBasedT.cpp.o.requires
 CMakeFiles/main.dir/requires: CMakeFiles/main.dir/src/treeBasedPredict.cpp.o.requires
 CMakeFiles/main.dir/requires: CMakeFiles/main.dir/src/loader.cpp.o.requires

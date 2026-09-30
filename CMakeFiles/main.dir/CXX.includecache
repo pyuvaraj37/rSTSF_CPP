@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/home/ccuev029/rSTSF_CPP/include/autoreg.hpp
+/home/ccuev029/rSTSF_CPP/include/XTransformations.hpp
 vector
 -
 cmath
@@ -25,12 +25,12 @@ sstream
 -
 iomanip
 -
-autoreg.hpp
-/home/ccuev029/rSTSF_CPP/include/autoreg.hpp
+XTransformations.hpp
+/home/ccuev029/rSTSF_CPP/include/XTransformations.hpp
 
-/home/ccuev029/rSTSF_CPP/src/autoreg.cpp
-../include/autoreg.hpp
-/home/ccuev029/rSTSF_CPP/include/autoreg.hpp
+/home/ccuev029/rSTSF_CPP/src/XTransformations.cpp
+../include/XTransformations.hpp
+/home/ccuev029/rSTSF_CPP/include/XTransformations.hpp
 algorithm
 -
 iostream
@@ -41,9 +41,13 @@ limits
 -
 vector
 -
-vector
+complex
 -
 cmath
+-
+fftw3.h
+-
+stdexcept
 -
 
 /home/ccuev029/rSTSF_CPP/src/intBasedT.cpp
@@ -57,8 +61,8 @@ loader.hpp
 /home/ccuev029/rSTSF_CPP/src/main.cpp
 ../include/main.hpp
 /home/ccuev029/rSTSF_CPP/include/main.hpp
-autoreg.hpp
-/home/ccuev029/rSTSF_CPP/src/autoreg.hpp
+XTransformations.hpp
+/home/ccuev029/rSTSF_CPP/src/XTransformations.hpp
 intBasedT.hpp
 /home/ccuev029/rSTSF_CPP/src/intBasedT.hpp
 treeBasedPredict.hpp
@@ -70,7 +74,7 @@ loader.hpp
 treeBasedPredict.hpp
 /home/ccuev029/rSTSF_CPP/src/treeBasedPredict.hpp
 
-include/autoreg.hpp
+include/XTransformations.hpp
 vector
 -
 cmath

@@ -1,5 +1,5 @@
 //Use this to define autogregressive transformation 
-#include "../include/autoreg.hpp"
+#include "../include/XTransformations.hpp"
 
 
 /* In Python..
@@ -18,8 +18,15 @@ def ar_coefs(X):
 #include <iterator>
 #include <limits>
 #include <vector>
+#include <complex>
+#include <cmath>
+#include <fftw3.h>
+#include <stdexcept>
+
 using namespace std;
 
+
+//Burg for AR computation 
 /** 
  * A test harness for Cedrick Collomb's Burg algorithm variant.
  *
@@ -31,12 +38,6 @@ using namespace std;
  * Returns in vector coefficients calculated using Burg algorithm applied to
  * the input source data x
  */
-
-
-//Burg for AR computation 
-#include <vector>
-#include <cmath>
-using namespace std;
 
 vector<double> BurgAlgorithm(const vector<double>& x, int m)
 {
@@ -87,11 +88,7 @@ vector<double> BurgAlgorithm(const vector<double>& x, int m)
     return vector<double>(Ak.begin() + 1, Ak.end());
 }
 
-
-/* AR Transformation Function Declaration 
-@param      Matrix "X" to be transformed
-@returns    Corresponding AR Representation 
-*/
+//AR Transformation
 vector<vector<double>> ar_coeffs(const vector<vector<double>> &X){
     //Declare X_ar 
     vector<vector<double>> X_ar; 
@@ -104,15 +101,84 @@ vector<vector<double>> ar_coeffs(const vector<vector<double>> &X){
     for (const auto& row : X)
     {
         vector<double> coeffs = BurgAlgorithm(row, lags);
+
+        //Flip sign convention to match aeon's AR representation
+        for (auto& c : coeffs) {
+            c = -c;
+        }
+
         X_ar.push_back(coeffs);
     }
 
-    //Setting Precision: Original is 16 places 
-    for (auto& row : X_ar) {
-        for (auto& value : row) {
-            value = round(value * 1e16) / 1e16;
+  
+
+    return X_ar;
+}
+
+
+//Periodogram Transformation - TODO
+vector<vector<double>> periodogram(const vector<vector<double>> &X){
+if (X.empty()) return {};
+
+    int n_samples = static_cast<int>(X.size());
+    int n_feats   = static_cast<int>(X[0].size());
+    int half      = n_feats / 2;
+
+    std::vector<std::vector<double>> per_X(n_samples, std::vector<double>(half));
+
+    // FFTW input/output buffers for a single row (real input -> complex output
+    // is possible, but pyfftw.builders.fft assumes complex input/output by
+    // default, so we replicate that exactly here).
+    fftw_complex* in  = fftw_alloc_complex(n_feats);
+    fftw_complex* out = fftw_alloc_complex(n_feats);
+
+    // Plan once, reuse for every row (much faster than replanning each time)
+    fftw_plan plan = fftw_plan_dft_1d(n_feats, in, out, FFTW_FORWARD, FFTW_ESTIMATE);
+
+for (int i = 0; i < n_samples; ++i) {
+        // Load row into complex input (imaginary part = 0, since X is real)
+        for (int j = 0; j < n_feats; ++j) {
+            in[j][0] = X[i][j]; // real part
+            in[j][1] = 0.0;     // imag part
+        }
+
+        fftw_execute(plan);
+
+        // Magnitude of first half of the spectrum
+        for (int j = 0; j < half; ++j) {
+            double re = out[j][0];
+            double im = out[j][1];
+            per_X[i][j] = std::sqrt(re * re + im * im);
         }
     }
 
-    return X_ar;
+    fftw_destroy_plan(plan);
+    fftw_free(in);
+    fftw_free(out);
+
+    return per_X;
+
+}
+
+
+
+
+//Difference Transformation
+vector<vector<double>> difference(const vector<vector<double>> &X){
+    //Declare X_diff 
+    vector<vector<double>> X_diff; 
+    size_t num_columns = X[0].size();
+
+    //Compute Difference on each row of X 
+    for (const auto& row : X)
+    {
+        vector<double> diff(num_columns - 1, 0.0);
+        for (size_t n = 1; n < num_columns; ++n)
+        {
+            diff[n - 1] = row[n] - row[n - 1];
+        }
+        X_diff.push_back(diff);
+    }
+
+    return X_diff;
 }
